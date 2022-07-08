@@ -1,0 +1,66 @@
+body{
+    background-color: lightgray;
+}
+#gamePanel{
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    margin-top: 60px;
+    border-color: gray;
+    border-style:solid ;
+    border-width: 5px;
+}
+
+.card{
+    float: left;
+    width: 90px;
+    height: 90px;
+    border-color: black;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 5px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    font-size: xx-large;
+}
+
+.back{
+    background-color: green;
+}
+
+.face{
+    background-color: red;
+}
+
+.matched{
+    background-color: transparent;
+    border-color:transparent ;
+}
+
+#controlPanel{
+    position: absolute;
+    top: 580px;
+    width: 410px;
+    text-align: right;
+}
+
+#displayPanel{
+    position: absolute;
+    left: 240px;
+    top: 10px;
+    width: 160px;
+    font-size: large;
+}
+
+.score{
+    float: left;
+    width: 80px;
+}
+
+.clear{
+    clear: left;
+}
+button{
+    font-size: large;
+}
