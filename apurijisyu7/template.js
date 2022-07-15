@@ -12,3 +12,10 @@ window.onload = appInit;
 var cards, card1, card2;
 var places, matched;
 var clickEvent;
+
+function applnit(){
+
+    if(typeof document.ontouchstart == "undefined"){
+        clickEvent="mousedown";
+    }else{}
+}
