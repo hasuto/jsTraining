@@ -9,6 +9,10 @@ body{
     border-color: gray;
     border-style:solid ;
     border-width: 5px;
+    background-image: url('./media/style.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .card{
@@ -63,4 +67,9 @@ body{
 }
 button{
     font-size: large;
+}
+
+input[type=file]{
+    visibility: hidden;
+    width: 1px;
 }
