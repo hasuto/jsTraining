@@ -30,11 +30,11 @@ body{
 }
 
 .back{
-    background-color: green;
+    background-color: rgba(65,105, 225, 0.7);
 }
 
 .face{
-    background-color: red;
+    background-color: rgba(64,224, 208, 0.7);
 }
 
 .matched{

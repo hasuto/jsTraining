@@ -16,10 +16,25 @@ var restartButton;
 var time0 = -1, timer, bestRecord;
 var timeView, bestView;
 var moveEment, controlPanel;
+var images;
 
 
 
 function appInit() {
+    images=[[],[]];
+
+    var imageNames = [
+        "apple.png", "banana.png","cherry.png","grape.png","mango.png",
+        "orange.png","peach.png","pear.png","strawberry.png","watermelon.png"
+    ];
+
+    for(var i = 0; i < 10; i++){
+        var image = new Image();
+        image.src = "./media/" +  imageNames[i];
+        var image2 = image.cloneNode(true);
+        images[0].push(image);
+        images[1].push(image2);
+    }
     if (typeof document.ontouchstart == "undefined") {
         clickEvent = "mousedown";
         moveEvent = "mousemove";
@@ -79,7 +94,9 @@ function deal() {
 
     for (var i = 0; i < places.length; i++) {
         places[i].className = "card back";
-        places[i].textContent = "";
+        
+        if(places[i].firstChild)
+        places[i].removeChild(places[i].firstChild);
         places[i].addEventListener(clickEvent, openCard, false);
     };
 }
@@ -100,7 +117,10 @@ function openCard(event) {
     };
 
     event.target.className = "card face";
-    event.target.textContent = cards[index];
+
+    var cardset = card1 == null ? 0 : 1;
+    event.target.appendChild(images[cardset][cards[index]-1]);//リスト40
+
     event.target.removeEventListener(clickEvent, openCard);
 
     if (card1 == null) {
@@ -130,8 +150,11 @@ function flipBack() {
 
     place1.className = "card back";
     place2.className = "card back";
-    place1.textContent = "";
-    place2.textContent = "";
+    place1.removeChild(place1.firstChild);
+    place2.removeChild(place2.firstChild);//リスト41
+
+
+
     place1.addEventListener(clickEvent, openCard, false);
     place2.addEventListener(clickEvent, openCard, false);
 
@@ -146,8 +169,10 @@ function keepCard() {
 
     place1.className = "card matched";
     place2.className = "card matched";
-    place1.textContent = "";
-    place2.textContent = "";
+    // place1.textContent = "";
+    // place2.textContent = "";
+    place1.removeChild(place1.firstChild);
+    place2.removeChild(place2.firstChild);//リスト42
 
     card1 = null;
     card2 = null;
