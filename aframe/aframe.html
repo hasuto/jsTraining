@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MDN Games: A-Frame demo</title>
+    <script type="text/javascript" src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://js/aframe-html-shader.min.js"></script>
+</head>
+
+<body>
+    <!-- HTML goes here -->
+    
+    <div id="target1" class="target">
+        <img src="img/aframe-logo.jpg" alt="A-Frame">
+        <div class="cf"><h3>A-Frame</h3>
+        <p>A-Frameは簡単にWeb VRが実現できるフレームワークです。</p></div>
+        <p class="detail">320px × 200px</p>
+    </div>
+    <a-scene>
+        <a-box id="" color="#0095DD" position="0 1 0" rotation="20 40 0">
+        </a-box>
+        <a-sky color="#DDDDDD"></a-sky>
+        <a-camera position="0 1 4" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD" cursor-opacity="0.5">
+            <a-text id="text" position="-1 1.25 -3" value="Hello, World!" color="black"></a-text>
+            
+    </a-scene>
+    <script>
+
+    </script>
+</body>
+
+</html>
