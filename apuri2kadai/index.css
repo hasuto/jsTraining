@@ -1,26 +1,84 @@
-body {
+* {
     text-align: center;
-    font-size: 1.5rem;
-    width: 75%;
-    margin: 0 auto;
-  }
-  
-  .wrap {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-  }
-  
-  button {
-    font-size: 1.3rem;
-    border: 1px solid #000;
-    background-color: #fff;
-  }
-  
-  #result {
-    border: 2px solid black;
-    text-align: left;
-    padding: 1rem;
-  }
-  
-  
+}
+
+@media screen and (max-width: 800px) {
+
+    body {
+        max-width: 450;
+        background-color: rgb(255, 70, 24);
+        /*デバック用*/
+    }
+
+    h1 {
+        font-weight: 900;
+        font-size: calc(16px + 16 * (100vw - 500px) / 600);
+        padding: 30px 0px 50px 0px;
+
+    }
+
+    .input {
+        padding: 20px 0px 0px 0px;
+        width: 60%;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+
+    .ban {
+        padding: 20px 0px 0px 0px;
+    }
+
+    .output {
+        padding: 40px 0px 0px 0px;
+    }
+
+    .backcolor {
+        background-color: aliceblue;
+        padding-bottom: 100%;
+    }
+}
+
+@media screen and (min-width:801px) {
+
+    /*801px以上の画面に指定*/
+    body {
+        max-width: 800px;
+        background-color: rgb(24, 255, 24);
+        margin: auto;
+    }
+
+    h1 {
+        font-weight: 900;
+        font-size: calc(16px + 16 * (100vw - 500px) / 600);
+        padding: 30px 0px 50px 0px;
+
+    }
+
+    .inputtext {
+        color: black;
+        font-weight: 500;
+    }
+
+    .input {
+        padding: 20px 0px 0px 0px;
+        width: 60%;
+        margin: 0 auto;
+        max-width: 700px;
+        font-weight: 900;
+    }
+
+    .ban {
+        padding: 20px 0px 0px 0px;
+
+
+    }
+
+    .output {
+        padding: 40px 0px 0px 0px;
+    }
+
+    .backcolor {
+        background-color: aliceblue;
+        padding-bottom: 100%;
+    }
+}
