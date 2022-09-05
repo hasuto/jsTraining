@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  background-image: url("back.png");
+}
+
+body h1 {
+  background-color: #cccc99;
+  color: white;
+  padding: 7px;
+  font-size: 1.5em;
+}
+
+body p, body .info {
+  font-size: calc(16px + 16 * (100vw - 200px) / 600);
+}
+/*# sourceMappingURL=hakoiri.css.map */
