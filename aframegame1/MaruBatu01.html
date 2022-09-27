@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>〇✖ゲームサンプル</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="js/aframe-html-shader-master/dist/aframe-html-shader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script src="MaruBatu01.js"></script>
+</head>
+
+<body>
+
+
+    <div id="target1" class="target">
+        <p>日本語表示テスト</p>
+    </div>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="catMaru-obj" src="assets/catMaru.obj"></a-asset-item>
+            <a-asset-item id="catMaru-mtl" src="assets/catMaru.mtl"></a-asset-item>
+            <a-asset-item id="catBatu-obj" src="assets/catBatu.obj"></a-asset-item>
+            <a-asset-item id="catBatu-mtl" src="assets/catBatu.mtl"></a-asset-item>
+
+        </a-assets>
+       
+        <a-text id="text" position="-5 30 30" value="問題1" font="sample1-msdf.json" color="black" negate="false" scale="10 10 10"></a-text>
+        <a-text id="seikai" position="-5 30 30" value="正解" font="sample1-msdf.json" color="black" negate="false" scale="10 10 10"></a-text>
+        <a-box id="box0" position="0 1.5 -2" rotation="0 45 0" color="#FF0000"></a-box>
+        <a-entity id="catMaru" obj-model="obj:#catMaru-obj; mtl:#catMaru-mtl;" position="-10 10 0" scale="2 2 2"
+            rotation="-80 0 0"></a-entity>
+        <a-entity id="catBatu" obj-model="obj:#catBatu-obj; mtl:#catBatu-mtl;" position="30 10 0" scale="1 1 1"
+            rotation="-80 -20 0"></a-entity>
+
+        <a-sky color="#66FFFF"></a-sky>
+        <a-camera position="-8 10 60" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD"
+            cursor-opacity="0.5">
+            <a-cursor></a-cursor>
+        </a-camera>
+    </a-scene>
+</body>
+
+</html>
