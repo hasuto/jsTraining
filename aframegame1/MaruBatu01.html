@@ -13,20 +13,19 @@
 <body>
 
 
-    <div id="target1" class="target">
-        <p>日本語表示テスト</p>
-    </div>
+    
     <a-scene>
         <a-assets>
             <a-asset-item id="catMaru-obj" src="assets/catMaru.obj"></a-asset-item>
             <a-asset-item id="catMaru-mtl" src="assets/catMaru.mtl"></a-asset-item>
             <a-asset-item id="catBatu-obj" src="assets/catBatu.obj"></a-asset-item>
             <a-asset-item id="catBatu-mtl" src="assets/catBatu.mtl"></a-asset-item>
-
+            <audio id="audio01" src="./assets/bgm.mp3" preload="auto"></audio>
         </a-assets>
-       
+        <a-sound id="my_sound01" src="#audio01" position="0 1.2 -3" autoplay="true" loop="true"></a-sound>
         <a-text id="text" position="-5 30 30" value="問題1" font="sample1-msdf.json" color="black" negate="false" scale="10 10 10"></a-text>
-        <a-text id="seikai" position="-5 30 30" value="正解" font="sample1-msdf.json" color="black" negate="false" scale="10 10 10"></a-text>
+        <a-text id="seikai" visible="false" position="-5 25 30" value="正解" font="sample1-msdf.json" color="black" negate="false" scale="10 10 10"></a-text>
+        <a-text id="hazure" visible="false" position="-5 25 30" value="不正解" font="sample1-msdf.json" color="black" negate="false" scale="10 10 10"></a-text>
         <a-box id="box0" position="0 1.5 -2" rotation="0 45 0" color="#FF0000"></a-box>
         <a-entity id="catMaru" obj-model="obj:#catMaru-obj; mtl:#catMaru-mtl;" position="-10 10 0" scale="2 2 2"
             rotation="-80 0 0"></a-entity>

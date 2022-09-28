@@ -6,25 +6,30 @@
 //     });
 // });
 var sceneEl;
+// const sound01 = document.getElementById("my_sound01");
+
 
 var catMaru;
 var catBatu;
 var boxColor = 1; //１:赤　→　２：青　→　３：緑　→　１：赤へもどる
-let seikai = document.getElementById('seikai');
+
 var camera;
 var cursor;
 
 var isMouseDown = false;
 
-let changeElement = (el)=> {
+// sound01.playSound();
 
-    if(el.style.display==''){
-      el.style.display='none';
-    }else{
-      el.style.display='';
-    }
+
+// let changeElement = (el)=> {
+
+//     if(el.style.display==''){
+//       el.style.display='none';
+//     }else{
+//       el.style.display='';
+//     }
   
-  }
+//   }
 
 function init() {
 
@@ -52,27 +57,17 @@ function render() {
 }
 // マウスをクリックしたとき
 function onMouseClick1(event) {
-    // if (boxColor == 1) {//Boxの色を赤から青に変えます
-
-    //    catMaru.setAttribute("color", "#0000FF");
-    //    boxColor = 2; 
-        
-    // } else if (boxColor == 2) {//Boxの色を青から緑に変えます
-
-    //    catMaru.setAttribute("color", "#00FF00");
-    //    boxColor = 3; 
-        
-    // } else if (boxColor == 3) {//Boxの色を緑から赤に変えます 
-
-    //    catMaru.setAttribute("color", "#FF0000");
-    //    boxColor = 1;
-        
-    // }    
+    var seikai = document.querySelector('#seikai');
+  
    console.log("Maru");
-   changeElement(box);
+   hazure.setAttribute('visible',false);
+   seikai.setAttribute('visible',true);
 }
 function onMouseClick2(event){
+    var hazure = document.querySelector('#hazure');
     console.log("Batu");
+    seikai.setAttribute('visible',false);
+    hazure.setAttribute('visible',true);
 }
 
 // マウスを押したとき
