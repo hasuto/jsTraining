@@ -14,7 +14,7 @@ var catBatu;
 var boxColor = 1; //１:赤　→　２：青　→　３：緑　→　１：赤へもどる
 
 var cnt = 0;
-   
+
 var camera;
 var cursor;
 
@@ -30,15 +30,15 @@ var isMouseDown = false;
 //     }else{
 //       el.style.display='';
 //     }
-  
+
 //   }
 
 function init() {
 
     sceneEl = document.querySelector("a-scene");
-    catMaru = sceneEl.querySelector("#catMaru"); 
+    catMaru = sceneEl.querySelector("#catMaru");
     catBatu = sceneEl.querySelector("#catBatu");
-    
+
     // マウス、タッチ処理を呼び出すイベントリスナーをセット
     document.addEventListener("mousedown", onMouseDown);
     document.addEventListener("touchstart", onMouseDown);
@@ -55,53 +55,91 @@ function init() {
 
 
 function render() {
-  
+
     requestAnimationFrame(render);
-    
+
 }
 
 //ゲームスタートボタン押したとき
-function start(){
+function start() {
     var startbutton = document.querySelector('#start');
     startbutton.setAttribute('visible', false);
+
     
-    cnt++;
-    mondai();
+    if (cnt == 0) {
+        cnt++;
+        mondai();
+    }
+
 }
 
 // マウスをクリックしたとき
 function onMouseClick1(event) {
+    maru();
+
+}
+function onMouseClick2(event) {
+    batu();
+
+}
+
+function maru() {
+    return true;
+}
+
+function batu() {
+    return true;
+}
+
+function click(a) {
+    if (a == 0) {
+        hazure.setAttribute('visible', false);
+        seikai.setAttribute('visible', true);
+    } else if (a == 1) {
+        seikai.setAttribute('visible', false);
+        hazure.setAttribute('visible', true);
+    }
+}
+
+function mondai() {
     var seikai = document.querySelector('#seikai');
-    var next = document.querySelector('#next');
-   console.log("Maru");
-   cnt++;
-   console.log(cnt);
-
-   hazure.setAttribute('visible',false);
-   seikai.setAttribute('visible',true);
-   next.setAttribute('visible',true);
-}
-function onMouseClick2(event){
     var hazure = document.querySelector('#hazure');
-    var next = document.querySelector('#next');
-    console.log("Batu");
-    cnt++;
-    console.log(cnt);
-    seikai.setAttribute('visible',false);
-    hazure.setAttribute('visible',true);
-}
-
-function mondai(){
     var mondai1 = document.querySelector('#mondai1');
     var mondai2 = document.querySelector('#mondai2');
     var mondai3 = document.querySelector('#mondai3');
-    
-    if(cnt == 1){
-    mondai1.setAttribute('visible',true);
-    }else if(cnt == 2){
-        
+
+    switch (cnt) {
+        case 1:
+            mondai1.setAttribute('visible', true);
+            if (maru() == true) {
+                var next = document.querySelector('#next');
+                console.log("Maru");
+               
+
+                hazure.setAttribute('visible', false);
+                seikai.setAttribute('visible', true);
+                next.setAttribute('visible', true);
+            } else if (batu() == true) {
+                var next = document.querySelector('#next');
+                console.log("Batu");
+                
+                seikai.setAttribute('visible', false);
+                hazure.setAttribute('visible', true);
+                next.setAttribute('visible', true);
+            }
+            break;
+        case 2:
+            mondai2.setAttribute('visible', true);
+            break;
+
     }
 
+}
+
+function next(){
+    var next = document.querySelector('#next');
+    next.setAttribute('visible', false);
+    mondai();
 }
 
 // マウスを押したとき
@@ -114,8 +152,8 @@ function onMouseMove(event) {
     // if (isMouseDown) {
     //     // 3DモデルをX軸とY軸方向に回転させます       
     //     if ( catMaru )            
-	// 	    catMaru.setAttribute("rotation", (getMouseX(event)*2)+" "+(getMouseY(event)*2)+" 0");
-       
+    // 	    catMaru.setAttribute("rotation", (getMouseX(event)*2)+" "+(getMouseY(event)*2)+" 0");
+
     // }
 }
 
@@ -138,8 +176,8 @@ function getMouseY(event) {
         return event.touches[0].clientY;
 }
 
-window.onload = function() {
-    init(); 
+window.onload = function () {
+    init();
     render();
 };
 
