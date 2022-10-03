@@ -13,6 +13,8 @@ var catMaru;
 var catBatu;
 var boxColor = 1; //１:赤　→　２：青　→　３：緑　→　１：赤へもどる
 
+var cnt = 0;
+   
 var camera;
 var cursor;
 
@@ -50,24 +52,56 @@ function init() {
 
 }
 
+
+
 function render() {
   
     requestAnimationFrame(render);
     
 }
+
+//ゲームスタートボタン押したとき
+function start(){
+    var startbutton = document.querySelector('#start');
+    startbutton.setAttribute('visible', false);
+    
+    cnt++;
+    mondai();
+}
+
 // マウスをクリックしたとき
 function onMouseClick1(event) {
     var seikai = document.querySelector('#seikai');
-  
+    var next = document.querySelector('#next');
    console.log("Maru");
+   cnt++;
+   console.log(cnt);
+
    hazure.setAttribute('visible',false);
    seikai.setAttribute('visible',true);
+   next.setAttribute('visible',true);
 }
 function onMouseClick2(event){
     var hazure = document.querySelector('#hazure');
+    var next = document.querySelector('#next');
     console.log("Batu");
+    cnt++;
+    console.log(cnt);
     seikai.setAttribute('visible',false);
     hazure.setAttribute('visible',true);
+}
+
+function mondai(){
+    var mondai1 = document.querySelector('#mondai1');
+    var mondai2 = document.querySelector('#mondai2');
+    var mondai3 = document.querySelector('#mondai3');
+    
+    if(cnt == 1){
+    mondai1.setAttribute('visible',true);
+    }else if(cnt == 2){
+        
+    }
+
 }
 
 // マウスを押したとき
