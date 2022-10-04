@@ -14,7 +14,7 @@ var catBatu;
 var boxColor = 1; //１:赤　→　２：青　→　３：緑　→　１：赤へもどる
 
 var cnt = 0;
-
+var hanntei = 0;
 var camera;
 var cursor;
 
@@ -65,7 +65,7 @@ function start() {
     var startbutton = document.querySelector('#start');
     startbutton.setAttribute('visible', false);
 
-    
+
     if (cnt == 0) {
         cnt++;
         mondai();
@@ -84,22 +84,22 @@ function onMouseClick2(event) {
 }
 
 function maru() {
-    return true;
+    var seikai = document.querySelector('#seikai');
+    var hazure = document.querySelector('#hazure');
+    var next = document.querySelector('#next');
+    switch (cnt) {
+        case 1:
+            hazure.setAttribute('visible', false);
+            seikai.setAttribute('visible', true);
+            next.setAttribute('visible',true);
+    }
 }
 
 function batu() {
-    return true;
+    hanntei = 2;
 }
 
-function click(a) {
-    if (a == 0) {
-        hazure.setAttribute('visible', false);
-        seikai.setAttribute('visible', true);
-    } else if (a == 1) {
-        seikai.setAttribute('visible', false);
-        hazure.setAttribute('visible', true);
-    }
-}
+
 
 function mondai() {
     var seikai = document.querySelector('#seikai');
@@ -111,22 +111,23 @@ function mondai() {
     switch (cnt) {
         case 1:
             mondai1.setAttribute('visible', true);
-            if (maru() == true) {
-                var next = document.querySelector('#next');
-                console.log("Maru");
-               
+            // if (hanntei == 1) {
+            //     var next = document.querySelector('#next');
+            //     console.log("Maru");
 
-                hazure.setAttribute('visible', false);
-                seikai.setAttribute('visible', true);
-                next.setAttribute('visible', true);
-            } else if (batu() == true) {
-                var next = document.querySelector('#next');
-                console.log("Batu");
-                
-                seikai.setAttribute('visible', false);
-                hazure.setAttribute('visible', true);
-                next.setAttribute('visible', true);
-            }
+
+            //     hazure.setAttribute('visible', false);
+            //     seikai.setAttribute('visible', true);
+            //     next.setAttribute('visible', true);
+            // } else if (hanntei == 2) {
+            //     var next = document.querySelector('#next');
+            //     console.log("Batu");
+
+            //     seikai.setAttribute('visible', false);
+            //     hazure.setAttribute('visible', true);
+            //     next.setAttribute('visible', true);
+            // }
+
             break;
         case 2:
             mondai2.setAttribute('visible', true);
@@ -136,9 +137,10 @@ function mondai() {
 
 }
 
-function next(){
+function next() {
     var next = document.querySelector('#next');
     next.setAttribute('visible', false);
+    cnt++;
     mondai();
 }
 
