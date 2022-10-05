@@ -21,7 +21,7 @@ var cursor;
 var isMouseDown = false;
 
 
- 
+
 // let element = document.getElementById('text');
 // console.log(element.children[0].data-text);
 // sound01.playSound();
@@ -37,34 +37,41 @@ var isMouseDown = false;
 
 //   }
 
-function aframeMutlByte(){
+window.onload = function () {
+    init();
+    render();
+};
 
-    document.querySelectorAll('[mb-text]:empty').forEach(mb_text=>{
-  
+function aframeMutlByte() {
+    console.log("おっけー")
+    document.querySelectorAll('[mb-text]:empty').forEach(mb_text => {
+        console.log("okだよよ")
         console.log(mb_text.dataset.text)
-        const text  =mb_text.dataset.text
+        const text = mb_text.dataset.text
         const text_cnt = text.length
-        const width = text_cnt*1.4
-        const height= 1.6
+        const width = text_cnt * 1.4
+        const height = 1.6
         let cvs = document.createElement('canvas')
         let ctx = cvs.getContext('2d')
-        cvs.width = width*100
-        cvs.height = height*100
+        cvs.width = width * 100
+        cvs.height = height * 100
         ctx.fillStyle = "rgb(0, 0, 0)"
         ctx.font = '100pt Arial'
-        ctx.fillText(text,0,125)
+        ctx.fillText(text, 0, 125)
 
         const base64 = cvs.toDataURL("image/png")
-        mb_text.innerHTML=`<a-image scale="${(width)/10} ${height/10} 1" src="${base64}"></a-image>`
+        mb_text.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
     })
 }
-    
+
 
 function init() {
 
     sceneEl = document.querySelector("a-scene");
     catMaru = sceneEl.querySelector("#Maru");
     catBatu = sceneEl.querySelector("#Batu");
+
+
 
     // マウス、タッチ処理を呼び出すイベントリスナーをセット
     document.addEventListener("mousedown", onMouseDown);
@@ -73,13 +80,13 @@ function init() {
     document.addEventListener("touchend", onMouseUp);
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("touchmove", onMouseMove);
-
+    aframeMutlByte()
     catMaru.addEventListener("click", onMouseClick1);
     catBatu.addEventListener("click", onMouseClick2);
-    aframeMutlByte();
+    
 }
 
-function text(){
+function text() {
     var text = "あいうえお";
     return text;
 }
@@ -271,8 +278,5 @@ function getMouseY(event) {
         return event.touches[0].clientY;
 }
 
-window.onload = function () {
-    init();
-    render();
-};
+
 
