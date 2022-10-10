@@ -7,28 +7,18 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="./js/aframe-html-shader.min.js"></script>
     <script src="./js/html2canvas.min.js"></script>
-    
+
     <script src="MaruBatu01.js"></script>
-    <style>
-        .target {
-            width: 100px;
-            height: 50px;
-            font-size: 20px;
-            background: rgba(0, 0, 0, 0);
-        }
-    </style>
+
 </head>
 
 <body>
 
 
 
-    <div id="target1" class="target">
-        <p>あいうえお</p>
-    </div>
 
     <div>
-        <a-scene>
+        <a-scene vr-mode-ui="enabled: true" style="position:fixed;top:0;">
             <a-assets>
                 <a-asset-item id="Maru-obj" src="assets/maru.obj"></a-asset-item>
                 <a-asset-item id="Maru-mtl" src="assets/maru.mtl"></a-asset-item>
@@ -40,7 +30,7 @@
             <a-sound id="my_sound01" src="#audio01" position="0 1.2 -3" autoplay="true" loop="true"></a-sound>
             <a-text id="start" onclick="start()" visible="true" position="5 10 30" value="game-start" color="black"
                 scale="10 10 10"></a-text>
-            <a-text id="mondai1" visible="false" position="5 30 30" value="問題1" font="sample1-msdf.json" color="black"
+            <!-- <a-text id="mondai" visible="false" position="5 30 30" value="問題1" font="sample1-msdf.json" color="black"
                 negate="false" scale="10 10 10"></a-text>
             <a-text id="mondai2" visible="false" position="5 30 30" value="問題2" font="sample1-msdf.json" color="black"
                 negate="false" scale="10 10 10"></a-text>
@@ -53,21 +43,27 @@
             <a-text id="seikai" visible="false" position="5 25 30" value="正解" font="sample1-msdf.json" color="black"
                 negate="false" scale="10 10 10"></a-text>
             <a-text id="hazure" visible="false" position="5 25 30" value="不正解" font="sample1-msdf.json" color="black"
-                negate="false" scale="10 10 10"></a-text>
-            <a-text id="next" onclick="next()" visible="false" position="5 15 30" value="next" color="black"
+                negate="false" scale="10 10 10"></a-text> -->
+            <a-text id="next" onclick="next()" visible="false" position="5 17 30" value="next" color="black"
                 scale="10 10 10"></a-text>
             <a-text id="score" visible="false" position="5 15 30" value="score" color="black" scale="10 10 10"></a-text>
-   
 
-            <a-entity mb-text position="5 1.5 -1" scale="10 10 10" data-text="あいうえお">
-            </a-entity>
+          
+            <a-entity mb-text  id="mondai1" visible="false" position="12 30 30" scale="10 10 10" data-text="問題1 りんごは赤い"></a-entity>
+            <a-entity mb-text  id="mondai2" visible="false" position="12 30 30" scale="10 10 10" data-text="問題2 元良優作は女である"></a-entity>
+            <a-entity mb-text  id="mondai3" visible="false" position="12 30 30" scale="10 10 10" data-text="問題3 照井太一は野球が大好きである"></a-entity>
+            <a-entity mb-text  id="mondai4" visible="false" position="12 30 30" scale="10 10 10" data-text="問題4 産技短は医療系の学校である"></a-entity>
+            <a-entity mb-text  id="mondai5" visible="false" position="12 30 30" scale="10 10 10" data-text="問題5 情報技術科ではパソコンを使う"></a-entity>
+            <a-entity mb-text  id="seikai" visible="false" position="11 20 30" scale="10 10 10" data-text="正解！"></a-entity>
+            <a-entity mb-text  id="hazure" visible="false" position="10 20 30" scale="10 10 10" data-text="不正解！"></a-entity>
+
 
             <!-- <a-entity mb-text visible="false" position="5 5 -1" scale="10 10 10" data-text="新.こんにちは世界(script)🌝">
             </a-entity> -->
-            <a-entity id="Maru" obj-model="obj:#Maru-obj; mtl:#Maru-mtl;" position="-10 10 0" scale="4 4 4"
-                rotation="-80 0 0"></a-entity>
-            <a-entity id="Batu" obj-model="obj:#Batu-obj; mtl:#Batu-mtl;" position="30 10 0" scale="4 4 4"
-                rotation="-45 -98 95"></a-entity>
+            <a-entity id="Maru" visible="true" obj-model="obj:#Maru-obj; mtl:#Maru-mtl;" position="-10 10 0"
+                scale="4 4 4" rotation="-80 0 0"></a-entity>
+            <a-entity id="Batu" visible="true" obj-model="obj:#Batu-obj; mtl:#Batu-mtl;" position="30 10 0"
+                scale="4 4 4" rotation="-45 -98 95"></a-entity>
 
             <a-sky color="#66FFFF"></a-sky>
             <a-camera position="10 10 60" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD"

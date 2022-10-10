@@ -43,9 +43,8 @@ window.onload = function () {
 };
 
 function aframeMutlByte() {
-    console.log("おっけー")
+    console.log("okだよ");
     document.querySelectorAll('[mb-text]:empty').forEach(mb_text => {
-        console.log("okだよよ")
         console.log(mb_text.dataset.text)
         const text = mb_text.dataset.text
         const text_cnt = text.length
@@ -80,16 +79,13 @@ function init() {
     document.addEventListener("touchend", onMouseUp);
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("touchmove", onMouseMove);
-    aframeMutlByte()
+    aframeMutlByte();
     catMaru.addEventListener("click", onMouseClick1);
     catBatu.addEventListener("click", onMouseClick2);
-    
+
 }
 
-function text() {
-    var text = "あいうえお";
-    return text;
-}
+
 
 
 
@@ -133,32 +129,46 @@ function maru() {
     var hazure = document.querySelector('#hazure');
     var next = document.querySelector('#next');
     var score = document.querySelector('#score');
-    switch (cnt) {
-        case 1:
-            hazure.setAttribute('visible', false);
-            seikai.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 2:
-            seikai.setAttribute('visible', false);
-            hazure.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 3:
-            hazure.setAttribute('visible', false);
-            seikai.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 4:
-            seikai.setAttribute('visible', false);
-            hazure.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 5:
-            hazure.setAttribute('visible', false);
-            seikai.setAttribute('visible', true);
-            score.setAttribute('visible', true);
-            break;
+    // const $score = document.getElementById("score");
+    if (catMaru.getAttribute('visible') == true) {
+        switch (cnt) {
+            case 1:
+                hazure.setAttribute('visible', false);
+                seikai.setAttribute('visible', true);
+                catBatu.setAttribute('visible', false);
+                next.setAttribute('visible', true);
+                score++;
+                break;
+            case 2:
+                seikai.setAttribute('visible', false);
+                hazure.setAttribute('visible', true);
+                catBatu.setAttribute('visible', false);
+                next.setAttribute('visible', true);
+                break;
+            case 3:
+                hazure.setAttribute('visible', false);
+                seikai.setAttribute('visible', true);
+                catBatu.setAttribute('visible', false);
+                next.setAttribute('visible', true);
+                score++;
+                break;
+            case 4:
+                seikai.setAttribute('visible', false);
+                hazure.setAttribute('visible', true);
+                catBatu.setAttribute('visible', false);
+                next.setAttribute('visible', true);
+                break;
+            case 5:
+                hazure.setAttribute('visible', false);
+                seikai.setAttribute('visible', true);
+                catBatu.setAttribute('visible', false);
+                score++;
+                console.log(score);
+                score.setAttribute('value',"score"+String(score));
+                // score.setAttribute('visible', true);
+                
+                break;
+        }
     }
 }
 
@@ -167,32 +177,41 @@ function batu() {
     var hazure = document.querySelector('#hazure');
     var next = document.querySelector('#next');
     var score = document.querySelector('#score');
-    switch (cnt) {
-        case 1:
-            seikai.setAttribute('visible', false);
-            hazure.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 2:
-            hazure.setAttribute('visible', false);
-            seikai.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 3:
-            seikai.setAttribute('visible', false);
-            hazure.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 4:
-            hazure.setAttribute('visible', false);
-            seikai.setAttribute('visible', true);
-            next.setAttribute('visible', true);
-            break;
-        case 5:
-            seikai.setAttribute('visible', false);
-            hazure.setAttribute('visible', true);
-            score.setAttribute('visible', true);
-            break;
+    if (catMaru.getAttribute('visible') == true) {
+        switch (cnt) {
+            case 1:
+                seikai.setAttribute('visible', false);
+                hazure.setAttribute('visible', true);
+                next.setAttribute('visible', true);
+                catMaru.setAttribute('visible', false);
+                break;
+            case 2:
+                hazure.setAttribute('visible', false);
+                seikai.setAttribute('visible', true);
+                next.setAttribute('visible', true);
+                catMaru.setAttribute('visible', false);
+                score++;
+                break;
+            case 3:
+                seikai.setAttribute('visible', false);
+                hazure.setAttribute('visible', true);
+                next.setAttribute('visible', true);
+                catMaru.setAttribute('visible', false);
+                break;
+            case 4:
+                hazure.setAttribute('visible', false);
+                seikai.setAttribute('visible', true);
+                next.setAttribute('visible', true);
+                catMaru.setAttribute('visible', false);
+                score++;
+                break;
+            case 5:
+                seikai.setAttribute('visible', false);
+                hazure.setAttribute('visible', true);
+                score.setAttribute('visible', true);
+                catMaru.setAttribute('visible', false);
+                break;
+        }
     }
 }
 
@@ -242,6 +261,8 @@ function next() {
         hazure.setAttribute('visible', false);
         seikai.setAttribute('visible', false);
         next.setAttribute('visible', false);
+        catMaru.setAttribute('visible', true);
+        catBatu.setAttribute('visible', true);
         cnt++;
         mondai();
     }
