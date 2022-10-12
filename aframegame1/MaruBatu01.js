@@ -21,7 +21,6 @@ var cursor;
 var isMouseDown = false;
 
 
-
 // let element = document.getElementById('text');
 // console.log(element.children[0].data-text);
 // sound01.playSound();
@@ -98,7 +97,8 @@ function render() {
 //ゲームスタートボタン押したとき
 function start() {
     var startbutton = document.querySelector('#start');
-
+    var front_text = document.getElementById("front_text");
+    front_text.setAttribute("value","Hello, World! \n hello ");
 
     if (startbutton.getAttribute('visible') == true) {
         startbutton.setAttribute('visible', false);
@@ -224,12 +224,13 @@ function mondai() {
     var mondai3 = document.querySelector('#mondai3');
     var mondai4 = document.querySelector('#mondai4');
     var mondai5 = document.querySelector('#mondai5');
+    var mondaibun = document.getElementById('#mondaibun');
 
     switch (cnt) {
         case 1:
             mondai1.setAttribute('visible', true);
 
-
+            mondaibun.setAttribute('data-text'," りんごは赤い");
             break;
         case 2:
             mondai1.setAttribute('visible', false);
