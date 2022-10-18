@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>〇✖ゲームサンプル</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="./js/aframe-html-shader.min.js"></script>
+    <script src="./js/html2canvas.min.js"></script>
+
+    <script src="MaruBatu01.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div>
+        <a-scene vr-mode-ui="enabled: true" style="position:fixed;top:0;">
+            <a-assets>
+                <a-asset-item id="Maru-obj" src="asets/Dodai.obj"></a-asset-item>
+                <a-asset-item id="Maru-mtl" src="asets/Dodai.mtl"></a-asset-item>
+                <audio id="audio01" src="./assets/bgm.mp3" preload="auto"></audio>
+            </a-assets>
+            <!-- <a-plane position="5 2 -1" width="2" height="1" scale="10 10 10"  material="shader:html;target: #target1;"></a-plane> -->
+            <a-sound id="my_sound01" src="#audio01" position="0 1.2 -3" autoplay="true" loop="true"></a-sound>
+          
+            <!-- <a-text id="mondai" visible="false" position="5 30 30" value="問題1" font="sample1-msdf.json" color="black"
+                negate="false" scale="10 10 10"></a-text>
+            <a-text id="mondai2" visible="false" position="5 30 30" value="問題2" font="sample1-msdf.json" color="black"
+                negate="false" scale="10 10 10"></a-text>
+            <a-text id="mondai3" visible="false" position="5 30 30" value="問題3" font="sample1-msdf.json" color="black"
+                negate="false" scale="10 10 10"></a-text>
+            <a-text id="mondai4" visible="false" position="5 30 30" value="問題4" font="sample1-msdf.json" color="black"
+                negate="false" scale="10 10 10"></a-text>
+            <a-text id="mondai5" visible="false" position="5 30 30" value="問題5" font="sample1-msdf.json" color="black"
+                negate="false" scale="10 10 10"></a-text>
+            <a-text id="seikai" visible="false" position="5 25 30" value="正解" font="sample1-msdf.json" color="black"
+                negate="false" scale="10 10 10"></a-text>
+            <a-text id="hazure" visible="false" position="5 25 30" value="不正解" font="sample1-msdf.json" color="black"
+                negate="false" scale="10 10 10"></a-text> -->
+
+            
+
+
+            <!-- <a-entity mb-text visible="false" position="5 5 -1" scale="10 10 10" data-text="新.こんにちは世界(script)🌝">
+            </a-entity> -->
+            <a-entity id="Maru" visible="true" obj-model="obj:#Maru-obj; mtl:#Maru-mtl;" position="-10 10 0"
+                scale="4 4 4" rotation="20 0 0"></a-entity>
+
+
+            <a-sky color="#66FFFF"></a-sky>
+            <a-camera position="10 10 60" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD"
+                cursor-opacity="0.5">
+                <a-cursor></a-cursor>
+            </a-camera>
+        </a-scene>
+    </div>
+</body>
+
+</html>

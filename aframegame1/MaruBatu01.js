@@ -21,6 +21,7 @@ var cursor;
 var isMouseDown = false;
 
 
+
 // let element = document.getElementById('text');
 // console.log(element.children[0].data-text);
 // sound01.playSound();
@@ -63,6 +64,47 @@ function aframeMutlByte() {
 }
 
 
+function mondaibun(a) {
+    console.log("okだよ");
+
+    document.querySelectorAll('[mdbun]:empty').forEach(mdbun => {
+        console.log(mdbun.dataset.text)
+        mdbun.dataset.text = a;
+        const text = mdbun.dataset.text
+        const text_cnt = text.length
+        const width = text_cnt * 1.4
+        const height = 1.6
+        let cvs = document.createElement('canvas')
+        let ctx = cvs.getContext('2d')
+        cvs.width = width * 100
+        cvs.height = height * 100
+        ctx.fillStyle = "rgb(0, 0, 0)"
+        ctx.font = '100pt Arial'
+        ctx.fillText(text, 0, 125)
+
+        const base64 = cvs.toDataURL("image/png")
+        mdbun.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+    })
+}
+
+// function mondaibun1(){
+//     console.log(mdbun.dataset.text)
+//     const text = mdbun.dataset.text
+//     const text_cnt = text.length
+//     const width = text_cnt * 1.4
+//     const height = 1.6
+//     let cvs = document.createElement('canvas')
+//     let ctx = cvs.getContext('2d')
+//     cvs.width = width * 100
+//     cvs.height = height * 100
+//     ctx.fillStyle = "rgb(0, 0, 0)"
+//     ctx.font = '100pt Arial'
+//     ctx.fillText(text, 0, 125)
+
+//     const base64 = cvs.toDataURL("image/png")
+//     mdbun.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+// }
+
 function init() {
 
     sceneEl = document.querySelector("a-scene");
@@ -79,6 +121,7 @@ function init() {
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("touchmove", onMouseMove);
     aframeMutlByte();
+
     catMaru.addEventListener("click", onMouseClick1);
     catBatu.addEventListener("click", onMouseClick2);
 
@@ -98,7 +141,9 @@ function render() {
 function start() {
     var startbutton = document.querySelector('#start');
     var front_text = document.getElementById("front_text");
-    front_text.setAttribute("value","Hello, World! \n hello ");
+    front_text.setAttribute("value", "Hello, World! \n hello ");
+    // var mondaibun = document.querySelector('#mondaibun').mb_text.dataset.text;
+    // console.log(mondaibun);
 
     if (startbutton.getAttribute('visible') == true) {
         startbutton.setAttribute('visible', false);
@@ -164,9 +209,9 @@ function maru() {
                 catBatu.setAttribute('visible', false);
                 score++;
                 console.log(score);
-                score.setAttribute('value',"score"+String(score));
+                score.setAttribute('value', "score" + String(score));
                 // score.setAttribute('visible', true);
-                
+
                 break;
         }
     }
@@ -224,13 +269,13 @@ function mondai() {
     var mondai3 = document.querySelector('#mondai3');
     var mondai4 = document.querySelector('#mondai4');
     var mondai5 = document.querySelector('#mondai5');
-    var mondaibun = document.getElementById('#mondaibun');
+    // var mondaibun = document.getElementById('#mondaibun');
 
     switch (cnt) {
         case 1:
             mondai1.setAttribute('visible', true);
 
-            mondaibun.setAttribute('data-text'," りんごは赤い");
+            // mondaibun.setAttribute('data-text'," りんごは赤い");
             break;
         case 2:
             mondai1.setAttribute('visible', false);
@@ -266,6 +311,7 @@ function next() {
         catBatu.setAttribute('visible', true);
         cnt++;
         mondai();
+        mondaibun(cnt);
     }
 }
 
