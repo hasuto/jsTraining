@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/Shift-JIS; charset=utf-8" />
     <title>〇✖ゲームサンプル</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="./js/aframe-html-shader.min.js"></script>
@@ -47,30 +47,34 @@
             <a-text id="next" onclick="next()" visible="false" position="5 17 30" value="next" color="black"
                 scale="10 10 10"></a-text>
             <a-text id="score" visible="false" position="5 15 30" value="score" color="black" scale="10 10 10"></a-text>
-            <a-text id="front_text" position="0 1.7 -2" value="Hello, World!" align="center" color="#000" scale="10 10 10">
+            <a-text id="front_text" position="0 1.7 -2" value="Hello, World!" align="center" color="#000"
+                scale="10 10 10">
             </a-text>
 
-            <a-entity mb-text id="mondai1" visible="false" position="12 30 30" scale="10 10 10" data-text="問題1"></a-entity>
-            <a-entity mb-text id="mondai2" visible="false" position="12 30 30" scale="10 10 10"
-                data-text="問題2 元良優作は女である"></a-entity>
-            <a-entity mb-text id="mondai3" visible="false" position="12 30 30" scale="10 10 10"
-                data-text="問題3 照井太一は野球が大好きである"></a-entity>
-            <a-entity mb-text id="mondai4" visible="false" position="12 30 30" scale="10 10 10"
-                data-text="問題4 産技短は医療系の学校である"></a-entity>
-            <a-entity mb-text id="mondai5" visible="false" position="12 30 30" scale="10 10 10"
-                data-text="問題5 情報技術科ではパソコンを使う"></a-entity>
-            <a-entity mb-text id="seikai" visible="false" position="11 20 30" scale="10 10 10" data-text="正解！">
-            </a-entity>
-            <a-entity mb-text id="hazure" visible="false" position="10 20 30" scale="10 10 10" data-text="不正解！">
-            </a-entity>
-            <a-entity mdbun id="mondaibun" position="12 20 30" scale="10 10 10" data-text="あいうえお"></a-entity>
-            
+            <a-entity mb-text id="mondai1" visible="false" position="5 30 30" scale="10 10 10" data-text="問題1"></a-entity>
+            <a-entity mb-text id="mondai2" visible="false" position="5 30 30" scale="10 10 10"
+                data-text="問題2"></a-entity>
+            <a-entity mb-text id="mondai3" visible="false" position="5 30 30" scale="10 10 10"
+                data-text="問題3"></a-entity>
+            <a-entity mb-text id="mondai4" visible="false" position="5 30 30" scale="10 10 10"
+                data-text="問題4"></a-entity>
+            <a-entity mb-text id="mondai5" visible="false" position="5 30 30" scale="10 10 10"
+                data-text="問題5"></a-entity>
+            <a-entity mb-text id="seikai" visible="false" position="11 25 30" scale="10 10 10" data-text="正解！"></a-entity>
+            <a-entity mb-text id="hazure" visible="false" position="10 25 30" scale="10 10 10" data-text="不正解！"></a-entity>
+            <a-entity mdbun1 id="mondaibun1" visible="true" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
+            <a-entity mdbun2 id="mondaibun2" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
+            <a-entity mdbun3 id="mondaibun3" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
+            <a-entity mdbun4 id="mondaibun4" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
+            <a-entity mdbun5 id="mondaibun5" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
 
+            <a-gltf-model id="Maru" visible="true" src="assets/maru.glb" position="-10 10 0" scale="5 5 5"
+                rotation="80 0 0"></a-gltf-model>
 
             <!-- <a-entity mb-text visible="false" position="5 5 -1" scale="10 10 10" data-text="新.こんにちは世界(script)🌝">
             </a-entity> -->
-            <a-entity id="Maru" visible="true" obj-model="obj:#Maru-obj; mtl:#Maru-mtl;" position="-10 10 0"
-                scale="4 4 4" rotation="-80 0 0"></a-entity>
+            <!-- <a-entity  visible="true" obj-model="obj:#Maru-obj; mtl:#Maru-mtl;" position="-10 10 0"
+                scale="4 4 4" rotation="-80 0 0"></a-entity> -->
             <a-entity id="Batu" visible="true" obj-model="obj:#Batu-obj; mtl:#Batu-mtl;" position="30 10 0"
                 scale="4 4 4" rotation="-45 -98 95"></a-entity>
 

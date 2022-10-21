@@ -20,6 +20,7 @@ var cursor;
 
 var isMouseDown = false;
 
+var result = [];
 
 
 // let element = document.getElementById('text');
@@ -63,14 +64,41 @@ function aframeMutlByte() {
     })
 }
 
+//CSVファイルを読み込む関数getCSV()の定義
+function getCSV() {
+    var req = new XMLHttpRequest(); // HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
+    req.open("get", "assets/Book3.csv", true); // アクセスするファイルを指定
+    req.send(null); // HTTPリクエストの発行
 
-function mondaibun(a) {
+    // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ	
+    req.onload = function () {
+
+        convertCSVtoArray(req.responseText); // 渡されるのは読み込んだCSVデータ
+    }
+}
+
+// 読み込んだCSVデータを二次元配列に変換する関数convertCSVtoArray()の定義
+function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列として渡される
+    // 最終的な二次元配列を入れるための配列
+    var tmp = str.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
+
+    // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
+    for (var i = 0; i < tmp.length; ++i) {
+        result[i] = tmp[i].split(',');
+    }
+
+    console.log(result[0][1]); // 300yen
+}
+
+
+
+function mondaibun1(a) {
     console.log("okだよ");
-
-    document.querySelectorAll('[mdbun]:empty').forEach(mdbun => {
-        console.log(mdbun.dataset.text)
-        mdbun.dataset.text = a;
-        const text = mdbun.dataset.text
+    console.log(result[a][1]);
+    document.querySelectorAll('[mdbun1]:empty').forEach(mdbun1 => {
+        console.log(mdbun1.dataset.text)
+        mdbun1.dataset.text = result[a][1];
+        const text = mdbun1.dataset.text
         const text_cnt = text.length
         const width = text_cnt * 1.4
         const height = 1.6
@@ -83,7 +111,99 @@ function mondaibun(a) {
         ctx.fillText(text, 0, 125)
 
         const base64 = cvs.toDataURL("image/png")
-        mdbun.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+        mdbun1.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+    })
+}
+
+function mondaibun2(a) {
+    console.log("okだよ");
+    console.log(result[a][1]);
+    document.querySelectorAll('[mdbun2]:empty').forEach(mdbun2 => {
+        console.log(mdbun2.dataset.text)
+        mdbun2.dataset.text = result[a][1];
+        const text = mdbun2.dataset.text
+        const text_cnt = text.length
+        const width = text_cnt * 1.4
+        const height = 1.6
+        let cvs = document.createElement('canvas')
+        let ctx = cvs.getContext('2d')
+        cvs.width = width * 100
+        cvs.height = height * 100
+        ctx.fillStyle = "rgb(0, 0, 0)"
+        ctx.font = '100pt Arial'
+        ctx.fillText(text, 0, 125)
+
+        const base64 = cvs.toDataURL("image/png")
+        mdbun2.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+    })
+}
+
+function mondaibun3(a) {
+    console.log("okだよ");
+    console.log(result[a][1]);
+    document.querySelectorAll('[mdbun3]:empty').forEach(mdbun3 => {
+        console.log(mdbun3.dataset.text)
+        mdbun3.dataset.text = result[a][1];
+        const text = mdbun3.dataset.text
+        const text_cnt = text.length
+        const width = text_cnt * 1.4
+        const height = 1.6
+        let cvs = document.createElement('canvas')
+        let ctx = cvs.getContext('2d')
+        cvs.width = width * 100
+        cvs.height = height * 100
+        ctx.fillStyle = "rgb(0, 0, 0)"
+        ctx.font = '100pt Arial'
+        ctx.fillText(text, 0, 125)
+
+        const base64 = cvs.toDataURL("image/png")
+        mdbun3.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+    })
+}
+
+function mondaibun4(a) {
+    console.log("okだよ");
+    console.log(result[a][1]);
+    document.querySelectorAll('[mdbun4]:empty').forEach(mdbun4 => {
+        console.log(mdbun4.dataset.text)
+        mdbun4.dataset.text = result[a][1];
+        const text = mdbun4.dataset.text
+        const text_cnt = text.length
+        const width = text_cnt * 1.4
+        const height = 1.6
+        let cvs = document.createElement('canvas')
+        let ctx = cvs.getContext('2d')
+        cvs.width = width * 100
+        cvs.height = height * 100
+        ctx.fillStyle = "rgb(0, 0, 0)"
+        ctx.font = '100pt Arial'
+        ctx.fillText(text, 0, 125)
+
+        const base64 = cvs.toDataURL("image/png")
+        mdbun4.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+    })
+}
+
+function mondaibun5(a) {
+    console.log("okだよ");
+    console.log(result[a][1]);
+    document.querySelectorAll('[mdbun5]:empty').forEach(mdbun5 => {
+        console.log(mdbun5.dataset.text)
+        mdbun5.dataset.text = result[a][1];
+        const text = mdbun3.dataset.text
+        const text_cnt = text.length
+        const width = text_cnt * 1.4
+        const height = 1.6
+        let cvs = document.createElement('canvas')
+        let ctx = cvs.getContext('2d')
+        cvs.width = width * 100
+        cvs.height = height * 100
+        ctx.fillStyle = "rgb(0, 0, 0)"
+        ctx.font = '100pt Arial'
+        ctx.fillText(text, 0, 125)
+
+        const base64 = cvs.toDataURL("image/png")
+        mdbun5.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
     })
 }
 
@@ -120,6 +240,7 @@ function init() {
     document.addEventListener("touchend", onMouseUp);
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("touchmove", onMouseMove);
+    getCSV();
     aframeMutlByte();
 
     catMaru.addEventListener("click", onMouseClick1);
@@ -145,6 +266,7 @@ function start() {
     // var mondaibun = document.querySelector('#mondaibun').mb_text.dataset.text;
     // console.log(mondaibun);
 
+    console.log(result[1][2]);
     if (startbutton.getAttribute('visible') == true) {
         startbutton.setAttribute('visible', false);
         cnt++;
@@ -269,30 +391,50 @@ function mondai() {
     var mondai3 = document.querySelector('#mondai3');
     var mondai4 = document.querySelector('#mondai4');
     var mondai5 = document.querySelector('#mondai5');
+    var monbun1 = document.querySelector('#mondaibun1');
+    var monbun2 = document.querySelector('#mondaibun2');
+    var monbun3 = document.querySelector('#mondaibun3');
+    var monbun4 = document.querySelector('#mondaibun4');
+    var monbun5 = document.querySelector('#mondaibun5');
     // var mondaibun = document.getElementById('#mondaibun');
 
     switch (cnt) {
         case 1:
             mondai1.setAttribute('visible', true);
-
+            monbun1.setAttribute('visible',true);
+            console.log(cnt);
+            mondaibun1(cnt);
             // mondaibun.setAttribute('data-text'," りんごは赤い");
             break;
         case 2:
             mondai1.setAttribute('visible', false);
             mondai2.setAttribute('visible', true);
+            monbun1.setAttribute('visible',false);
+            monbun2.setAttribute('visible',true);
+            console.log(cnt);
+            mondaibun2(cnt);
             break;
 
         case 3:
             mondai2.setAttribute('visible', false);
             mondai3.setAttribute('visible', true);
+            monbun2.setAttribute('visible',false);
+            monbun3.setAttribute('visible',true);
+            mondaibun3(cnt);
             break;
         case 4:
             mondai3.setAttribute('visible', false);
             mondai4.setAttribute('visible', true);
+            monbun3.setAttribute('visible',false);
+            monbun4.setAttribute('visible',true);
+            mondaibun4(cnt);
             break;
         case 5:
             mondai4.setAttribute('visible', false);
             mondai5.setAttribute('visible', true);
+            monbun4.setAttribute('visible',false);
+            monbun5.setAttribute('visible',true);
+            mondaibun5(cnt);
             break;
     }
 
@@ -311,7 +453,6 @@ function next() {
         catBatu.setAttribute('visible', true);
         cnt++;
         mondai();
-        mondaibun(cnt);
     }
 }
 
