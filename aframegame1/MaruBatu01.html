@@ -9,6 +9,7 @@
     <script src="./js/html2canvas.min.js"></script>
 
     <script src="MaruBatu01.js"></script>
+    <link rel="stylesheet" href="MaruBatu.css">
 
 </head>
 
@@ -24,11 +25,12 @@
                 <a-asset-item id="Maru-mtl" src="assets/maru.mtl"></a-asset-item>
                 <a-asset-item id="Batu-obj" src="assets/batu.obj"></a-asset-item>
                 <a-asset-item id="Batu-mtl" src="assets/batu.mtl"></a-asset-item>
-                <audio id="audio01" src="./assets/bgm.mp3" preload="auto"></audio>
+                <video id="video" muted webkit-playsinline playsinline loop="true" playsinline src="assets/R0010106.MP4" />
+            <!-- ここのこめんと消せば音が鳴る    <audio id="audio01" src="./assets/bgm.mp3" preload="auto"></audio> -->
             </a-assets>
             <!-- <a-plane position="5 2 -1" width="2" height="1" scale="10 10 10"  material="shader:html;target: #target1;"></a-plane> -->
             <a-sound id="my_sound01" src="#audio01" position="0 1.2 -3" autoplay="true" loop="true"></a-sound>
-            <a-text id="start" onclick="start()" visible="true" position="5 10 30" value="game-start" color="black"
+            <a-text id="start" onclick="start()" visible="true" position="5 10 30" value="game-start" 
                 scale="10 10 10"></a-text>
             <!-- <a-text id="mondai" visible="false" position="5 30 30" value="問題1" font="sample1-msdf.json" color="black"
                 negate="false" scale="10 10 10"></a-text>
@@ -48,7 +50,7 @@
                 scale="10 10 10"></a-text>
             <a-text id="score" visible="false" position="5 15 30" value="score" color="black" scale="10 10 10"></a-text>
             <a-text id="front_text" position="0 1.7 -2" value="Hello, World!" align="center" color="#000"
-                scale="10 10 10">
+             scale="10 10 10">
             </a-text>
 
             <a-entity mb-text id="mondai1" visible="false" position="5 30 30" scale="10 10 10" data-text="問題1"></a-entity>
@@ -68,17 +70,22 @@
             <a-entity mdbun4 id="mondaibun4" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
             <a-entity mdbun5 id="mondaibun5" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
 
-            <a-gltf-model id="Maru" visible="true" src="assets/maru.glb" position="-10 10 0" scale="5 5 5"
+            <a-gltf-model id="Maru" visible="true" src="assets/maru2.glb" position="-10 10 0" scale="5 5 5"
                 rotation="80 0 0"></a-gltf-model>
+                <a-gltf-model id="Batu" visible="true" src="assets/batu.glb" position="30 10 0" scale="5 5 5"
+                rotation="-45 -98 95"></a-gltf-model>
+
 
             <!-- <a-entity mb-text visible="false" position="5 5 -1" scale="10 10 10" data-text="新.こんにちは世界(script)🌝">
             </a-entity> -->
             <!-- <a-entity  visible="true" obj-model="obj:#Maru-obj; mtl:#Maru-mtl;" position="-10 10 0"
                 scale="4 4 4" rotation="-80 0 0"></a-entity> -->
-            <a-entity id="Batu" visible="true" obj-model="obj:#Batu-obj; mtl:#Batu-mtl;" position="30 10 0"
-                scale="4 4 4" rotation="-45 -98 95"></a-entity>
+            <!-- <a-entity id="Batu" visible="true" obj-model="obj:#Batu-obj; mtl:#Batu-mtl;" position="30 10 0"
+                scale="4 4 4" rotation="-45 -98 95"></a-entity> -->
 
-            <a-sky color="#66FFFF"></a-sky>
+
+
+            <a-sky src="assets/R0010103.jpeg" position="0 0 0" rotation="0 -120 5"></a-sky>
             <a-camera position="10 10 60" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD"
                 cursor-opacity="0.5">
                 <a-cursor></a-cursor>
