@@ -9,8 +9,8 @@ var sceneEl;
 // const sound01 = document.getElementById("my_sound01");
 
 
-var catMaru;
-var catBatu;
+var Maru;
+var Batu;
 var boxColor = 1; //１:赤　→　２：青　→　３：緑　→　１：赤へもどる
 var score = 0;
 var cnt = 0;
@@ -22,6 +22,9 @@ var isMouseDown = false;
 
 var result = [];
 
+var seikai;
+
+var score_result;
 
 // let element = document.getElementById('text');
 // console.log(element.children[0].data-text);
@@ -37,6 +40,8 @@ var result = [];
 //     }
 
 //   }
+
+
 
 window.onload = function () {
     init();
@@ -190,7 +195,7 @@ function mondaibun5(a) {
     document.querySelectorAll('[mdbun5]:empty').forEach(mdbun5 => {
         console.log(mdbun5.dataset.text)
         mdbun5.dataset.text = result[a][1];
-        const text = mdbun3.dataset.text
+        const text = mdbun5.dataset.text
         const text_cnt = text.length
         const width = text_cnt * 1.4
         const height = 1.6
@@ -228,8 +233,9 @@ function mondaibun5(a) {
 function init() {
 
     sceneEl = document.querySelector("a-scene");
-    catMaru = sceneEl.querySelector("#Maru");
-    catBatu = sceneEl.querySelector("#Batu");
+    Maru = sceneEl.querySelector("#Maru");
+    Batu = sceneEl.querySelector("#Batu");
+    // start_back = sceneEl.querySelector('#start-back');
 
 
 
@@ -243,8 +249,9 @@ function init() {
     getCSV();
     aframeMutlByte();
 
-    catMaru.addEventListener("click", onMouseClick1);
-    catBatu.addEventListener("click", onMouseClick2);
+    Maru.addEventListener("click", onMouseClick1);
+    Batu.addEventListener("click", onMouseClick2);
+    // start_back.addEventListener("click",onMouseClick3);
 
 }
 
@@ -258,17 +265,46 @@ function render() {
 
 }
 
+function restart(){
+    var restart = document.querySelector('#restart');
+    var monbun5 = document.querySelector('#mondaibun5');
+    var mondai5 = document.querySelector('#mondai5');
+    score_result = document.querySelector('#score');
+    var seikai = document.querySelector('#seikai');
+    var hazure = document.querySelector('#hazure');
+    console.log("押してる");
+        if(restart.getAttribute('visible') == true){
+            score = 0;
+            cnt = 0;
+            restart.setAttribute("visible",false);
+            monbun5.setAttribute("visible",false);
+            mondai5.setAttribute("visible",false);
+            score_result.setAttribute("visible",false);
+            seikai.setAttribute("visible",false);
+            hazure.setAttribute("visible",false);
+            Maru.setAttribute("visible",true);
+            Batu.setAttribute("visible",true);
+
+            console.log("リスタート");
+            console.log(cnt,score);
+            cnt++;
+            mondai();
+        }
+    }
+
 //ゲームスタートボタン押したとき
 function start() {
     var startbutton = document.querySelector('#start');
-    var front_text = document.getElementById("front_text");
-    front_text.setAttribute("value", "Hello, World! \n hello ");
+    var startback = document.querySelector('#start-back');
+    // var front_text = document.getElementById("front_text");
+    // front_text.setAttribute("value", "Hello, World! \n hello ");
     // var mondaibun = document.querySelector('#mondaibun').mb_text.dataset.text;
     // console.log(mondaibun);
 
     console.log(result[1][2]);
     if (startbutton.getAttribute('visible') == true) {
         startbutton.setAttribute('visible', false);
+        startback.setAttribute('visible',false);
         cnt++;
         mondai();
     }
@@ -291,49 +327,60 @@ function onMouseClick2(event) {
 
 }
 
+// function onMouseClick3(event){
+//     start();
+// }
+
 function maru() {
-    var seikai = document.querySelector('#seikai');
+   seikai = document.querySelector('#seikai');
     var hazure = document.querySelector('#hazure');
     var next = document.querySelector('#next');
-    var score = document.querySelector('#score');
+    score_result = document.querySelector('#score');
+    var restart = document.querySelector('#restart');
     // const $score = document.getElementById("score");
-    if (catMaru.getAttribute('visible') == true) {
+    if (Maru.getAttribute('visible') == true) {
         switch (cnt) {
             case 1:
                 hazure.setAttribute('visible', false);
                 seikai.setAttribute('visible', true);
-                catBatu.setAttribute('visible', false);
                 next.setAttribute('visible', true);
+                if(Batu.getAttribute('visible')==true){
                 score++;
+                }
+                Batu.setAttribute('visible', false);
                 break;
             case 2:
                 seikai.setAttribute('visible', false);
                 hazure.setAttribute('visible', true);
-                catBatu.setAttribute('visible', false);
+                Batu.setAttribute('visible', false);
                 next.setAttribute('visible', true);
                 break;
             case 3:
                 hazure.setAttribute('visible', false);
                 seikai.setAttribute('visible', true);
-                catBatu.setAttribute('visible', false);
                 next.setAttribute('visible', true);
-                score++;
+                if(Batu.getAttribute('visible')==true){
+                    score++;
+                    }
+                    Batu.setAttribute('visible', false);
                 break;
             case 4:
                 seikai.setAttribute('visible', false);
                 hazure.setAttribute('visible', true);
-                catBatu.setAttribute('visible', false);
+                Batu.setAttribute('visible', false);
                 next.setAttribute('visible', true);
                 break;
             case 5:
                 hazure.setAttribute('visible', false);
                 seikai.setAttribute('visible', true);
-                catBatu.setAttribute('visible', false);
-                score++;
+                if(Batu.getAttribute('visible')==true){
+                    score++;
+                    }
+                Batu.setAttribute('visible', false);
                 console.log(score);
-                score.setAttribute('value', "score" + String(score));
-                // score.setAttribute('visible', true);
-
+                score_result.setAttribute("value","score "+score);
+                score_result.setAttribute('visible',true);
+                restart.setAttribute('visible',true);
                 break;
         }
     }
@@ -343,40 +390,47 @@ function batu() {
     var seikai = document.querySelector('#seikai');
     var hazure = document.querySelector('#hazure');
     var next = document.querySelector('#next');
-    var score = document.querySelector('#score');
-    if (catMaru.getAttribute('visible') == true) {
+    score_result = document.querySelector('#score');
+    var restart = document.querySelector('#restart');
+    if (Maru.getAttribute('visible') == true) {
         switch (cnt) {
             case 1:
                 seikai.setAttribute('visible', false);
                 hazure.setAttribute('visible', true);
                 next.setAttribute('visible', true);
-                catMaru.setAttribute('visible', false);
+                Maru.setAttribute('visible', false);
                 break;
             case 2:
                 hazure.setAttribute('visible', false);
                 seikai.setAttribute('visible', true);
                 next.setAttribute('visible', true);
-                catMaru.setAttribute('visible', false);
-                score++;
+                if(Maru.getAttribute('visible')==true){
+                    score++;
+                    }
+                Maru.setAttribute('visible', false);
                 break;
             case 3:
                 seikai.setAttribute('visible', false);
                 hazure.setAttribute('visible', true);
                 next.setAttribute('visible', true);
-                catMaru.setAttribute('visible', false);
+                Maru.setAttribute('visible', false);
                 break;
             case 4:
                 hazure.setAttribute('visible', false);
                 seikai.setAttribute('visible', true);
                 next.setAttribute('visible', true);
-                catMaru.setAttribute('visible', false);
-                score++;
+                if(Maru.getAttribute('visible')==true){
+                    score++;
+                    }
+                    Maru.setAttribute('visible', false);
                 break;
             case 5:
                 seikai.setAttribute('visible', false);
                 hazure.setAttribute('visible', true);
-                score.setAttribute('visible', true);
-                catMaru.setAttribute('visible', false);
+                Maru.setAttribute('visible', false);
+                score_result.setAttribute("value","score "+score);
+                score_result.setAttribute('visible',true);
+                restart.setAttribute('visible',true);
                 break;
         }
     }
@@ -396,15 +450,15 @@ function mondai() {
     var monbun3 = document.querySelector('#mondaibun3');
     var monbun4 = document.querySelector('#mondaibun4');
     var monbun5 = document.querySelector('#mondaibun5');
-    // var mondaibun = document.getElementById('#mondaibun');
+    var mondaiback = document.querySelector('#mondai-back');
 
     switch (cnt) {
         case 1:
             mondai1.setAttribute('visible', true);
             monbun1.setAttribute('visible',true);
+            mondaiback.setAttribute('visible',true);
             console.log(cnt);
             mondaibun1(cnt);
-            // mondaibun.setAttribute('data-text'," りんごは赤い");
             break;
         case 2:
             mondai1.setAttribute('visible', false);
@@ -449,8 +503,8 @@ function next() {
         hazure.setAttribute('visible', false);
         seikai.setAttribute('visible', false);
         next.setAttribute('visible', false);
-        catMaru.setAttribute('visible', true);
-        catBatu.setAttribute('visible', true);
+        Maru.setAttribute('visible', true);
+        Batu.setAttribute('visible', true);
         cnt++;
         mondai();
     }
@@ -473,19 +527,19 @@ function onMouseUp(event) {
     isMouseDown = false;
 }
 
-function getMouseX(event) {
-    if (event.type.indexOf("touch") == -1)
-        return event.clientX;
-    else
-        return event.touches[0].clientX;
-}
+// function getMouseX(event) {
+//     if (event.type.indexOf("touch") == -1)
+//         return event.clientX;
+//     else
+//         return event.touches[0].clientX;
+// }
 
-function getMouseY(event) {
-    if (event.type.indexOf("touch") == -1)
-        return event.clientY;
-    else
-        return event.touches[0].clientY;
-}
+// function getMouseY(event) {
+//     if (event.type.indexOf("touch") == -1)
+//         return event.clientY;
+//     else
+//         return event.touches[0].clientY;
+// }
 
 
 

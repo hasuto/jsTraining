@@ -30,8 +30,9 @@
             </a-assets>
             <!-- <a-plane position="5 2 -1" width="2" height="1" scale="10 10 10"  material="shader:html;target: #target1;"></a-plane> -->
             <a-sound id="my_sound01" src="#audio01" position="0 1.2 -3" autoplay="true" loop="true"></a-sound>
-            <a-text id="start" onclick="start()" visible="true" position="5 10 30" value="game-start" 
-                scale="10 10 10"></a-text>
+            <a-entity mb-text id="start" onclick="start()" visible="true" position="11 10 30" data-text="ゲームスタート" 
+                scale="15 15 15" ></a-entity>
+            <a-text id="restart" onclick="restart()" visible="false" position="5 10 30" value="game-re-start" scale="10 10 10"></a-text>
             <!-- <a-text id="mondai" visible="false" position="5 30 30" value="問題1" font="sample1-msdf.json" color="black"
                 negate="false" scale="10 10 10"></a-text>
             <a-text id="mondai2" visible="false" position="5 30 30" value="問題2" font="sample1-msdf.json" color="black"
@@ -46,13 +47,15 @@
                 negate="false" scale="10 10 10"></a-text>
             <a-text id="hazure" visible="false" position="5 25 30" value="不正解" font="sample1-msdf.json" color="black"
                 negate="false" scale="10 10 10"></a-text> -->
-            <a-text id="next" onclick="next()" visible="false" position="5 17 30" value="next" color="black"
-                scale="10 10 10"></a-text>
-            <a-text id="score" visible="false" position="5 15 30" value="score" color="black" scale="10 10 10"></a-text>
-            <a-text id="front_text" position="0 1.7 -2" value="Hello, World!" align="center" color="#000"
+            <a-text id="next" onclick="next()" visible="false" position="5 17 30" value="next" color="white"
+                scale="15 15 15"></a-text>
+            <a-text id="score" position="5 15 30" value="" color="white" scale="10 10 10"></a-text>
+            <!-- <a-text id="front_text" position="0 1.7 -2" value="Hello, World!" align="center" color="#000"
              scale="10 10 10">
-            </a-text>
-
+            </a-text> -->
+            
+            <a-plane id="mondai-back" src="assets/maruwaku.png"  visible="false" position="10 48 0" rotation="0 0 0" width="100" height="20" color="white"></a-plane>
+            <a-plane id="start-back" visible="true" width="30" height="7" position="11 10 0" color="white"></a-plane>
             <a-entity mb-text id="mondai1" visible="false" position="5 30 30" scale="10 10 10" data-text="問題1"></a-entity>
             <a-entity mb-text id="mondai2" visible="false" position="5 30 30" scale="10 10 10"
                 data-text="問題2"></a-entity>
@@ -62,17 +65,17 @@
                 data-text="問題4"></a-entity>
             <a-entity mb-text id="mondai5" visible="false" position="5 30 30" scale="10 10 10"
                 data-text="問題5"></a-entity>
-            <a-entity mb-text id="seikai" visible="false" position="11 25 30" scale="10 10 10" data-text="正解！"></a-entity>
-            <a-entity mb-text id="hazure" visible="false" position="10 25 30" scale="10 10 10" data-text="不正解！"></a-entity>
+            <a-entity mb-text id="seikai" visible="false" position="11 19 30" scale="15 15 15" data-text="正解！" color="white"></a-entity>
+            <a-entity mb-text id="hazure" visible="false" position="10 19 30" scale="15 15 15" data-text="不正解！" color="white"></a-entity>
             <a-entity mdbun1 id="mondaibun1" visible="true" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
             <a-entity mdbun2 id="mondaibun2" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
             <a-entity mdbun3 id="mondaibun3" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
             <a-entity mdbun4 id="mondaibun4" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
             <a-entity mdbun5 id="mondaibun5" visible="false" id="mondaibun" position="12 28 30" scale="10 10 10" data-text=""></a-entity>
 
-            <a-gltf-model id="Maru" visible="true" src="assets/maru2.glb" position="-10 10 0" scale="5 5 5"
+            <a-gltf-model id="Maru" visible="true" src="assets/maru2.glb" position="-14 10 0" scale="8 8 8"
                 rotation="80 0 0"></a-gltf-model>
-                <a-gltf-model id="Batu" visible="true" src="assets/batu.glb" position="30 10 0" scale="5 5 5"
+                <a-gltf-model id="Batu" visible="true" src="assets/batu.glb" position="34 10 0" scale="8 8 8"
                 rotation="-45 -98 95"></a-gltf-model>
 
 

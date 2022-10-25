@@ -1,30 +1,76 @@
-window.onload = (e)=>{
-	//console.log("onload!!");
-	const scene = document.querySelector("a-scene");
+var front_text 
+var sceneEl;
+var isMouseDown = false;
+var cnt = 0;
 
-	const sound01 = document.getElementById("my_sound01");
-    const roomobj = document.getElementById("room");
-    const sound = sound01.components.sound;
-    if(sound.isPlaying){
-        sound.pauseSound();
-    }else{
-        sound.playSound();
-    }
-roomobj.addEventListener("click", (e)=>{
+window.onload = function () {
+    init();
+    render();
+};
 
-    
-});
+function init() {
 
-    }
-    
-	// const btn01 = document.getElementById("my_btn01");
-	// btn01.addEventListener("click", (e)=>{
-	// 	const sound = sound01.components.sound;
-	// 	if(sound.isPlaying){
-	// 		sound.pauseSound();
-	// 		e.target.setAttribute("src", "#img_pause");
-	// 	}else{
-	// 		sound.playSound();
-	// 		e.target.setAttribute("src", "#img_play");
-	// 	}
-	// });
+    sceneEl = document.querySelector("a-scene");
+
+
+
+
+    // マウス、タッチ処理を呼び出すイベントリスナーをセット
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("touchstart", onMouseDown);
+    document.addEventListener("mouseup", onMouseUp);
+    document.addEventListener("touchend", onMouseUp);
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("touchmove", onMouseMove);
+
+
+}
+
+
+function render() {
+
+    requestAnimationFrame(render);
+
+}
+
+function count(){
+	front_text = document.getElementById("text");
+	console.log("ok");
+	cnt++;
+	console.log(cnt);
+	if(cnt == 1){
+	
+    front_text.setAttribute("value", "Hello,1");
+	}else if(cnt == 2){
+		front_text.setAttribute("value", "Hello,2");
+	}
+}
+
+
+function onMouseDown(event) {
+    isMouseDown = true;
+}
+
+// マウスを動かした時
+function onMouseMove(event) {
+
+}
+
+// マウスを離したとき
+function onMouseUp(event) {
+    isMouseDown = false;
+}
+
+function getMouseX(event) {
+    if (event.type.indexOf("touch") == -1)
+        return event.clientX;
+    else
+        return event.touches[0].clientX;
+}
+
+function getMouseY(event) {
+    if (event.type.indexOf("touch") == -1)
+        return event.clientY;
+    else
+        return event.touches[0].clientY;
+}
