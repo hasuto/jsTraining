@@ -1,9 +1,10 @@
-var front_text 
+
+
 var sceneEl;
 var isMouseDown = false;
-var cnt = 0;
 
-var texta = document.querySelector('#texta');
+
+
 
 
 window.onload = function () {
@@ -36,19 +37,14 @@ function render() {
 
 }
 
-function count(){
-	front_text = document.getElementById("text");
-	console.log("ok");
-	cnt++;
-	console.log(cnt);
-	if(cnt == 1){
-	
-    front_text.setAttribute("value", "Hello,1");
-	}else if(cnt == 2){
-		front_text.setAttribute("value", "Hello,2");
-	}
+
+function kentiku_link() {
+    window.location.href = 'yahaba/kenntiku/kenntikucad.html';
 }
 
+function sande_link(){
+    window.location.href = 'yahaba/sangyoudezain/mokuzaikakou.html';
+}
 
 function onMouseDown(event) {
     isMouseDown = true;
@@ -77,3 +73,4 @@ function getMouseY(event) {
     else
         return event.touches[0].clientY;
 }
+

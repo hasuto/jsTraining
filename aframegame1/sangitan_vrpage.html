@@ -1,0 +1,272 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-73253458-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-73253458-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岩手県立産業技術短期大学校バーチャル学校見学</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./pannellum.css" />
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./pannellum.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #004EA2;">
+            <a class="navbar-brand" href="#">産技短ＶＲ学校見学</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" id="y_campus">
+                        <a class="nav-link" href="#">矢巾キャンパス</a>
+                    </li>
+                    <li class="nav-item" id="m_campus">
+                        <a class="nav-link" href="#">水沢キャンパス</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#usageModalLong">使い方</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModalLong">更新履歴</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="usageModalLong" tabindex="-1" role="dialog" aria-labelledby="usageModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="usageModalLongTitle">使い方</h5>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li><img src="images/ico_home.png" alt="ホーム">見学中に、スタート写真（校舎の外）に戻る。</li>
+                            <li><img src="images/ico_exit.png" alt="次の部屋">順路に従って次の部屋に移る。</li>
+                            <li><img src="images/ico_zoomin.png" alt="拡大">写真を拡大する。</li>
+                            <li><img src="images/ico_zoomout.png" alt="縮小">写真を縮小する。</li>
+                            <li><img src="images/ico_full.png" alt="全画面">全画面にする。※iPhoneのSafariは機能しません。</li>
+                            <li><img src="images/ico_return.png" alt="元に戻す">全画面を元に戻す。※iPhoneのSafariは機能しません。</li>
+                            <li><img src="images/ico_pause.png" alt="音声OFF">音声ガイドをONにする。</li>
+                            <li><img src="images/ico_play.png" alt="音声ON">音声ガイドをOFFにする。</li>
+                            <li><img src="images/ico_compasson.png" alt="コンパスオン">ジャイロ機能を使う。（スマートフォンのみ） </li>
+                            <li><img src="images/ico_compassoff.png" alt="コンパスオフ">ジャイロ機能を使わない。（スマートフォンのみ）</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">閉じる</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="aboutModalLong" tabindex="-1" role="dialog" aria-labelledby="aboutModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="usageModalLongTitle">更新履歴</h5>
+                    </div>
+                    <div class="modal-body">
+                        <ul><li>2020/06/23 学生寮を公開</li>
+                            <li>2020/06/11 建築科、情報技術科を公開</li>
+                            <li>2020/06/10 電気技術科、産業技術専攻科を公開</li>
+                            <li>2020/06/09 電子技術科、産業デザイン科、建築設備科を公開</li>
+                            <li>2020/06/08 メカトロニクス技術科、生産技術科を公開</li>
+                            <li>2020/06/08 矢巾キャンパス、水沢キャンパスの施設を公開</li>
+                            <li>2020/06/08 バーチャル学校見学サイトを公開</li>
+                        </ul>
+                        <h6 class="text-center">Special thanks!</h6>
+                        <ul>
+                            <li>パノラマビューア : <a href="https://pannellum.org/" class="text-dark" target="_blank">Pannellum</a></li>
+                            <li>アイコン : <a href="https://icooon-mono.com/" class="text-dark" target="_blank">ICOOON MONO</a></li>
+                            <li>音楽 : <a href="https://wingless-seraph.net/" class="text-dark" target="_blank">木漏れ日の放課後（作・編曲　ユーフルカ）</a></li>
+                            <li>音声 : <a href="https://aws.amazon.com/jp/polly/" class="text-dark" target="_blank">Amazon Polly</a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">閉じる</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="panorama">
+            <div id="controls">
+                <div class="ctrl rounded" id="home"><img src="images/ico_home.png"></div>
+                <div class="ctrl rounded" id="exit"><img src="images/ico_exit.png"></div>
+                <div class="ctrl rounded" id="zoomin"><img src="images/ico_zoomin.png"></div>
+                <div class="ctrl rounded" id="zoomout"><img src="images/ico_zoomout.png"></div>
+                <div class="ctrl rounded" id="full"><img src="images/ico_full.png"></div>
+                <div class="ctrl rounded" id="play_pause"><img src="images/ico_pause.png"></div>
+                <div class="ctrl rounded" id="compass"><img src="images/ico_compasson.png"></div>
+            </div>
+        </div> -->
+
+        <iframe
+        src="top.html" width="1000px" height="400px"
+        ></iframe>
+
+        
+        <div id="welcome">
+            <p>産技短バーチャル学校見学へようこそ。</p>
+            <p>このサイトでは、360度カメラで撮影した産技短の施設内の様子を、VR画像で見ることができます。 また、音声をオンにすると各教室の解説を聞くことができます。
+            </p>
+            <p>映像は自動的に回転していますが、マウスや指で回転を止めたり、映像を大きくしたり小さくしたりできます。 スマートフォンでご覧の方は、端末の動きに合わせて見たい方向の映像を見られます。
+            </p>
+            <p>それでは、バーチャル学校見学をお楽しみください。</p>
+        </div>
+        <hr>
+        <div class="text-center">
+            <a href="https://www.iwate-it.ac.jp/" class="text-dark">&copy; 2020 Iwate Industrial Technology Junior College</a>
+        </div>
+    </div>
+    <audio id="bgm" src="./sounds/bgm.mp3" autoplay loop>
+            あなたのブラウザーは <code>audio</code>要素をサポートしていません。
+        </audio>
+    <audio id="guide" autoplay>
+        </audio>
+    </div>
+    <script>
+        // author ISHIDATE Katsuyoshi
+        // transition
+        var script = document.createElement('script');
+        script.src = atob("Li90cmFucy5qcw==");
+        document.head.appendChild(script);
+
+        //scene list
+        var requestURL = atob('dG91ci5qc29u');
+        var request;
+        if ('ActiveXObject' in window) {
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        } else {
+            request = new XMLHttpRequest();
+        }
+        request.open("GET", requestURL);
+
+        var viewer;
+        request.onreadystatechange = function() {
+            if (request.readyState === 4 && request.status === 200) {
+                var tour = JSON.parse(request.responseText);
+                viewer = pannellum.viewer('panorama', tour);
+                // event
+                // scene changed
+                viewer.on('load', function() {
+                    guide.src = './sounds/' + viewer.getScene() + '.mp3';;
+                    if (sound === true) {
+                        //guide.load();
+                        guide.play();
+                    } else {
+                        guide.pause();
+                    }
+                    if (viewer.getScene() === "y1" || viewer.getScene() === "m1") {
+                        home = viewer.getScene();
+                    }
+                    if (viewer.getScene() === home) {
+                        document.getElementById('exit').classList.remove('recommended');
+                    } else {
+                        document.getElementById('exit').classList.add('recommended');
+                    }
+                });
+                //menu event yahaba
+                document.getElementById('y_campus').addEventListener('click', function(e) {
+                    viewer.loadScene("y1");
+                    this.classList.add('active');
+                    document.getElementById('m_campus').classList.remove('active');
+                });
+                //menu event mizusawa
+                document.getElementById('m_campus').addEventListener('click', function(e) {
+                    viewer.loadScene("m1");
+                    this.classList.add('active');
+                    document.getElementById('y_campus').classList.remove('active');
+                });
+                //sound play or pause
+                var sound = false;
+                var home = 'y1';
+                var guide = document.getElementById('guide');
+                var bgm = document.getElementById('bgm');
+                guide.src = './sounds/y1.mp3';
+                guide.pause();
+                bgm.pause();
+                document.getElementById('play_pause').addEventListener('click', function(e) {
+                    if (sound === false) {
+                        guide.play();
+                        bgm.play();
+                        this.firstChild.src = "images/ico_play.png";
+                        sound = true
+                    } else {
+                        guide.pause();
+                        bgm.pause();
+                        this.firstChild.src = "images/ico_pause.png";
+                        sound = false
+                    }
+                });
+                // home
+                document.getElementById('home').addEventListener('click', function(e) {
+                    viewer.loadScene(home);
+                });
+                // change place
+                document.getElementById('exit').addEventListener('click', function(e) {
+                    viewer.loadScene(nextPlace(viewer.getScene()));
+                });
+                // zoomin
+                document.getElementById('zoomin').addEventListener('click', function(e) {
+                    viewer.setHfov(viewer.getHfov() - 10);
+                });
+                // zoomout
+                document.getElementById('zoomout').addEventListener('click', function(e) {
+                    viewer.setHfov(viewer.getHfov() + 10);
+                });
+                // full-shrink
+                document.getElementById('full').addEventListener('click', function(e) {
+                    viewer.toggleFullscreen();
+                });
+                document.addEventListener('fullscreenchange', function(e) {
+                    if (document.fullscreenElement) {
+                        document.getElementById('full').firstChild.src = 'images/ico_return.png';
+                    } else {
+                        document.getElementById('full').firstChild.src = 'images/ico_full.png';
+                    }
+                });
+                // compass
+                if (viewer.isOrientationSupported()) {
+                    var orientation_status = false;
+                    document.getElementById('compass').style.display = "inline-block";
+                    document.getElementById('compass').addEventListener('click', function(e) {
+                        if (orientation_status = !orientation_status) {
+                            viewer.startOrientation();
+                            this.firstChild.src = 'images/ico_compassoff.png';
+                        } else {
+                            viewer.stopOrientation();
+                            this.firstChild.src = 'images/ico_compasson.png';
+                        }
+                    });
+
+                } else {
+                    document.getElementById('compass').style.display = "none";
+                }
+
+            }
+        };
+        request.send();
+    </script>
+</body>
+
+</html>
