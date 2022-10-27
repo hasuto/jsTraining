@@ -46,6 +46,10 @@ function sande_link(){
     window.location.href = 'yahaba/sangyoudezain/mokuzaikakou.html';
 }
 
+function marubatu_game(a){
+    window.location.href = '/aframegame1/MaruBatu01.html?a='+a;
+}
+
 function onMouseDown(event) {
     isMouseDown = true;
 }

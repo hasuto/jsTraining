@@ -23,10 +23,16 @@ var cursor;
 var isMouseDown = false;
 
 var result = [];
-
+var results = [];
+var hantei_maru = [];
+hantei_maru = "o";
+var hantei_batu = [];
+hantei_batu = "x";
+var results;
 var seikai;
-
+var text;
 var score_result;
+
 
 // let element = document.getElementById('text');
 // console.log(element.children[0].data-text);
@@ -48,7 +54,15 @@ var score_result;
 window.onload = function () {
     init();
     render();
+    var data = location.href.split("?")[1];
+    text = data.split("=")[1];
+    console.log(text);
+    getCSV();
+    getCSV2();
+
 };
+
+
 
 function aframeMutlByte() {
     console.log("okだよ");
@@ -74,7 +88,7 @@ function aframeMutlByte() {
 //CSVファイルを読み込む関数getCSV()の定義
 function getCSV() {
     var req = new XMLHttpRequest(); // HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
-    req.open("get", "assets/zyouhou.csv", true); // アクセスするファイルを指定
+    req.open("get", "assets/" + text + ".csv", true); // アクセスするファイルを指定
     req.send(null); // HTTPリクエストの発行
 
     // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ	
@@ -95,6 +109,31 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
     }
 
     console.log(result[0][1]); // 300yen
+}
+//CSVファイルを読み込む関数getCSV()の定義
+function getCSV2() {
+    var req = new XMLHttpRequest(); // HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
+    req.open("get", "assets/hantei.csv", true); // アクセスするファイルを指定
+    req.send(null); // HTTPリクエストの発行
+
+    // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ	
+    req.onload = function () {
+
+        convertCSVtoArray2(req.responseText); // 渡されるのは読み込んだCSVデータ
+    }
+}
+
+// 読み込んだCSVデータを二次元配列に変換する関数convertCSVtoArray()の定義
+function convertCSVtoArray2(str) { // 読み込んだCSVデータが文字列として渡される
+    // 最終的な二次元配列を入れるための配列
+    var tmp = str.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
+
+    // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
+    for (var i = 0; i < tmp.length; ++i) {
+        results[i] = tmp[i].split(',');
+    }
+
+    console.log(results[0][1]); // 300yen
 }
 
 
@@ -248,7 +287,7 @@ function init() {
     document.addEventListener("touchend", onMouseUp);
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("touchmove", onMouseMove);
-    getCSV();
+
     aframeMutlByte();
 
     Maru.addEventListener("click", onMouseClick1);
@@ -267,7 +306,7 @@ function render() {
 
 }
 
-function restart(){
+function restart() {
     var restart = document.querySelector('#restart');
     var monbun5 = document.querySelector('#mondaibun5');
     var mondai5 = document.querySelector('#mondai5');
@@ -277,26 +316,26 @@ function restart(){
     var hazure = document.querySelector('#hazure');
     var hanteiback = document.querySelector('#hantei-back');
     console.log("押してる");
-        if(restart.getAttribute('visible') == true){
-            score = 0;
-            cnt = 0;
-            restart.setAttribute("visible",false);
-            monbun5.setAttribute("visible",false);
-            mondai5.setAttribute("visible",false);
-            scoreback.setAttribute('visible',false);
-            hanteiback.setAttribute('visible',false);
-            score_result.setAttribute("visible",false);
-            seikai.setAttribute("visible",false);
-            hazure.setAttribute("visible",false);
-            Maru.setAttribute("visible",true);
-            Batu.setAttribute("visible",true);
+    if (restart.getAttribute('visible') == true) {
+        score = 0;
+        cnt = 0;
+        restart.setAttribute("visible", false);
+        monbun5.setAttribute("visible", false);
+        mondai5.setAttribute("visible", false);
+        scoreback.setAttribute('visible', false);
+        hanteiback.setAttribute('visible', false);
+        score_result.setAttribute("visible", false);
+        seikai.setAttribute("visible", false);
+        hazure.setAttribute("visible", false);
+        Maru.setAttribute("visible", true);
+        Batu.setAttribute("visible", true);
 
-            console.log("リスタート");
-            console.log(cnt,score);
-            cnt++;
-            mondai();
-        }
+        console.log("リスタート");
+        console.log(cnt, score);
+        cnt++;
+        mondai();
     }
+}
 
 //ゲームスタートボタン押したとき
 function start() {
@@ -338,7 +377,7 @@ function onMouseClick2(event) {
 // }
 
 function maru() {
-   seikai = document.querySelector('#seikai');
+    seikai = document.querySelector('#seikai');
     var hazure = document.querySelector('#hazure');
     var next = document.querySelector('#next-button');
     score_result = document.querySelector('#score');
@@ -349,54 +388,151 @@ function maru() {
     if (Maru.getAttribute('visible') == true) {
         switch (cnt) {
             case 1:
-                hazure.setAttribute('visible', false);
-                seikai.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                next.setAttribute('visible', true);
-                if(Batu.getAttribute('visible')==true){
-                score++;
+                if (Batu.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    } else if (result[cnt][2] == results[1][0]) {
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+                    }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    next.setAttribute('visible', true);
+                    Batu.setAttribute('visible', false);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
                 }
-                Batu.setAttribute('visible', false);
                 break;
             case 2:
-                seikai.setAttribute('visible', false);
-                hazure.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                Batu.setAttribute('visible', false);
-                next.setAttribute('visible', true);
+                // if (result[cnt][2] == results[0][0]) {
+                //     hazure.setAttribute('visible', false);
+                //     seikai.setAttribute('visible', true);
+                // } else if (result[cnt][2] == results[1][0]) {
+                //     seikai.setAttribute('visible', false);
+                //     hazure.setAttribute('visible', true);
+                // }
+                // hanteiback.setAttribute('visible', true);
+                // Batu.setAttribute('visible', false);
+                // next.setAttribute('visible', true);
+                // console.log(result[cnt][2]);
+                if (Batu.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    } else if (result[cnt][2] == results[1][0]) {
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+                    }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    next.setAttribute('visible', true);
+                    Batu.setAttribute('visible', false);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
                 break;
             case 3:
-                hazure.setAttribute('visible', false);
-                seikai.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                next.setAttribute('visible', true);
-                if(Batu.getAttribute('visible')==true){
-                    score++;
+                // if (result[cnt][2] == results[0][0]) {
+                //     hazure.setAttribute('visible', false);
+                //     seikai.setAttribute('visible', true);
+                // } else if (result[cnt][2] == results[1][0]) {
+                //     seikai.setAttribute('visible', false);
+                //     hazure.setAttribute('visible', true);
+                // }
+                // hanteiback.setAttribute('visible', true);
+                // next.setAttribute('visible', true);
+                // if (Batu.getAttribute('visible') == true) {
+                //     score++;
+                // }
+                // Batu.setAttribute('visible', false);
+                // console.log(result[cnt][2]);
+                if (Batu.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    } else if (result[cnt][2] == results[1][0]) {
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
                     }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    next.setAttribute('visible', true);
                     Batu.setAttribute('visible', false);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
                 break;
             case 4:
-                seikai.setAttribute('visible', false);
-                hazure.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                Batu.setAttribute('visible', false);
-                next.setAttribute('visible', true);
+                // if (result[cnt][2] == results[0][0]) {
+                //     hazure.setAttribute('visible', false);
+                //     seikai.setAttribute('visible', true);
+                // } else if (result[cnt][2] == results[1][0]) {
+                //     seikai.setAttribute('visible', false);
+                //     hazure.setAttribute('visible', true);
+                // }
+                // hanteiback.setAttribute('visible', true);
+                // Batu.setAttribute('visible', false);
+                // next.setAttribute('visible', true);
+                if (Batu.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    } else if (result[cnt][2] == results[1][0]) {
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+                    }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    next.setAttribute('visible', true);
+                    Batu.setAttribute('visible', false);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
                 break;
             case 5:
-                hazure.setAttribute('visible', false);
-                seikai.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                if(Batu.getAttribute('visible')==true){
-                    score++;
+                // if (result[cnt][2] == results[0][0]) {
+                //     hazure.setAttribute('visible', false);
+                //     seikai.setAttribute('visible', true);
+                // } else if (result[cnt][2] == results[1][0]) {
+                //     seikai.setAttribute('visible', false);
+                //     hazure.setAttribute('visible', true);
+                // }
+                // console.log(results[0][0]);
+                // hanteiback.setAttribute('visible', true);
+                // if (Batu.getAttribute('visible') == true) {
+                //     score++;
+                // }
+                // Batu.setAttribute('visible', false);
+                if (Batu.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    } else if (result[cnt][2] == results[1][0]) {
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
                     }
-                Batu.setAttribute('visible', false);
-                console.log(score);
-                score_result.setAttribute("value","score "+score);
-                score_result.setAttribute('visible',true);
-                scoreback.setAttribute('visible',true);
-                restart.setAttribute('visible',true);
+
+                    hanteiback.setAttribute('visible', true);
+                    Batu.setAttribute('visible', false);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
+                console.log("score"+score);
+                score_result.setAttribute("value", "score " + score);
+                score_result.setAttribute('visible', true);
+                scoreback.setAttribute('visible', true);
+                restart.setAttribute('visible', true);
                 break;
+
         }
+
+
     }
 }
 
@@ -411,48 +547,134 @@ function batu() {
     if (Batu.getAttribute('visible') == true) {
         switch (cnt) {
             case 1:
-                seikai.setAttribute('visible', false);
-                hazure.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                next.setAttribute('visible', true);
-                Maru.setAttribute('visible', false);
+                if (Maru.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+  
+                    } else if (result[cnt][2] == results[1][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    next.setAttribute('visible', true);
+                    Maru.setAttribute('visible', false);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
+                // seikai.setAttribute('visible', false);
+                // hazure.setAttribute('visible', true);
+                // hanteiback.setAttribute('visible', true);
+                // next.setAttribute('visible', true);
+                // Maru.setAttribute('visible', false);
                 break;
             case 2:
-                hazure.setAttribute('visible', false);
-                seikai.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                next.setAttribute('visible', true);
-                if(Maru.getAttribute('visible')==true){
-                    score++;
+                // hazure.setAttribute('visible', false);
+                // seikai.setAttribute('visible', true);
+                // hanteiback.setAttribute('visible', true);
+                // next.setAttribute('visible', true);
+                // if (Maru.getAttribute('visible') == true) {
+                //     score++;
+                // }
+                // Maru.setAttribute('visible', false);
+                if (Maru.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+                    } else if (result[cnt][2] == results[1][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
                     }
-                Maru.setAttribute('visible', false);
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    Maru.setAttribute('visible', false);
+                    next.setAttribute('visible', true);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
                 break;
             case 3:
-                seikai.setAttribute('visible', false);
-                hazure.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                next.setAttribute('visible', true);
-                Maru.setAttribute('visible', false);
+                // seikai.setAttribute('visible', false);
+                // hazure.setAttribute('visible', true);
+                // hanteiback.setAttribute('visible', true);
+                // next.setAttribute('visible', true);
+                // Maru.setAttribute('visible', false);
+                if (Maru.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+                    } else if (result[cnt][2] == results[1][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    Maru.setAttribute('visible', false);
+                    next.setAttribute('visible', true);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
                 break;
             case 4:
-                hazure.setAttribute('visible', false);
-                seikai.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                next.setAttribute('visible', true);
-                if(Maru.getAttribute('visible')==true){
-                    score++;
+                // hazure.setAttribute('visible', false);
+                // seikai.setAttribute('visible', true);
+                // hanteiback.setAttribute('visible', true);
+                // next.setAttribute('visible', true);
+                // if (Maru.getAttribute('visible') == true) {
+                //     score++;
+                // }
+                // Maru.setAttribute('visible', false);
+                if (Maru.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+                    } else if (result[cnt][2] == results[1][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
                     }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
                     Maru.setAttribute('visible', false);
+                    next.setAttribute('visible', true);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
                 break;
             case 5:
-                seikai.setAttribute('visible', false);
-                hazure.setAttribute('visible', true);
-                hanteiback.setAttribute('visible',true);
-                Maru.setAttribute('visible', false);
-                score_result.setAttribute("value","score "+score);
-                score_result.setAttribute('visible',true);
-                scoreback.setAttribute('visible',true);
-                restart.setAttribute('visible',true);
+                // seikai.setAttribute('visible', false);
+                // hazure.setAttribute('visible', true);
+                // hanteiback.setAttribute('visible', true);
+                // Maru.setAttribute('visible', false);
+                if (Maru.getAttribute('visible') == true) {
+                    if (result[cnt][2] == results[0][0]) {
+                        
+                        seikai.setAttribute('visible', false);
+                        hazure.setAttribute('visible', true);
+                        
+                    } else if (result[cnt][2] == results[1][0]) {
+                        hazure.setAttribute('visible', false);
+                        seikai.setAttribute('visible', true);
+                        score++;
+                    }
+                    console.log("score"+score);
+                    hanteiback.setAttribute('visible', true);
+                    Maru.setAttribute('visible', false);
+                    console.log(hantei_maru);
+                    console.log(result[cnt][2]);
+                }
+                score_result.setAttribute("value", "score " + score);
+                score_result.setAttribute('visible', true);
+                scoreback.setAttribute('visible', true);
+                restart.setAttribute('visible', true);
                 break;
         }
     }
@@ -477,16 +699,16 @@ function mondai() {
     switch (cnt) {
         case 1:
             mondai1.setAttribute('visible', true);
-            monbun1.setAttribute('visible',true);
-            mondaiback.setAttribute('visible',true);
+            monbun1.setAttribute('visible', true);
+            mondaiback.setAttribute('visible', true);
             console.log(cnt);
             mondaibun1(cnt);
             break;
         case 2:
             mondai1.setAttribute('visible', false);
             mondai2.setAttribute('visible', true);
-            monbun1.setAttribute('visible',false);
-            monbun2.setAttribute('visible',true);
+            monbun1.setAttribute('visible', false);
+            monbun2.setAttribute('visible', true);
             console.log(cnt);
             mondaibun2(cnt);
             break;
@@ -494,22 +716,22 @@ function mondai() {
         case 3:
             mondai2.setAttribute('visible', false);
             mondai3.setAttribute('visible', true);
-            monbun2.setAttribute('visible',false);
-            monbun3.setAttribute('visible',true);
+            monbun2.setAttribute('visible', false);
+            monbun3.setAttribute('visible', true);
             mondaibun3(cnt);
             break;
         case 4:
             mondai3.setAttribute('visible', false);
             mondai4.setAttribute('visible', true);
-            monbun3.setAttribute('visible',false);
-            monbun4.setAttribute('visible',true);
+            monbun3.setAttribute('visible', false);
+            monbun4.setAttribute('visible', true);
             mondaibun4(cnt);
             break;
         case 5:
             mondai4.setAttribute('visible', false);
             mondai5.setAttribute('visible', true);
-            monbun4.setAttribute('visible',false);
-            monbun5.setAttribute('visible',true);
+            monbun4.setAttribute('visible', false);
+            monbun5.setAttribute('visible', true);
             mondaibun5(cnt);
             break;
     }
@@ -525,7 +747,7 @@ function next() {
     if (next.getAttribute('visible') == true) {
         hazure.setAttribute('visible', false);
         seikai.setAttribute('visible', false);
-        hanteiback.setAttribute('visible',false);
+        hanteiback.setAttribute('visible', false);
         next.setAttribute('visible', false);
         Maru.setAttribute('visible', true);
         Batu.setAttribute('visible', true);
