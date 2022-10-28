@@ -5,7 +5,11 @@ var isMouseDown = false;
 
 
 
+const cameraWrapper = document.getElementById("camera-wrapper")
+const camera = cameraWrapper.querySelector("a-camera")
+const cameraRotation = camera.getAttribute("rotation") // <a-camera>の現在のrotation(回転)を取得</a-camera>
 
+cameraWrapper.setAttribute("rotation", { y:45})
 
 window.onload = function () {
     init();

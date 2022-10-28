@@ -59,6 +59,13 @@ window.onload = function () {
     console.log(text);
     getCSV();
     getCSV2();
+    
+    var background = document.querySelector('#back-ground');
+    var a = "12";
+    background.setAttribute('src',"assets/" + text + ".jpeg");
+    background.setAttribute('position',a);
+    console.log(background.getAttribute('position'));
+    console.log(background.getAttribute('src'));
 
 };
 
