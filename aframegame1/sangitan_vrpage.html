@@ -136,7 +136,10 @@
 
         <iframe id="top_flont" src=""  width="1000px" height="400px"></iframe>
         <!-- <iframe id="top_mizusawa" src=""></iframe> -->
-        
+        <ul>
+            <li>建築<a onclick="kentiku()">建築</a></li>
+            <li>産業デザイン科</li>
+        </ul>
 
         <div id="welcome">
             <p>産技短バーチャル学校見学へようこそ。</p>
@@ -164,6 +167,11 @@
         //追加箇所
         var flont = document.getElementById('top_flont');
         flont.src = "top.html";
+
+        function kentiku(){
+            var flont = document.getElementById('top_flont');
+        flont.src = "/aframegame1/yahaba/kenntiku/kenntikucad.html";
+        }
         // author ISHIDATE Katsuyoshi
         // transition
         var script = document.createElement('script');

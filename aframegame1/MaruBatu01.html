@@ -93,7 +93,11 @@
                 <a-entity cursor="rayOrigin: mouse"></a-entity>
 
 
-            <a-sky  id="back-ground" src="assets/sande_mokuzou.jpeg" position="0 0 0" rotation="0 -120 5"></a-sky>
+            <a-sky  id="back-ground" 
+            src="assets/sande_mokuzou.jpeg" 
+            position="0 0 0" 
+            rotation="0 -120 5"
+            animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 40000; easing: linear"></a-sky>
             <a-camera position="10 10 60" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD"
                 cursor-opacity="0.5">
                 <a-cursor></a-cursor>
