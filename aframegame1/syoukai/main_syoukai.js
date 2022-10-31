@@ -4,9 +4,10 @@ var text;
 var id1;
 var id2;
 var id;
-var aaa;
+var tmp;
+
 window.onload = function () {
-   
+    
     var data = location.href.split("?")[1];
     text = data.split("=")[1];
     id1 = data.split("=")[2];
@@ -24,7 +25,7 @@ window.onload = function () {
    
     console.log(background.getAttribute('src'));
 
-    syoukai_hantei();
+    
     
 };
 
@@ -34,7 +35,15 @@ function syoukai_hantei(){
     //     console.log(i);
     // }
 
-    console.log(aaa);
+    console.log(tmp.length);
+    for(var i = 0; i<=tmp.length; i++){
+        if(id1 == i){
+            id1 = i;
+            break;
+        }
+        
+        console.log(i);
+    }
 
 }
 
@@ -63,5 +72,5 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
     }
 
     console.log(result[1][2]); // 300yen
-     aaa = tmp.length;
+     syoukai_hantei();
 }
