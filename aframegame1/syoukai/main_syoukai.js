@@ -1,11 +1,11 @@
 var result = [];
-var b;
+
 var text;
 var id1;
 var id2;
 var id;
 var tmp;
-
+var bbbb;
 
 window.onload = function () {
     
@@ -63,17 +63,19 @@ function syoukai_hantei(){
             console.log(str2);
             console.log(j);
             console.log(result[j][2]);
-            b = j;
+            bbbb = j;
             break;
         }
         
     }
     
-
+    syoukai_text();
 }
 
 function syoukai_text(){
-    var text = result[b][2].tostring();
+    console.log(bbbb);
+    console.log(result[bbbb][2]);
+    var text = result[bbbb][2];
     var elem = document.getElementById("syoukai_text");
     elem.innerContent = text;
 }
@@ -103,5 +105,5 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
 
     console.log(result[1][2]); // 300yen
      syoukai_hantei();
-     syoukai_text();
+     
 }
