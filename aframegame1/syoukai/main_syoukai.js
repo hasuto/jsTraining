@@ -1,10 +1,11 @@
 var result = [];
-
+var b;
 var text;
 var id1;
 var id2;
 var id;
 var tmp;
+
 
 window.onload = function () {
     
@@ -30,23 +31,52 @@ window.onload = function () {
 };
 
 function syoukai_hantei(){
-
+    var a,b;
+    var i;
     // for(var i=0; i<=tmp.length; i++){
     //     console.log(i);
     // }
+    var c  = result[1][2];
+    console.log(c);
 
     console.log(tmp.length);
+
+
+
     for(var i = 0; i<=tmp.length; i++){
-        if(id1 == i){
-            id1 = i;
+        var str  = result[i][0];
+        if(str == id1){
+            console.log("一致");
+            console.log("id1"+id1);
+            console.log(str);
+            console.log(i);
+            a = i;
+            console.log("a="+a);
+            break;
+        }
+    }
+
+    for(var j = a; j<=tmp.length; j++){
+        console.log("a2="+j);
+        var str2 = result[j][1];
+        if(str2 == id2){
+            console.log(str2);
+            console.log(j);
+            console.log(result[j][2]);
+            b = j;
             break;
         }
         
-        console.log(i);
     }
+    
 
 }
 
+function syoukai_text(){
+    var text = result[b][2].tostring();
+    var elem = document.getElementById("syoukai_text");
+    elem.innerContent = text;
+}
 
 //CSVファイルを読み込む関数getCSV()の定義
 function getCSV() {
@@ -73,4 +103,5 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
 
     console.log(result[1][2]); // 300yen
      syoukai_hantei();
+     syoukai_text();
 }
