@@ -45,10 +45,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active" id="y_campus">
-                        <a class="nav-link" href="#">矢巾キャンパス</a>
+                        <a class="nav-link" onclick="yahaba_school()" href="#">矢巾キャンパス</a>
                     </li>
                     <li class="nav-item" id="m_campus">
-                        <a class="nav-link" href="#">水沢キャンパス</a>
+                        <a class="nav-link" onclick="mizusawa_school()" href="#">水沢キャンパス</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#usageModalLong">使い方</a>
@@ -133,33 +133,63 @@
                 <div class="ctrl rounded" id="compass"><img src="images/ico_compasson.png"></div>
             </div>
         </div> -->
+        <div id="yahaba_school">
+            <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
+            <!-- <iframe id="top_mizusawa" src=""></iframe> -->
+            <ul>
+                <li><a onclick="mekatoro('mekatoro_kikaikakou','1','1')">メカトロニクス科</a></li>
+                <ul id="mekatoro_list">
+                    <li><a onclick="syoukai_page('mekatoro_kikaikakou','1','1')">機械加工実習場</a></li>
+                    <li><a onclick="syoukai_page('mekatoro_cadcam','1','2')">CAD/CAM室</a></li>
+                    <li><a onclick="syoukai_page('mekatoro_seigyo','1','3')">制御工学実験室</a></li>
+                    <li><a onclick="syoukai_page('mekatoro_densi','1','4')">電子工学実験室</a></li>
+                </ul>
+                <li><a onclick="densi('densi_computer')">電子技術科</a></li>
+                <ul id="densi_list">
+                    <li><a onclick="syoukai_page('densi_computer','2','1')">コンピュータ室</a></li>
+                    <li><a onclick="syoukai_page('densi_densikairo','2','2')">電子回路実験室</a></li>
+                    <li><a onclick="syoukai_page('densi_mukyo','2','3')">無響室</a></li>
+                </ul>
+                <li><a onclick="kentiku('kentiku_cad','3','4')">建築科</a></li>
+                <ul id="kentiku_list">
+                    <li><a onclick="syoukai_page('kentiku_zisyuzyou','3','1')">建築実習教室</a></li>
+                    <li><a onclick="syoukai_page('kentiku_kougaku','3','2')">環境工学実験室</a></li>
+                    <li><a onclick="syoukai_page('kentiku_dezain','3','3')">建築デザイン室</a></li>
+                    <li><a onclick="syoukai_page('kentiku_cad','3','4')">建築cad室</a></li>
+                </ul>
+                <li><a onclick="sande('sande_dezainjikken','4','1')">産業デザイン科</a></li>
+                <ul id="sande_list">
+                    <li><a onclick="syoukai_page('sande_dezainjikken','4','1')">デザイン実験室</a></li>
+                    <li><a onclick="syoukai_page('sande_dezain','4','2')">デザイン室</a></li>
+                    <li><a onclick="syoukai_page('sande_mokuzai','4','3')">木材加工室</a></li>
+                    <li><a onclick="syoukai_page('sande_sikou','4','4')">漆工室</a></li>
+                    <li><a onclick="syoukai_page('sande_computer','4','5')">コンピュータ室</a></li>
+                </ul>
+                <li><a onclick="zyohou('zyohou_keisanki','5','1')">情報技術科</a></li>
+                <ul id="zyohou_list">
+                    <li><a onclick="syoukai_page('zyohou_keisanki','5','1')">計算機工学実験室</a></li>
+                    <li><a onclick="syoukai_page('zyohou_kousaku','5','2')">工作室</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','5','3')">通信実験室</a></li>
+                </ul>
+                <li><a onclick="senkou('zyohou_keisanki','6','1')">産業技術科専攻技術科</a></li>
+                <ul id="senkou_list">
+                    <li><a onclick="syoukai_page('zyohou_keisanki','6','1')">実習室</a></li>
+                </ul>
+                <li><a onclick="honkan('zyohou_keisanki','7','1')">本館</a></li>
+                <ul id="honkan_list">
+                    <li><a onclick="syoukai_page('zyohou_keisanki','7','1')">多目的ホール</a></li>
+                    <li><a onclick="syoukai_page('zyohou_kousaku','7','2')">大教室</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','7','3')">図書館</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','7','4')">学生ホール</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','7','5')">ラウンジ</a></li>
+                </ul>
+            </ul>
+        </div>
 
-        <iframe id="top_vrmenu" src="" width="1000px" height="400px"></iframe>
-        <!-- <iframe id="top_mizusawa" src=""></iframe> -->
-        <ul>
-            <li><a onclick="kentiku('kentiku_cad','4','4')">建築科</a></li>
-            <ul id="kentiku_list">
-                <li><a onclick="syoukai_page('kentiku_cad','4','4')">建築cad室</a></li>
-                <li><a onclick="syoukai_page('kentiku_zisyuzyou','4','1')">建築実習教室</a></li>
-                <li><a onclick="syoukai_page('kentiku_dezain','4','3')">建築デザイン室</a></li>
-            </ul>
-            <li><a onclick="sande('sande_mokuzai')">産業デザイン科</a></li>
-            <ul id="sande_list">
-                <li><a onclick="syoukai_page('kentiku_cad')">木材加工室</a></li>
-            </ul>
-            <li><a onclick="mekatoro('mekatoro')">メカトロニクス科</a></li>
-            <ul id="mekatoro_list">
-                <li><a onclick="syoukai_page('kentiku_cad')">メカトロ１</a></li>
-            </ul>
-            <li><a onclick="densi('mekatoro')">電子技術科</a></li>
-            <ul id="densi_list">
-                <li><a onclick="syoukai_page('kentiku_cad')">電子１</a></li>
-            </ul>
-            <li><a onclick="zyohou('zyohou')">情報技術科</a></li>
-            <ul id="zyohou_list">
-                <li><a onclick="syoukai_page('kentiku_cad')">情報１</a></li>
-            </ul>
-        </ul>
+        <div id="mizusawa_school">
+            <iframe id="top_mizusawa_aframe" src="" width="1000px" height="400px"></iframe>
+
+        </div>
 
         <div id="welcome">
             <p>産技短バーチャル学校見学へようこそ。</p>
@@ -185,91 +215,150 @@
 
         console.log("aaaaa");
         //追加箇所
-        var Top_VRmenu = document.getElementById('top_vrmenu');
-        Top_VRmenu.src = "top.html";
-      
+
+        var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
+        Top_yahaba_Aframe.src = "yahaba_school_top.html";
+        var Top_mizusawa_Aframe = document.getElementById('top_mizusawa_aframe');
+        Top_mizusawa_Aframe.src = "mizusawa_school_top.html";
+
+
         document.getElementById('kentiku_list').style.display = 'none';
         document.getElementById('sande_list').style.display = 'none';
         document.getElementById('mekatoro_list').style.display = 'none';
         document.getElementById('densi_list').style.display = 'none';
         document.getElementById('zyohou_list').style.display = 'none';
+        document.getElementById('senkou_list').style.display = 'none';
+        document.getElementById('honkan_list').style.display = 'none';
+        document.getElementById('mizusawa_school').style.display = 'none';
 
-        function kentiku(text,id1,id2) {
+        function kentiku(text, id1, id2) {
             var kentiku_list = document.getElementById('kentiku_list').style.display;
             var Top_VRmenu = document.getElementById('top_vrmenu');
             console.log(kentiku_list);
             if (kentiku_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a="+text+"="+id1+"="+id2;
+                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 console.log(Top_VRmenu.src);
                 document.getElementById('kentiku_list').style.display = 'inline-block';
                 document.getElementById('sande_list').style.display = 'none';
                 document.getElementById('mekatoro_list').style.display = 'none';
                 document.getElementById('densi_list').style.display = 'none';
                 document.getElementById('zyohou_list').style.display = 'none';
+                document.getElementById('senkou_list').style.display = 'none';
+                document.getElementById('honkan_list').style.display = 'none';
             } else {
                 document.getElementById('kentiku_list').style.display = 'none';
             }
         }
-        function sande(a) {
+        function sande(text, id1, id2) {
             var sande_list = document.getElementById('sande_list').style.display;
             var Top_VRmenu = document.getElementById('top_vrmenu');
             if (sande_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + a;
+                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('sande_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('mekatoro_list').style.display = 'none';
                 document.getElementById('densi_list').style.display = 'none';
                 document.getElementById('zyohou_list').style.display = 'none';
+                document.getElementById('senkou_list').style.display = 'none';
+                document.getElementById('honkan_list').style.display = 'none';
             } else {
                 document.getElementById('sande_list').style.display = 'none';
             }
         }
-        function mekatoro(a) {
+        function mekatoro(text, id1, id2) {
             var mekatoro_list = document.getElementById('mekatoro_list').style.display;
             var Top_VRmenu = document.getElementById('top_vrmenu');
             if (mekatoro_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + a;
+                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('mekatoro_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
                 document.getElementById('densi_list').style.display = 'none';
                 document.getElementById('zyohou_list').style.display = 'none';
+                document.getElementById('senkou_list').style.display = 'none';
+                document.getElementById('honkan_list').style.display = 'none';
             } else {
                 document.getElementById('mekatoro_list').style.display = 'none';
             }
         }
-        function densi(a) {
+        function densi(text, id1, id2) {
             var densi_list = document.getElementById('densi_list').style.display;
             var Top_VRmenu = document.getElementById('top_vrmenu');
             if (densi_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + a;
+                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('densi_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
                 document.getElementById('mekatoro_list').style.display = 'none';
                 document.getElementById('zyohou_list').style.display = 'none';
+                document.getElementById('senkou_list').style.display = 'none';
+                document.getElementById('honkan_list').style.display = 'none';
             } else {
                 document.getElementById('densi_list').style.display = 'none';
             }
         }
-        function zyohou(a) {
+        function zyohou(text, id1, id2) {
             var zyohou_list = document.getElementById('zyohou_list').style.display;
             var Top_VRmenu = document.getElementById('top_vrmenu');
             if (zyohou_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + a;
+                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('zyohou_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
                 document.getElementById('mekatoro_list').style.display = 'none';
                 document.getElementById('densi_list').style.display = 'none';
+                document.getElementById('senkou_list').style.display = 'none';
+                document.getElementById('honkan_list').style.display = 'none';
             } else {
                 document.getElementById('zyohou_list').style.display = 'none';
             }
         }
 
-        function syoukai_page(text,id1,id2){
+        function senkou(text, id1, id2) {
+            var senkou_list = document.getElementById('senkou_list').style.display;
             var Top_VRmenu = document.getElementById('top_vrmenu');
-            Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a="+text+"="+id1+"="+id2;
+            if (senkou_list == 'none') {
+                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                document.getElementById('senkou_list').style.display = 'inline-block';
+                document.getElementById('kentiku_list').style.display = 'none';
+                document.getElementById('sande_list').style.display = 'none';
+                document.getElementById('mekatoro_list').style.display = 'none';
+                document.getElementById('densi_list').style.display = 'none';
+                document.getElementById('honkan_list').style.display = 'none';
+            } else {
+                document.getElementById('senkou_list').style.display = 'none';
+            }
+        }
+
+        function honkan(text, id1, id2) {
+            var honkan_list = document.getElementById('honkan_list').style.display;
+            var Top_VRmenu = document.getElementById('top_vrmenu');
+            if (honkan_list == 'none') {
+                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                document.getElementById('honkan_list').style.display = 'inline-block';
+                document.getElementById('kentiku_list').style.display = 'none';
+                document.getElementById('sande_list').style.display = 'none';
+                document.getElementById('mekatoro_list').style.display = 'none';
+                document.getElementById('densi_list').style.display = 'none';
+            } else {
+                document.getElementById('honkan_list').style.display = 'none';
+            }
+        }
+
+        function syoukai_page(text, id1, id2) {
+            var Top_VRmenu = document.getElementById('top_vrmenu');
+            Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+        }
+
+        function yahaba_school() {
+            document.getElementById('mizusawa_school').style.display = 'none';
+            document.getElementById('yahaba_school').style.display = 'inline-block';
+           
+        }
+        function mizusawa_school() {
+            document.getElementById('yahaba_school').style.display = 'none';
+            document.getElementById('mizusawa_school').style.display = 'inline-block';
+
         }
         // author ISHIDATE Katsuyoshi
         // transition

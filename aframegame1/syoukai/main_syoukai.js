@@ -1,11 +1,10 @@
 var result = [];
 
-var text;
-var id1;
-var id2;
-var id;
+var text; //各科の紹介文格納用
+var id1; //紹介文をcsvファイルから読み込むための、id
+var id2;//紹介文をcsvファイルから読み込むための、id
 var tmp;
-var bbbb;
+var bbbb; //csvファイルの何行目にあるかの判定用変数
 
 window.onload = function () {
     
@@ -76,8 +75,9 @@ function syoukai_text(){
     console.log(bbbb);
     console.log(result[bbbb][2]);
     var text = result[bbbb][2];
-    var elem = document.getElementById("syoukai_text");
-    elem.innerContent = text;
+    // var elem = document.getElementById("syoukai_text");
+    // elem.innerHTML = text;
+    document.getElementById("syoukai_text").textContent = text;
 }
 
 //CSVファイルを読み込む関数getCSV()の定義

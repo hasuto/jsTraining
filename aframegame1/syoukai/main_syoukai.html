@@ -5,6 +5,27 @@
     </head>
     <body>
 <img id="back_ground" src="">
-<p id="syoukai_text"></p>
+<!-- <iframe width="600" height="400" allowfullscreen="" style="border-style:none;" src="http://hogehoge.com/pannellum/pannellum.htm#panorama=http://hogehoge.com/images/kentiku_cad.jpeg&autoLoad=true"></iframe> -->
+
+
+<div id="vrview">
+
+    <p id="syoukai_text">あああああ</p>
+</div>
+
+<script>
+    var winH = window.innerHeight;
+    var vrView;
+    window.addEventListener('load', onVrViewLoad)
+    function onVrViewLoad(){
+      vrView = new VRView.Player('#vrview', { //先ほど作成した画像を表示させるボックスのid名
+      image: 'images/kentiku_cad.jpeg',  //表示させたい画像のパス
+      width: '90%',
+      height: winH,
+      });
+    }
+  </script>
+ 
+<script src="./vrview-gh-pages/build/vrview.min.js"></script>
     </body>
 </html>
