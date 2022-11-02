@@ -1,14 +1,52 @@
 <!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- <meta charset="utf-8"> -->
+    <meta http-equiv="Content-Type" content="text/Shift-JIS; charset=utf-8" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="./js/aframe-html-shader.min.js"></script>
+    <script src="./js/html2canvas.min.js"></script>
+    <!-- <script src="top.js"></script> -->
+    <script src="main_syoukai.js"></script>
+</head>
+
+<body>
+    <div>
+    <a-scene>
+
+        <!-- <a-text position="-1 1.25 -3" onclick="marubatu_game('sande_mokuzai')" value="Hell, World!" color="black"></a-text> -->
+        <a-text position="-1 1.25 -3" value="Hell, World!" color="black"></a-text>
+
+       
+        <a-entity syobun  visible="true" position="-3 -2 -3" scale="5 5 5" data-text=""></a-entity>
+        <a-entity mb-text id="mondai1" visible="true" position="0 0 0" scale="10 10 10" data-text="問題1"></a-entity>
+        <a-sky id="back-ground" src="" position="0 0 0" rotation="0 -120 5"
+            animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 40000; easing: linear"></a-sky>
+
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+        <a-camera position="0 0 0" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD" cursor-opacity="0.5">
+            <a-cursor></a-cursor>
+        </a-camera>
+    </a-scene>
+
+</div>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
 <html>
     <head>
 <script src="main_syoukai.js"></script>
     </head>
     <body>
-<img id="back_ground" src="">
+<img id="back_ground" src=""> -->
 <!-- <iframe width="600" height="400" allowfullscreen="" style="border-style:none;" src="http://hogehoge.com/pannellum/pannellum.htm#panorama=http://hogehoge.com/images/kentiku_cad.jpeg&autoLoad=true"></iframe> -->
 
 
-<div id="vrview">
+<!-- <div id="vrview">
 
     <p id="syoukai_text">あああああ</p>
 </div>
@@ -28,4 +66,4 @@
  
 <script src="./vrview-gh-pages/build/vrview.min.js"></script>
     </body>
-</html>
+</html> -->

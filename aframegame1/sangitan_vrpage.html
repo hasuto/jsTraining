@@ -233,11 +233,11 @@
 
         function kentiku(text, id1, id2) {
             var kentiku_list = document.getElementById('kentiku_list').style.display;
-            var Top_VRmenu = document.getElementById('top_vrmenu');
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             console.log(kentiku_list);
             if (kentiku_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
-                console.log(Top_VRmenu.src);
+                Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                
                 document.getElementById('kentiku_list').style.display = 'inline-block';
                 document.getElementById('sande_list').style.display = 'none';
                 document.getElementById('mekatoro_list').style.display = 'none';
@@ -251,9 +251,9 @@
         }
         function sande(text, id1, id2) {
             var sande_list = document.getElementById('sande_list').style.display;
-            var Top_VRmenu = document.getElementById('top_vrmenu');
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             if (sande_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('sande_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('mekatoro_list').style.display = 'none';
@@ -267,9 +267,9 @@
         }
         function mekatoro(text, id1, id2) {
             var mekatoro_list = document.getElementById('mekatoro_list').style.display;
-            var Top_VRmenu = document.getElementById('top_vrmenu');
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             if (mekatoro_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('mekatoro_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
@@ -283,9 +283,9 @@
         }
         function densi(text, id1, id2) {
             var densi_list = document.getElementById('densi_list').style.display;
-            var Top_VRmenu = document.getElementById('top_vrmenu');
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             if (densi_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('densi_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
@@ -299,9 +299,9 @@
         }
         function zyohou(text, id1, id2) {
             var zyohou_list = document.getElementById('zyohou_list').style.display;
-            var Top_VRmenu = document.getElementById('top_vrmenu');
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             if (zyohou_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('zyohou_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
@@ -316,9 +316,9 @@
 
         function senkou(text, id1, id2) {
             var senkou_list = document.getElementById('senkou_list').style.display;
-            var Top_VRmenu = document.getElementById('top_vrmenu');
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             if (senkou_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('senkou_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
@@ -332,9 +332,9 @@
 
         function honkan(text, id1, id2) {
             var honkan_list = document.getElementById('honkan_list').style.display;
-            var Top_VRmenu = document.getElementById('top_vrmenu');
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             if (honkan_list == 'none') {
-                Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+                Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
                 document.getElementById('honkan_list').style.display = 'inline-block';
                 document.getElementById('kentiku_list').style.display = 'none';
                 document.getElementById('sande_list').style.display = 'none';
@@ -346,8 +346,8 @@
         }
 
         function syoukai_page(text, id1, id2) {
-            var Top_VRmenu = document.getElementById('top_vrmenu');
-            Top_VRmenu.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+            var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
+            Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
         }
 
         function yahaba_school() {
