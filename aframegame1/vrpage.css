@@ -1,0 +1,51 @@
+.yahaba_list {
+  max-width: 600px;
+}
+
+.yahaba_list a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.yahaba_list label {
+  width: 200px;
+  display: block;
+  margin: 0;
+  padding: 15px;
+  line-height: 1;
+  color: #fff;
+  background: #333;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 3px solid #2ac5b3;
+}
+
+.yahaba_list input {
+  display: none;
+}
+
+.yahaba_list ul {
+  width: 230px;
+  margin: 0px 0;
+  padding: 0;
+  background: #eae0d7;
+  list-style: none;
+  text-align: center;
+}
+
+.yahaba_list li {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.yahaba_list #densi2:checked ~ #densi_list2 li,
+.yahaba_list #mekatoro2:checked ~ #mekatoro_list2 li,
+.yahaba_list #kentiku2:checked ~ #kentiku_list2 li {
+  height: 54px;
+  opacity: 1;
+}
+/*# sourceMappingURL=vrpage.css.map */

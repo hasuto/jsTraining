@@ -18,6 +18,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>岩手県立産業技術短期大学校バーチャル学校見学</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -31,6 +32,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./pannellum.css" />
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="vrpage.css">
     <script type="text/javascript" src="./pannellum.js"></script>
 </head>
 
@@ -133,10 +135,45 @@
                 <div class="ctrl rounded" id="compass"><img src="images/ico_compasson.png"></div>
             </div>
         </div> -->
+
         <div id="yahaba_school">
             <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
             <!-- <iframe id="top_mizusawa" src=""></iframe> -->
-            <ul>
+
+
+            <div class="yahaba_list">
+                <label for="mekatoro2">メカトロニクス科</label>
+                <input type="checkbox" id="mekatoro2" class="accordion" />
+                <ul id="mekatoro_list2">
+                    <li><a onclick="syoukai_page('mekatoro_kikaikakou','1','1')">機械加工実習場</a></li>
+                    <li><a onclick="syoukai_page('mekatoro_cadcam','1','2')">CAD/CAM室</a></li>
+                    <li><a onclick="syoukai_page('mekatoro_seigyo','1','3')">制御工学実験室</a></li>
+                    <li><a onclick="syoukai_page('mekatoro_densi','1','4')">電子工学実験室</a></li>
+
+                </ul>
+
+                <label for="densi2">電子技術科</label>
+                <input type="checkbox" id="densi2" class="accordion" />
+                <ul id="densi_list2">
+                    <li><a onclick="syoukai_page('densi_computer','2','1')">コンピュータ室</a></li>
+                    <li><a onclick="syoukai_page('densi_densikairo','2','2')">電子回路実験室</a></li>
+                    <li><a onclick="syoukai_page('densi_mukyo','2','3')">無響室</a></li>
+
+                </ul>
+
+                <label for="kentiku2">建築科</label>
+                <input type="checkbox" id="kentiku2" class="accordion" />
+                <ul id="kentiku_list2">
+                    <li><a onclick="syoukai_page('kentiku_zisyuzyou','3','1')">建築実習教室</a></li>
+                    <li><a onclick="syoukai_page('kentiku_kougaku','3','2')">環境工学実験室</a></li>
+                    <li><a onclick="syoukai_page('kentiku_dezain','3','3')">建築デザイン室</a></li>
+                    <li><a onclick="syoukai_page('kentiku_cad','3','4')">建築cad室</a></li>
+                </ul>
+                
+
+            </div>
+
+            <ul style="margin-top: 10px;">
                 <li><a onclick="mekatoro('mekatoro_kikaikakou','1','1')">メカトロニクス科</a></li>
                 <ul id="mekatoro_list">
                     <li><a onclick="syoukai_page('mekatoro_kikaikakou','1','1')">機械加工実習場</a></li>
@@ -213,6 +250,9 @@
     </div>
     <script>
 
+
+
+
         console.log("aaaaa");
         //追加箇所
 
@@ -221,6 +261,38 @@
         var Top_mizusawa_Aframe = document.getElementById('top_mizusawa_aframe');
         Top_mizusawa_Aframe.src = "mizusawa_school_top.html";
 
+        document.getElementById('mekatoro2').addEventListener('click', function (e) {
+        if(document.getElementById("mekatoro2").checked){
+
+            document.getElementById("densi2").checked = false;
+            document.getElementById("kentiku2").checked = false;
+            console.log("okd");
+        }else{
+            console.log("notok");
+        }
+        });
+
+        document.getElementById('densi2').addEventListener('click', function (e) {
+        if(document.getElementById("densi2").checked){
+
+            document.getElementById("mekatoro2").checked = false;
+            document.getElementById("kentiku2").checked = false;
+            console.log("okd");
+        }else{
+            console.log("notok");
+        }
+        });
+
+        document.getElementById('kentiku2').addEventListener('click', function (e) {
+        if(document.getElementById("kentiku2").checked){
+
+            document.getElementById("densi2").checked = false;
+            document.getElementById("mekatoro2").checked = false;
+            console.log("okd");
+        }else{
+            console.log("notok");
+        }
+        });
 
         document.getElementById('kentiku_list').style.display = 'none';
         document.getElementById('sande_list').style.display = 'none';
@@ -237,7 +309,7 @@
             console.log(kentiku_list);
             if (kentiku_list == 'none') {
                 Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
-                
+
                 document.getElementById('kentiku_list').style.display = 'inline-block';
                 document.getElementById('sande_list').style.display = 'none';
                 document.getElementById('mekatoro_list').style.display = 'none';
@@ -345,6 +417,8 @@
             }
         }
 
+
+
         function syoukai_page(text, id1, id2) {
             var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
@@ -353,7 +427,7 @@
         function yahaba_school() {
             document.getElementById('mizusawa_school').style.display = 'none';
             document.getElementById('yahaba_school').style.display = 'inline-block';
-           
+
         }
         function mizusawa_school() {
             document.getElementById('yahaba_school').style.display = 'none';

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="vrpage.css">
+</head>
+
+<body>
+    <div class="sample_menu_outer">
+		<ul>
+			<li class="sample_menu sample_menu_parent">クリックでメニューが開きます</li>
+			<li class="sample_menu sample_menu_child">メニュー1</li>
+		</ul>
+	</div>
+
+    <script>
+		{
+			const sampleMenuP = document.querySelector('.sample_menu_parent');
+			const sampleMenuC = document.querySelector('.sample_menu_child');
+
+				sampleMenuP.addEventListener('click', () => {
+				sampleMenuC.classList.toggle('active');
+  				sampleMenuP.classList.toggle('active');
+			});
+
+		}
+	</script>
+</body>
+
+</html>
