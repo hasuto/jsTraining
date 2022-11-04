@@ -44,7 +44,11 @@
 
 .yahaba_list #densi2:checked ~ #densi_list2 li,
 .yahaba_list #mekatoro2:checked ~ #mekatoro_list2 li,
-.yahaba_list #kentiku2:checked ~ #kentiku_list2 li {
+.yahaba_list #kentiku2:checked ~ #kentiku_list2 li,
+.yahaba_list #sande2:checked ~ #sande_list2 li,
+.yahaba_list #zyohou2:checked ~ #zyohou_list2 li,
+.yahaba_list #senkou2:checked ~ #senkou_list2 li,
+.yahaba_list #honkan2:checked ~ #honkan_list2 li {
   height: 54px;
   opacity: 1;
 }

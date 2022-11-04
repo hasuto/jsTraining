@@ -143,7 +143,7 @@
 
             <div class="yahaba_list">
                 <label for="mekatoro2">メカトロニクス科</label>
-                <input type="checkbox" id="mekatoro2" class="accordion" />
+                <input type="checkbox" id="mekatoro2" class="list mekatoro" />
                 <ul id="mekatoro_list2">
                     <li><a onclick="syoukai_page('mekatoro_kikaikakou','1','1')">機械加工実習場</a></li>
                     <li><a onclick="syoukai_page('mekatoro_cadcam','1','2')">CAD/CAM室</a></li>
@@ -153,7 +153,7 @@
                 </ul>
 
                 <label for="densi2">電子技術科</label>
-                <input type="checkbox" id="densi2" class="accordion" />
+                <input type="checkbox" id="densi2" class="list densi" />
                 <ul id="densi_list2">
                     <li><a onclick="syoukai_page('densi_computer','2','1')">コンピュータ室</a></li>
                     <li><a onclick="syoukai_page('densi_densikairo','2','2')">電子回路実験室</a></li>
@@ -162,14 +162,47 @@
                 </ul>
 
                 <label for="kentiku2">建築科</label>
-                <input type="checkbox" id="kentiku2" class="accordion" />
+                <input type="checkbox" id="kentiku2" class="list kentiku" />
                 <ul id="kentiku_list2">
                     <li><a onclick="syoukai_page('kentiku_zisyuzyou','3','1')">建築実習教室</a></li>
                     <li><a onclick="syoukai_page('kentiku_kougaku','3','2')">環境工学実験室</a></li>
                     <li><a onclick="syoukai_page('kentiku_dezain','3','3')">建築デザイン室</a></li>
                     <li><a onclick="syoukai_page('kentiku_cad','3','4')">建築cad室</a></li>
                 </ul>
+
+                <label for="sande2">産業デザイン科</label>
+                <input type="checkbox" id="sande2" class="accordion" />
+                <ul id="sande_list2">
+                    <li><a onclick="syoukai_page('sande_dezainjikken','4','1')">デザイン実験室</a></li>
+                    <li><a onclick="syoukai_page('sande_dezain','4','2')">デザイン室</a></li>
+                    <li><a onclick="syoukai_page('sande_mokuzai','4','3')">木材加工室</a></li>
+                    <li><a onclick="syoukai_page('sande_sikou','4','4')">漆工室</a></li>
+                    <li><a onclick="syoukai_page('sande_computer','4','5')">コンピュータ室</a></li>
+                </ul>
+
+                <label for="zyohou2">情報技術科</label>
+                <input type="checkbox" id="zyohou2" class="accordion" />
+                <ul id="zyohou_list2">
+                    <li><a onclick="syoukai_page('zyohou_keisanki','5','1')">計算機工学実験室</a></li>
+                    <li><a onclick="syoukai_page('zyohou_kousaku','5','2')">工作室</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','5','3')">通信実験室</a></li>
+                </ul>
+
+                <label for="senkou2">産業技術科専攻技術科</label>
+                <input type="checkbox" id="senkou2" class="accordion" />
+                <ul id="senkou_list2">
+                    <li><a onclick="syoukai_page('zyohou_keisanki','6','1')">実習室</a></li>
+                </ul>
                 
+                <label for="honkan2">本館</label>
+                <input type="checkbox" id="honkan2" class="accordion" />
+                <ul id="honkan_list2">
+                    <li><a onclick="syoukai_page('zyohou_keisanki','7','1')">多目的ホール</a></li>
+                    <li><a onclick="syoukai_page('zyohou_kousaku','7','2')">大教室</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','7','3')">図書館</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','7','4')">学生ホール</a></li>
+                    <li><a onclick="syoukai_page('zyohou_tusin','7','5')">ラウンジ</a></li>
+                </ul>
 
             </div>
 
@@ -264,8 +297,8 @@
         document.getElementById('mekatoro2').addEventListener('click', function (e) {
         if(document.getElementById("mekatoro2").checked){
 
-            document.getElementById("densi2").checked = false;
-            document.getElementById("kentiku2").checked = false;
+            document.querySelectorAll('.list').value = false;
+
             console.log("okd");
         }else{
             console.log("notok");
