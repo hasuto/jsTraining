@@ -139,7 +139,7 @@
         <div id="yahaba_school">
             <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
             <!-- <iframe id="top_mizusawa" src=""></iframe> -->
-
+            
 
             <div class="yahaba_list">
                 <label for="mekatoro2">メカトロニクス科</label>
@@ -297,7 +297,12 @@
         document.getElementById('mekatoro2').addEventListener('click', function (e) {
         if(document.getElementById("mekatoro2").checked){
 
-            document.querySelectorAll('.list').value = false;
+            document.getElementById("densi2").checked = false;
+            document.getElementById("kentiku2").checked = false;
+            document.getElementById("sande2").checked = false;
+            document.getElementById("zyohou2").checked = false;
+            document.getElementById("senkou2").checked = false;
+            document.getElementById("honkan2").checked = false;
 
             console.log("okd");
         }else{
@@ -310,6 +315,10 @@
 
             document.getElementById("mekatoro2").checked = false;
             document.getElementById("kentiku2").checked = false;
+            document.getElementById("sande2").checked = false;
+            document.getElementById("zyohou2").checked = false;
+            document.getElementById("senkou2").checked = false;
+            document.getElementById("honkan2").checked = false;
             console.log("okd");
         }else{
             console.log("notok");
@@ -321,6 +330,70 @@
 
             document.getElementById("densi2").checked = false;
             document.getElementById("mekatoro2").checked = false;
+            document.getElementById("sande2").checked = false;
+            document.getElementById("zyohou2").checked = false;
+            document.getElementById("senkou2").checked = false;
+            document.getElementById("honkan2").checked = false;
+            console.log("okd");
+        }else{
+            console.log("notok");
+        }
+        });
+
+        document.getElementById('sande2').addEventListener('click', function (e) {
+        if(document.getElementById("sande2").checked){
+
+            document.getElementById("densi2").checked = false;
+            document.getElementById("mekatoro2").checked = false;
+            document.getElementById("kentiku2").checked = false;
+            document.getElementById("zyohou2").checked = false;
+            document.getElementById("senkou2").checked = false;
+            document.getElementById("honkan2").checked = false;
+            console.log("okd");
+        }else{
+            console.log("notok");
+        }
+        });
+
+        document.getElementById('zyohou2').addEventListener('click', function (e) {
+        if(document.getElementById("zyohou2").checked){
+
+            document.getElementById("densi2").checked = false;
+            document.getElementById("mekatoro2").checked = false;
+            document.getElementById("sande2").checked = false;
+            document.getElementById("kentiku2").checked = false;
+            document.getElementById("senkou2").checked = false;
+            document.getElementById("honkan2").checked = false;
+            console.log("okd");
+        }else{
+            console.log("notok");
+        }
+        });
+
+        document.getElementById('senkou2').addEventListener('click', function (e) {
+        if(document.getElementById("senkou2").checked){
+
+            document.getElementById("densi2").checked = false;
+            document.getElementById("mekatoro2").checked = false;
+            document.getElementById("sande2").checked = false;
+            document.getElementById("zyohou2").checked = false;
+            document.getElementById("kentiku2").checked = false;
+            document.getElementById("honkan2").checked = false;
+            console.log("okd");
+        }else{
+            console.log("notok");
+        }
+        });
+
+        document.getElementById('honkan2').addEventListener('click', function (e) {
+        if(document.getElementById("honkan2").checked){
+
+            document.getElementById("densi2").checked = false;
+            document.getElementById("mekatoro2").checked = false;
+            document.getElementById("sande2").checked = false;
+            document.getElementById("zyohou2").checked = false;
+            document.getElementById("senkou2").checked = false;
+            document.getElementById("kentiku2").checked = false;
             console.log("okd");
         }else{
             console.log("notok");

@@ -72,6 +72,13 @@ function syoukai_hantei(){
     syoukai_text();
 }
 
+document.getElementById('sample').addEventListener('click',function(e){
+    console.log("押しているよ");
+});
+
+function sample(){
+    window.location.href = '/aframegame1/MaruBatu01.html?a='+text;
+}
 
 function syoukaibun() {
     console.log("okだよ");
