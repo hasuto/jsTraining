@@ -139,7 +139,9 @@
         <div id="yahaba_school">
             <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
             <!-- <iframe id="top_mizusawa" src=""></iframe> -->
-            
+
+            <p id="sample_text">
+            </p>
 
             <div class="yahaba_list">
                 <label for="mekatoro2">メカトロニクス科</label>
@@ -193,7 +195,7 @@
                 <ul id="senkou_list2">
                     <li><a onclick="syoukai_page('zyohou_keisanki','6','1')">実習室</a></li>
                 </ul>
-                
+
                 <label for="honkan2">本館</label>
                 <input type="checkbox" id="honkan2" class="accordion" />
                 <ul id="honkan_list2">
@@ -283,9 +285,11 @@
     </div>
     <script>
 
-
-
-
+        var result = [];
+        var bbbb;
+        var this_text; //各科の紹介文格納用
+        var this_id1; //紹介文をcsvファイルから読み込むための、id
+        var this_id2;//紹介文をcsvファイルから読み込むための、id
         console.log("aaaaa");
         //追加箇所
 
@@ -295,109 +299,109 @@
         Top_mizusawa_Aframe.src = "mizusawa_school_top.html";
 
         document.getElementById('mekatoro2').addEventListener('click', function (e) {
-        if(document.getElementById("mekatoro2").checked){
+            if (document.getElementById("mekatoro2").checked) {
 
-            document.getElementById("densi2").checked = false;
-            document.getElementById("kentiku2").checked = false;
-            document.getElementById("sande2").checked = false;
-            document.getElementById("zyohou2").checked = false;
-            document.getElementById("senkou2").checked = false;
-            document.getElementById("honkan2").checked = false;
+                document.getElementById("densi2").checked = false;
+                document.getElementById("kentiku2").checked = false;
+                document.getElementById("sande2").checked = false;
+                document.getElementById("zyohou2").checked = false;
+                document.getElementById("senkou2").checked = false;
+                document.getElementById("honkan2").checked = false;
 
-            console.log("okd");
-        }else{
-            console.log("notok");
-        }
+                console.log("okd");
+            } else {
+                console.log("notok");
+            }
         });
 
         document.getElementById('densi2').addEventListener('click', function (e) {
-        if(document.getElementById("densi2").checked){
+            if (document.getElementById("densi2").checked) {
 
-            document.getElementById("mekatoro2").checked = false;
-            document.getElementById("kentiku2").checked = false;
-            document.getElementById("sande2").checked = false;
-            document.getElementById("zyohou2").checked = false;
-            document.getElementById("senkou2").checked = false;
-            document.getElementById("honkan2").checked = false;
-            console.log("okd");
-        }else{
-            console.log("notok");
-        }
+                document.getElementById("mekatoro2").checked = false;
+                document.getElementById("kentiku2").checked = false;
+                document.getElementById("sande2").checked = false;
+                document.getElementById("zyohou2").checked = false;
+                document.getElementById("senkou2").checked = false;
+                document.getElementById("honkan2").checked = false;
+                console.log("okd");
+            } else {
+                console.log("notok");
+            }
         });
 
         document.getElementById('kentiku2').addEventListener('click', function (e) {
-        if(document.getElementById("kentiku2").checked){
+            if (document.getElementById("kentiku2").checked) {
 
-            document.getElementById("densi2").checked = false;
-            document.getElementById("mekatoro2").checked = false;
-            document.getElementById("sande2").checked = false;
-            document.getElementById("zyohou2").checked = false;
-            document.getElementById("senkou2").checked = false;
-            document.getElementById("honkan2").checked = false;
-            console.log("okd");
-        }else{
-            console.log("notok");
-        }
+                document.getElementById("densi2").checked = false;
+                document.getElementById("mekatoro2").checked = false;
+                document.getElementById("sande2").checked = false;
+                document.getElementById("zyohou2").checked = false;
+                document.getElementById("senkou2").checked = false;
+                document.getElementById("honkan2").checked = false;
+                console.log("okd");
+            } else {
+                console.log("notok");
+            }
         });
 
         document.getElementById('sande2').addEventListener('click', function (e) {
-        if(document.getElementById("sande2").checked){
+            if (document.getElementById("sande2").checked) {
 
-            document.getElementById("densi2").checked = false;
-            document.getElementById("mekatoro2").checked = false;
-            document.getElementById("kentiku2").checked = false;
-            document.getElementById("zyohou2").checked = false;
-            document.getElementById("senkou2").checked = false;
-            document.getElementById("honkan2").checked = false;
-            console.log("okd");
-        }else{
-            console.log("notok");
-        }
+                document.getElementById("densi2").checked = false;
+                document.getElementById("mekatoro2").checked = false;
+                document.getElementById("kentiku2").checked = false;
+                document.getElementById("zyohou2").checked = false;
+                document.getElementById("senkou2").checked = false;
+                document.getElementById("honkan2").checked = false;
+                console.log("okd");
+            } else {
+                console.log("notok");
+            }
         });
 
         document.getElementById('zyohou2').addEventListener('click', function (e) {
-        if(document.getElementById("zyohou2").checked){
+            if (document.getElementById("zyohou2").checked) {
 
-            document.getElementById("densi2").checked = false;
-            document.getElementById("mekatoro2").checked = false;
-            document.getElementById("sande2").checked = false;
-            document.getElementById("kentiku2").checked = false;
-            document.getElementById("senkou2").checked = false;
-            document.getElementById("honkan2").checked = false;
-            console.log("okd");
-        }else{
-            console.log("notok");
-        }
+                document.getElementById("densi2").checked = false;
+                document.getElementById("mekatoro2").checked = false;
+                document.getElementById("sande2").checked = false;
+                document.getElementById("kentiku2").checked = false;
+                document.getElementById("senkou2").checked = false;
+                document.getElementById("honkan2").checked = false;
+                console.log("okd");
+            } else {
+                console.log("notok");
+            }
         });
 
         document.getElementById('senkou2').addEventListener('click', function (e) {
-        if(document.getElementById("senkou2").checked){
+            if (document.getElementById("senkou2").checked) {
 
-            document.getElementById("densi2").checked = false;
-            document.getElementById("mekatoro2").checked = false;
-            document.getElementById("sande2").checked = false;
-            document.getElementById("zyohou2").checked = false;
-            document.getElementById("kentiku2").checked = false;
-            document.getElementById("honkan2").checked = false;
-            console.log("okd");
-        }else{
-            console.log("notok");
-        }
+                document.getElementById("densi2").checked = false;
+                document.getElementById("mekatoro2").checked = false;
+                document.getElementById("sande2").checked = false;
+                document.getElementById("zyohou2").checked = false;
+                document.getElementById("kentiku2").checked = false;
+                document.getElementById("honkan2").checked = false;
+                console.log("okd");
+            } else {
+                console.log("notok");
+            }
         });
 
         document.getElementById('honkan2').addEventListener('click', function (e) {
-        if(document.getElementById("honkan2").checked){
+            if (document.getElementById("honkan2").checked) {
 
-            document.getElementById("densi2").checked = false;
-            document.getElementById("mekatoro2").checked = false;
-            document.getElementById("sande2").checked = false;
-            document.getElementById("zyohou2").checked = false;
-            document.getElementById("senkou2").checked = false;
-            document.getElementById("kentiku2").checked = false;
-            console.log("okd");
-        }else{
-            console.log("notok");
-        }
+                document.getElementById("densi2").checked = false;
+                document.getElementById("mekatoro2").checked = false;
+                document.getElementById("sande2").checked = false;
+                document.getElementById("zyohou2").checked = false;
+                document.getElementById("senkou2").checked = false;
+                document.getElementById("kentiku2").checked = false;
+                console.log("okd");
+            } else {
+                console.log("notok");
+            }
         });
 
         document.getElementById('kentiku_list').style.display = 'none';
@@ -528,7 +532,71 @@
         function syoukai_page(text, id1, id2) {
             var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+            this_id1 = id1;
+            this_id2 = id2;
+            getCSV();
+
+
+         
+
         }
+
+        function syoukai_hantei() {
+            var a, b;
+            var i;
+            // for(var i=0; i<=tmp.length; i++){
+            //     console.log(i);
+            // }
+            var c = result[1][2];
+            console.log(c);
+
+            console.log(tmp.length);
+
+
+
+            for (var i = 0; i <= tmp.length; i++) {
+                var str = result[i][0];
+                if (str == this_id1) {
+                    console.log("一致");
+                    console.log("id1" + this_id1);
+                    console.log(str);
+                    console.log(i);
+                    a = i;
+                    console.log("a=" + a);
+                    break;
+                }
+            }
+
+            for (var j = a; j <= tmp.length; j++) {
+                console.log("a2=" + j);
+                var str2 = result[j][1];
+                if (str2 == this_id2) {
+                    console.log(str2);
+                    console.log(j);
+                    console.log(result[j][2]);
+                    bbbb = j;
+                    break;
+                }
+
+            }
+
+            result[bbbb][2]
+            syoukai_text();
+        }
+
+
+        function syoukai_text() {
+            console.log(bbbb);
+            console.log("と売ってるよ");
+            console.log(result[bbbb][2]);
+            document.getElementById('sample_text').textContent = result[bbbb][2];
+
+            // var text = result[bbbb][2];
+            // var elem = document.getElementById("syoukai_text");
+            // elem.innerHTML = text;
+            // document.getElementById("syoukai_text").textContent = text;
+        }
+
 
         function yahaba_school() {
             document.getElementById('mizusawa_school').style.display = 'none';
@@ -540,6 +608,36 @@
             document.getElementById('mizusawa_school').style.display = 'inline-block';
 
         }
+
+
+
+        function getCSV() {
+            var req = new XMLHttpRequest(); // HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
+            req.open("get", "main_syoukai.csv", true); // アクセスするファイルを指定
+            req.send(null); // HTTPリクエストの発行
+
+            // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ	
+            req.onload = function () {
+
+                convertCSVtoArray(req.responseText); // 渡されるのは読み込んだCSVデータ
+            }
+        }
+
+        // 読み込んだCSVデータを二次元配列に変換する関数convertCSVtoArray()の定義
+        function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列として渡される
+            // 最終的な二次元配列を入れるための配列
+            tmp = str.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
+
+            // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
+            for (var i = 0; i < tmp.length; ++i) {
+                result[i] = tmp[i].split(',');
+            }
+
+            console.log(result[1][2]); // 300yen
+            syoukai_hantei();
+
+        }
+
         // author ISHIDATE Katsuyoshi
         // transition
         var script = document.createElement('script');
