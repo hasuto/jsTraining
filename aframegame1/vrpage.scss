@@ -1,7 +1,7 @@
 .yahaba_list {
     max-width: 600px;
 
-    
+
 
     a {
         display: block;
@@ -48,29 +48,67 @@
         transition: all 0.5s;
     }
 
-    
-    
+
+
 
     @mixin aaa($bHeight, $bOpacity) {
         height: $bHeight;
         opacity: $bOpacity;
 
     }
-    
+
     #densi2:checked~#densi_list2 li,
     #mekatoro2:checked~#mekatoro_list2 li,
     #kentiku2:checked~#kentiku_list2 li,
     #sande2:checked~#sande_list2 li,
     #zyohou2:checked~#zyohou_list2 li,
     #senkou2:checked~#senkou_list2 li,
-    #honkan2:checked~#honkan_list2 li{
+    #honkan2:checked~#honkan_list2 li {
         height: 54px;
         opacity: 1;
+        
 
     }
 
 }
 
-#sample_text{
-    margin-top: 20px;
+.sample_text1{
+    opacity: 0.1;
+    transform: translate(0, 50px);
+    transition: all 500ms;
+}
+
+.sample_text1.scrollin{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.sample_text1.remove{
+    opacity: 0.1;
+    transform: translate(0, 50px);
+    transition: all 500ms;
+    
+}
+
+
+// .sample_text1{
+//     margin-top: 20px;
+// }
+
+// .text_sample1.scrollin {
+//     animation-name: fadeLeftAnime;
+//     animation-duration: 0.5s;
+//     animation-fill-mode: forwards;
+//     opacity: 0;
+// }
+
+@keyframes fadeLeftAnime {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

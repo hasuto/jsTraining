@@ -140,7 +140,8 @@
             <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
             <!-- <iframe id="top_mizusawa" src=""></iframe> -->
 
-            <p id="sample_text">
+            <p id="sample_text" class="sample_text1">
+                aaaa
             </p>
 
             <div class="yahaba_list">
@@ -338,6 +339,7 @@
                 document.getElementById("zyohou2").checked = false;
                 document.getElementById("senkou2").checked = false;
                 document.getElementById("honkan2").checked = false;
+
                 console.log("okd");
             } else {
                 console.log("notok");
@@ -536,8 +538,19 @@
             this_id2 = id2;
             getCSV();
 
+            if (document.getElementById('sample_text').classList.contains("scrollin")) {
+                document.getElementById('sample_text').classList.remove("scrollin");
+                document.getElementById('sample_text').classList.add("remove");
+                
+            } else {
+                document.getElementById('sample_text').classList.add("scrollin");
+            }
 
-         
+
+
+
+
+
 
         }
 
