@@ -51,6 +51,18 @@ function syoukai_page(text, id1, id2) {
     this_id1 = id1;
     this_id2 = id2;
     getCSV();
+
+    console.log(document.getElementById('classroom_text').classList.contains("scrollin"));
+    if (document.getElementById('classroom_text').classList.contains("scrollin")) {
+        document.getElementById('classroom_text').classList.remove("scrollin");
+        document.getElementById('classroom_text2').classList.add("scrollin");
+
+    } else if (document.getElementById('classroom_text2').classList.contains("scrollin")) {
+        document.getElementById('classroom_text2').classList.remove("scrollin");
+        document.getElementById('classroom_text').classList.add("scrollin");
+    } else {
+        document.getElementById('classroom_text').classList.add("scrollin");
+    }
 }
 
 function syoukai_hantei() {
