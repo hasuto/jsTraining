@@ -1,92 +1,147 @@
-.yahaba_list {
-    max-width: 600px;
+#yahaba_school {
+    margin-top: 30px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 
-
-
-    a {
-        display: block;
-        padding: 10px;
-        text-decoration: none;
-        color: #fff;
+    iframe {
+        max-width: 100%;
     }
 
-    label {
-        width: 200px;
-        display: block;
-        margin: 0;
-        padding: 15px;
-        line-height: 1;
-        color: #fff;
-        background: #004EA2;
-        cursor: pointer;
-        text-align: center;
-        border-bottom: 3px solid #c3c3c3;
+    .yahaba_list {
+        width: 20%;
+        margin-left: 10px;
+
+
+        a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        label {
+            width: 200px;
+            display: block;
+            margin: 0;
+            padding: 15px;
+            line-height: 1;
+            color: #fff;
+            background: #004EA2;
+            cursor: pointer;
+            text-align: center;
+            border-bottom: 3px solid #c3c3c3;
+
+            p {
+                margin-bottom: -10px;
+                display: inline-block;
+                //各科のホバー処理(拡大)
+                &:hover {
+                    transition: all 500ms;
+                    transform: perspective(100px) translateZ(10px);
+                }
+            }
+
+
+        }
+
+        input {
+            display: none;
+        }
+
+        ul {
+            width: 230px;
+            margin: 0px 0;
+            padding: 0;
+            background: #247BD9;
+            list-style: none;
+            text-align: center;
+
+
+        }
+
+        li {
+            height: 0;
+            overflow: hidden;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+
+            //各教室のホバー処理(拡大)↓
+            a {
+                &:hover {
+                    transition: all 500ms;
+                    transform: perspective(100px) translateZ(10px);
+                }
+            }
+
+        }
+
+
+
+
+        // @mixin aaa($bHeight, $bOpacity) {
+        //     height: $bHeight;
+        //     opacity: $bOpacity;
+
+        // }
+
+        //各科をクリックすると教室一覧表示↓
+        #densi2:checked~#densi_list2 li,
+        #mekatoro2:checked~#mekatoro_list2 li,
+        #kentiku2:checked~#kentiku_list2 li,
+        #sande2:checked~#sande_list2 li,
+        #zyohou2:checked~#zyohou_list2 li,
+        #senkou2:checked~#senkou_list2 li,
+        #honkan2:checked~#honkan_list2 li {
+            height: 54px;
+            opacity: 1;
+
+
+        }
 
     }
 
-    input {
-        display: none;
-    }
+    //各教室のタイトルのfadein処理↓
+    .text_parent {
+        margin: -70px 0px 0px 30px;
+        position: relative;
 
-    ul {
-        width: 230px;
-        margin: 0px 0;
-        padding: 0;
-        background: #247BD9;
-        list-style: none;
-        text-align: center;
+        .classroom_text1 {
+            padding: 10px;
+            color: white;
+            position: absolute;
+            opacity: 0.1;
+            transform: perspective(100px) translate3d(20px, 20px, 0px);
+            transition: all 500ms;
 
-    }
+        }
 
-    li {
-        height: 0;
-        overflow: hidden;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -ms-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-    }
-
-
-
-
-    @mixin aaa($bHeight, $bOpacity) {
-        height: $bHeight;
-        opacity: $bOpacity;
-
-    }
-
-    #densi2:checked~#densi_list2 li,
-    #mekatoro2:checked~#mekatoro_list2 li,
-    #kentiku2:checked~#kentiku_list2 li,
-    #sande2:checked~#sande_list2 li,
-    #zyohou2:checked~#zyohou_list2 li,
-    #senkou2:checked~#senkou_list2 li,
-    #honkan2:checked~#honkan_list2 li {
-        height: 54px;
-        opacity: 1;
-        
-
-    }
-
-}
-
-.sample_text1{
-    opacity: 0.1;
-    transform: translate(0, 50px);
-    transition: all 500ms;
-}
-
-.sample_text1.scrollin{
-    opacity: 1;
-    transform: translate(0, 0);
-}
-.sample_text1.remove{
-    opacity: 0.1;
-    transform: translate(0, 50px);
-    transition: all 500ms;
+        .classroom_text3 {
+            padding: 10px;
+            color: white;
+            position: absolute;
+            opacity: 0.1;
+            transform: perspective(100px) translate3d(20px, 20px, 0px);
+            transition: all 500ms;
+        }
     
+        .classroom_text1.scrollin {
+            opacity: 1;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            transform: perspective(100px) translate3d(0px, 0px, 20px);
+        }
+
+        .classroom_text3.scrollin {
+            opacity: 1;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            transform: perspective(100px) translate3d(0px, 0px, 20px);
+        }
+    }
+
 }
 
 
@@ -111,4 +166,8 @@
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+#welcome {
+    margin-top: 200px;
 }

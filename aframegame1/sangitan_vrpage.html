@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="./pannellum.css" />
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="vrpage.css">
+    <script type="text/javascript" src="top.js"></script>
     <script type="text/javascript" src="./pannellum.js"></script>
 </head>
 
@@ -137,15 +138,17 @@
         </div> -->
 
         <div id="yahaba_school">
-            <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
-            <!-- <iframe id="top_mizusawa" src=""></iframe> -->
-
-            <p id="sample_text" class="sample_text1">
-                aaaa
-            </p>
+            <div class="vr_content">
+                <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
+                <div class="text_parent">
+                    <p id="classroom_text" class="classroom_text1">
+                    </p>
+                    <p id="classroom_text2" class="classroom_text3"></p>
+                </div>
+            </div>
 
             <div class="yahaba_list">
-                <label for="mekatoro2">メカトロニクス科</label>
+                <label for="mekatoro2"><p>メカトロニクス科</p></label>
                 <input type="checkbox" id="mekatoro2" class="list mekatoro" />
                 <ul id="mekatoro_list2">
                     <li><a onclick="syoukai_page('mekatoro_kikaikakou','1','1')">機械加工実習場</a></li>
@@ -155,16 +158,16 @@
 
                 </ul>
 
-                <label for="densi2">電子技術科</label>
+                <label for="densi2"><p>電子技術科</p></label>
                 <input type="checkbox" id="densi2" class="list densi" />
                 <ul id="densi_list2">
-                    <li><a onclick="syoukai_page('densi_computer','2','1')">コンピュータ室</a></li>
-                    <li><a onclick="syoukai_page('densi_densikairo','2','2')">電子回路実験室</a></li>
+                    <li><a onclick="syoukai_page('densi_computer','2','1')">コンピュータ実習室</a></li>
+                    <li><a onclick="syoukai_page('densi_sougouziken','2','2')">総合実験室</a></li>
                     <li><a onclick="syoukai_page('densi_mukyo','2','3')">無響室</a></li>
 
                 </ul>
 
-                <label for="kentiku2">建築科</label>
+                <label for="kentiku2"><p>建築科</p></label>
                 <input type="checkbox" id="kentiku2" class="list kentiku" />
                 <ul id="kentiku_list2">
                     <li><a onclick="syoukai_page('kentiku_zisyuzyou','3','1')">建築実習教室</a></li>
@@ -173,7 +176,7 @@
                     <li><a onclick="syoukai_page('kentiku_cad','3','4')">建築cad室</a></li>
                 </ul>
 
-                <label for="sande2">産業デザイン科</label>
+                <label for="sande2"><p>産業デザイン科</p></label>
                 <input type="checkbox" id="sande2" class="accordion" />
                 <ul id="sande_list2">
                     <li><a onclick="syoukai_page('sande_dezainjikken','4','1')">デザイン実験室</a></li>
@@ -183,12 +186,13 @@
                     <li><a onclick="syoukai_page('sande_computer','4','5')">コンピュータ室</a></li>
                 </ul>
 
-                <label for="zyohou2">情報技術科</label>
+                <label for="zyohou2"><p>情報技術科</p></label>
                 <input type="checkbox" id="zyohou2" class="accordion" />
                 <ul id="zyohou_list2">
                     <li><a onclick="syoukai_page('zyohou_keisanki','5','1')">計算機工学実験室</a></li>
                     <li><a onclick="syoukai_page('zyohou_kousaku','5','2')">工作室</a></li>
                     <li><a onclick="syoukai_page('zyohou_tusin','5','3')">通信実験室</a></li>
+                    <li><a onclick="syoukai_page('zyohou_gazou','5','4')">画像実験室</a></li>
                 </ul>
 
                 <label for="senkou2">産業技術科専攻技術科</label>
@@ -202,14 +206,15 @@
                 <ul id="honkan_list2">
                     <li><a onclick="syoukai_page('zyohou_keisanki','7','1')">多目的ホール</a></li>
                     <li><a onclick="syoukai_page('zyohou_kousaku','7','2')">大教室</a></li>
-                    <li><a onclick="syoukai_page('zyohou_tusin','7','3')">図書館</a></li>
+                    <li><a onclick="syoukai_page('honkan_tosyo','7','3')">図書館</a></li>
                     <li><a onclick="syoukai_page('zyohou_tusin','7','4')">学生ホール</a></li>
                     <li><a onclick="syoukai_page('zyohou_tusin','7','5')">ラウンジ</a></li>
                 </ul>
 
             </div>
 
-            <ul style="margin-top: 10px;">
+
+            <!-- <ul style="margin-top: 10px;">
                 <li><a onclick="mekatoro('mekatoro_kikaikakou','1','1')">メカトロニクス科</a></li>
                 <ul id="mekatoro_list">
                     <li><a onclick="syoukai_page('mekatoro_kikaikakou','1','1')">機械加工実習場</a></li>
@@ -256,7 +261,7 @@
                     <li><a onclick="syoukai_page('zyohou_tusin','7','4')">学生ホール</a></li>
                     <li><a onclick="syoukai_page('zyohou_tusin','7','5')">ラウンジ</a></li>
                 </ul>
-            </ul>
+            </ul> -->
         </div>
 
         <div id="mizusawa_school">
@@ -406,13 +411,13 @@
             }
         });
 
-        document.getElementById('kentiku_list').style.display = 'none';
-        document.getElementById('sande_list').style.display = 'none';
-        document.getElementById('mekatoro_list').style.display = 'none';
-        document.getElementById('densi_list').style.display = 'none';
-        document.getElementById('zyohou_list').style.display = 'none';
-        document.getElementById('senkou_list').style.display = 'none';
-        document.getElementById('honkan_list').style.display = 'none';
+        // document.getElementById('kentiku_list').style.display = 'none';
+        // document.getElementById('sande_list').style.display = 'none';
+        // document.getElementById('mekatoro_list').style.display = 'none';
+        // document.getElementById('densi_list').style.display = 'none';
+        // document.getElementById('zyohou_list').style.display = 'none';
+        // document.getElementById('senkou_list').style.display = 'none';
+        // document.getElementById('honkan_list').style.display = 'none';
         document.getElementById('mizusawa_school').style.display = 'none';
 
         function kentiku(text, id1, id2) {
@@ -538,12 +543,15 @@
             this_id2 = id2;
             getCSV();
 
-            if (document.getElementById('sample_text').classList.contains("scrollin")) {
-                document.getElementById('sample_text').classList.remove("scrollin");
-                document.getElementById('sample_text').classList.add("remove");
-                
+            if (document.getElementById('classroom_text').classList.contains("scrollin")) {
+                document.getElementById('classroom_text').classList.remove("scrollin");
+                document.getElementById('classroom_text2').classList.add("scrollin");
+
+            } else if (document.getElementById('classroom_text2').classList.contains("scrollin")) {
+                document.getElementById('classroom_text2').classList.remove("scrollin");
+                document.getElementById('classroom_text').classList.add("scrollin");
             } else {
-                document.getElementById('sample_text').classList.add("scrollin");
+                document.getElementById('classroom_text').classList.add("scrollin");
             }
 
 
@@ -600,9 +608,9 @@
 
         function syoukai_text() {
             console.log(bbbb);
-            console.log("と売ってるよ");
             console.log(result[bbbb][2]);
-            document.getElementById('sample_text').textContent = result[bbbb][2];
+            document.getElementById('classroom_text').textContent = result[bbbb][2];
+            document.getElementById('classroom_text2').textContent = result[bbbb][2];
 
             // var text = result[bbbb][2];
             // var elem = document.getElementById("syoukai_text");
@@ -613,12 +621,12 @@
 
         function yahaba_school() {
             document.getElementById('mizusawa_school').style.display = 'none';
-            document.getElementById('yahaba_school').style.display = 'inline-block';
+            document.getElementById('yahaba_school').style.display = 'flex';
 
         }
         function mizusawa_school() {
             document.getElementById('yahaba_school').style.display = 'none';
-            document.getElementById('mizusawa_school').style.display = 'inline-block';
+            document.getElementById('mizusawa_school').style.display = 'flex';
 
         }
 

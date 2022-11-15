@@ -1,15 +1,32 @@
-.yahaba_list {
-  max-width: 600px;
+#yahaba_school {
+  margin-top: 30px;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.yahaba_list a {
+#yahaba_school iframe {
+  max-width: 100%;
+}
+
+#yahaba_school .yahaba_list {
+  width: 20%;
+  margin-left: 10px;
+}
+
+#yahaba_school .yahaba_list a {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: #fff;
 }
 
-.yahaba_list label {
+#yahaba_school .yahaba_list label {
   width: 200px;
   display: block;
   margin: 0;
@@ -22,11 +39,23 @@
   border-bottom: 3px solid #c3c3c3;
 }
 
-.yahaba_list input {
+#yahaba_school .yahaba_list label p {
+  margin-bottom: -10px;
+  display: inline-block;
+}
+
+#yahaba_school .yahaba_list label p:hover {
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  -webkit-transform: perspective(100px) translateZ(10px);
+          transform: perspective(100px) translateZ(10px);
+}
+
+#yahaba_school .yahaba_list input {
   display: none;
 }
 
-.yahaba_list ul {
+#yahaba_school .yahaba_list ul {
   width: 230px;
   margin: 0px 0;
   padding: 0;
@@ -35,44 +64,70 @@
   text-align: center;
 }
 
-.yahaba_list li {
+#yahaba_school .yahaba_list li {
   height: 0;
   overflow: hidden;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
-.yahaba_list #densi2:checked ~ #densi_list2 li,
-.yahaba_list #mekatoro2:checked ~ #mekatoro_list2 li,
-.yahaba_list #kentiku2:checked ~ #kentiku_list2 li,
-.yahaba_list #sande2:checked ~ #sande_list2 li,
-.yahaba_list #zyohou2:checked ~ #zyohou_list2 li,
-.yahaba_list #senkou2:checked ~ #senkou_list2 li,
-.yahaba_list #honkan2:checked ~ #honkan_list2 li {
+#yahaba_school .yahaba_list li a:hover {
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  -webkit-transform: perspective(100px) translateZ(10px);
+          transform: perspective(100px) translateZ(10px);
+}
+
+#yahaba_school .yahaba_list #densi2:checked ~ #densi_list2 li,
+#yahaba_school .yahaba_list #mekatoro2:checked ~ #mekatoro_list2 li,
+#yahaba_school .yahaba_list #kentiku2:checked ~ #kentiku_list2 li,
+#yahaba_school .yahaba_list #sande2:checked ~ #sande_list2 li,
+#yahaba_school .yahaba_list #zyohou2:checked ~ #zyohou_list2 li,
+#yahaba_school .yahaba_list #senkou2:checked ~ #senkou_list2 li,
+#yahaba_school .yahaba_list #honkan2:checked ~ #honkan_list2 li {
   height: 54px;
   opacity: 1;
 }
 
-.sample_text1 {
+#yahaba_school .text_parent {
+  margin: -70px 0px 0px 30px;
+  position: relative;
+}
+
+#yahaba_school .text_parent .classroom_text1 {
+  padding: 10px;
+  color: white;
+  position: absolute;
   opacity: 0.1;
-  -webkit-transform: translate(0, 50px);
-          transform: translate(0, 50px);
+  -webkit-transform: perspective(100px) translate3d(20px, 20px, 0px);
+          transform: perspective(100px) translate3d(20px, 20px, 0px);
   -webkit-transition: all 500ms;
   transition: all 500ms;
 }
 
-.sample_text1.scrollin {
+#yahaba_school .text_parent .classroom_text3 {
+  padding: 10px;
+  color: white;
+  position: absolute;
+  opacity: 0.1;
+  -webkit-transform: perspective(100px) translate3d(20px, 20px, 0px);
+          transform: perspective(100px) translate3d(20px, 20px, 0px);
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+}
+
+#yahaba_school .text_parent .classroom_text1.scrollin {
   opacity: 1;
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: perspective(100px) translate3d(0px, 0px, 20px);
+          transform: perspective(100px) translate3d(0px, 0px, 20px);
 }
 
-.sample_text1.remove {
-  opacity: 0.1;
-  -webkit-transform: translate(0, 50px);
-          transform: translate(0, 50px);
-  -webkit-transition: all 500ms;
-  transition: all 500ms;
+#yahaba_school .text_parent .classroom_text3.scrollin {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: perspective(100px) translate3d(0px, 0px, 20px);
+          transform: perspective(100px) translate3d(0px, 0px, 20px);
 }
 
 @-webkit-keyframes fadeLeftAnime {
@@ -99,5 +154,9 @@
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+}
+
+#welcome {
+  margin-top: 200px;
 }
 /*# sourceMappingURL=vrpage.css.map */
