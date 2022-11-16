@@ -138,6 +138,7 @@
         </div> -->
 
         <div id="yahaba_school">
+
             <div class="vr_content">
                 <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
                 <div class="text_parent">
@@ -146,9 +147,17 @@
                     <p id="classroom_text2" class="classroom_text3"></p>
                 </div>
             </div>
-
+            <div class="vr_control">
+                <ul>
+                    <li><img id="home_button" src="home_button.jpeg"></li>
+                    <li><img id="game_button" src="game_button.jpeg"></li>
+                    <li><img id="back_button" src="back_button.jpeg"></li>
+                </ul>
+            </div>
             <div class="yahaba_list">
-                <label for="mekatoro2"><p>メカトロニクス科</p></label>
+                <label for="mekatoro2">
+                    <p>メカトロニクス科</p>
+                </label>
                 <input type="checkbox" id="mekatoro2" class="list mekatoro" />
                 <ul id="mekatoro_list2">
                     <li><a onclick="syoukai_page('mekatoro_kikaikakou','1','1')">機械加工実習場</a></li>
@@ -158,7 +167,9 @@
 
                 </ul>
 
-                <label for="densi2"><p>電子技術科</p></label>
+                <label for="densi2">
+                    <p>電子技術科</p>
+                </label>
                 <input type="checkbox" id="densi2" class="list densi" />
                 <ul id="densi_list2">
                     <li><a onclick="syoukai_page('densi_computer','2','1')">コンピュータ実習室</a></li>
@@ -167,7 +178,9 @@
 
                 </ul>
 
-                <label for="kentiku2"><p>建築科</p></label>
+                <label for="kentiku2">
+                    <p>建築科</p>
+                </label>
                 <input type="checkbox" id="kentiku2" class="list kentiku" />
                 <ul id="kentiku_list2">
                     <li><a onclick="syoukai_page('kentiku_zisyuzyou','3','1')">建築実習教室</a></li>
@@ -176,7 +189,9 @@
                     <li><a onclick="syoukai_page('kentiku_cad','3','4')">建築cad室</a></li>
                 </ul>
 
-                <label for="sande2"><p>産業デザイン科</p></label>
+                <label for="sande2">
+                    <p>産業デザイン科</p>
+                </label>
                 <input type="checkbox" id="sande2" class="accordion" />
                 <ul id="sande_list2">
                     <li><a onclick="syoukai_page('sande_dezainjikken','4','1')">デザイン実験室</a></li>
@@ -186,7 +201,9 @@
                     <li><a onclick="syoukai_page('sande_computer','4','5')">コンピュータ室</a></li>
                 </ul>
 
-                <label for="zyohou2"><p>情報技術科</p></label>
+                <label for="zyohou2">
+                    <p>情報技術科</p>
+                </label>
                 <input type="checkbox" id="zyohou2" class="accordion" />
                 <ul id="zyohou_list2">
                     <li><a onclick="syoukai_page('zyohou_keisanki','5','1')">計算機工学実験室</a></li>
@@ -297,6 +314,22 @@
         var this_id1; //紹介文をcsvファイルから読み込むための、id
         var this_id2;//紹介文をcsvファイルから読み込むための、id
         console.log("aaaaa");
+
+        //htmlでiframeが読み込まれたら実行
+        $('#top_yahaba_aframe').on('load', function () {
+            //iframeのdocumentを取得する（Mozilla系 || 古いIE系）
+            var doc = this.contentDocument || this.contentWindow.document;
+            console.log((doc.getElementById('Maru')));
+            //iframeの中のhtmlのidが一致するオブジェクトを押すと実行
+            //下記に各科を追加していく
+            $("#top_yahaba_aframe").contents().find(doc.getElementById('Maru')).on("click", function (e) {
+                syoukai_page('densi_computer', '2', '1');
+            });
+            $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("click", function (e) {
+                syoukai_page('kentiku_zisyuzyou', '3', '1');
+            });
+        });
+
         //追加箇所
 
         var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
@@ -409,6 +442,50 @@
             } else {
                 console.log("notok");
             }
+        });
+
+        document.getElementById('home_button').addEventListener('click', function (e) {
+
+            console.log(document.getElementById('top_yahaba_aframe').getAttribute('src'));
+            var iframe_url = document.getElementById('top_yahaba_aframe').getAttribute('src');
+            if (document.getElementById('top_yahaba_aframe').getAttribute('src') != 'yahaba_school_top.html') {
+                document.getElementById('top_yahaba_aframe').setAttribute('src', 'yahaba_school_top.html');
+                document.getElementById('classroom_text').classList.remove("scrollin");
+                document.getElementById('classroom_text2').classList.remove("scrollin");
+
+            }
+
+        });
+
+        document.getElementById('game_button').addEventListener('click', function (e) {
+
+            if (document.getElementById('top_yahaba_aframe').getAttribute('src') != 'yahaba_school_top.html') {
+                //iframeのdocumentを取得する（Mozilla系 || 古いIE系）
+                
+                   
+                var iframeElem = document.getElementsByTagName('iframe');
+
+                var iframeDocument = iframeElem[0].contentDocument || iframeElem[0].contentWindow.document;
+
+                    // var doc2 = this.contentDocument || this.contentWindow.document;
+                    console.log((iframeDocument.getElementById('back-ground').getAttribute('src')));
+                    //紹介ページでの背景のurlは取得済み。例meka_cad.jpg
+                    var img_url = iframeDocument.getElementById('back-ground').getAttribute('src');
+                    
+                    // document.getElementById('top_yahaba_aframe').setAttribute('src', 'Marubatu01.html?a='+img_url);
+                    //下記の処理でMaruBatu.htmlのsample関数を呼びゲームスタート
+                    try{
+                        document.getElementById('top_yahaba_aframe').contentWindow.sample();
+                    }catch(error){
+                        alert("すでにゲーム中");
+                    }
+                    
+                    // document.getElementById('top_yahaba_aframe').getAttribute('src');
+                    // window.location.href = '/aframegame1/MaruBatu01.html?a='+text;
+                
+                
+            }
+
         });
 
         // document.getElementById('kentiku_list').style.display = 'none';

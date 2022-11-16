@@ -24,8 +24,7 @@ window.onload = function () {
     background.setAttribute('src',"images/" + text + ".jpeg");
    
     console.log(background.getAttribute('src'));
-
-    
+   
     
     
 };
@@ -77,6 +76,7 @@ document.getElementById('sample').addEventListener('click',function(e){
 });
 
 function sample(){
+    alert(text);
     window.location.href = '/aframegame1/MaruBatu01.html?a='+text;
 }
 

@@ -14,6 +14,11 @@
   max-width: 100%;
 }
 
+#yahaba_school .vr_control img {
+  width: 30px;
+  height: 30px;
+}
+
 #yahaba_school .yahaba_list {
   width: 20%;
   margin-left: 10px;
@@ -98,7 +103,7 @@
   padding: 10px;
   color: white;
   position: absolute;
-  opacity: 0.1;
+  opacity: 0;
   -webkit-transform: perspective(100px) translate3d(20px, 20px, 0px);
           transform: perspective(100px) translate3d(20px, 20px, 0px);
   -webkit-transition: all 500ms;
@@ -109,7 +114,7 @@
   padding: 10px;
   color: white;
   position: absolute;
-  opacity: 0.1;
+  opacity: 0;
   -webkit-transform: perspective(100px) translate3d(20px, 20px, 0px);
           transform: perspective(100px) translate3d(20px, 20px, 0px);
   -webkit-transition: all 500ms;

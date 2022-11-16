@@ -69,7 +69,22 @@ window.onload = function () {
 
 };
 
-
+// function proc(){
+//     init();
+//     render();
+//     var data = location.href.split("?")[1];
+//     text = data.split("=")[1];
+//     console.log(text);
+//     getCSV();
+//     getCSV2();
+    
+//     var background = document.querySelector('#back-ground');
+//     var a = "12";
+//     background.setAttribute('src',"assets/" + text + ".jpeg");
+//     background.setAttribute('position',a);
+//     console.log(background.getAttribute('position'));
+//     console.log(background.getAttribute('src'));
+// }
 
 function aframeMutlByte() {
     console.log("okだよ");

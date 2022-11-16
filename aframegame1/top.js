@@ -7,7 +7,7 @@ var bbbb;
 var this_text; //各科の紹介文格納用
 var this_id1; //紹介文をcsvファイルから読み込むための、id
 var this_id2;//紹介文をcsvファイルから読み込むための、id
-
+var xhr;
 
 const cameraWrapper = document.getElementById("camera-wrapper")
 const camera = cameraWrapper.querySelector("a-camera")
@@ -52,17 +52,51 @@ function syoukai_page(text, id1, id2) {
     this_id2 = id2;
     getCSV();
 
-    console.log(document.getElementById('classroom_text').classList.contains("scrollin"));
-    if (document.getElementById('classroom_text').classList.contains("scrollin")) {
-        document.getElementById('classroom_text').classList.remove("scrollin");
-        document.getElementById('classroom_text2').classList.add("scrollin");
-
-    } else if (document.getElementById('classroom_text2').classList.contains("scrollin")) {
-        document.getElementById('classroom_text2').classList.remove("scrollin");
-        document.getElementById('classroom_text').classList.add("scrollin");
-    } else {
-        document.getElementById('classroom_text').classList.add("scrollin");
+   
+    console.log("Ajax前");
+    if (window.ActiveXObject) {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        console.log("Ajax中1");
     }
+    else if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+        console.log("Ajax中");
+    }
+    else {
+        throw new Error("Ajax is not supported by this browser");
+    
+    }
+
+    xhr.onreadystatechange = function(){
+        if(this.readyState == 4){  //DONEステート以外は全て無視
+          //応答ステータスによって分岐
+          if(this.status >= 200 && this.status < 300){  
+            //成功し場合に実効するコード
+            console.log("Ajax成功");
+          }
+          else{
+            //失敗時に実行するコード
+            console.log("Ajax失敗");
+          }
+        }
+      } 
+    xhr.open('GET', 'sangitan_vrpage.html');
+    xhr.send(null);
+
+
+    // console.log(document.getElementById('classroom_text').classList.contains("scrollin"));
+    // if (document.getElementById('classroom_text').classList.contains("scrollin")) {
+    //     document.getElementById('classroom_text').classList.remove("scrollin");
+    //     document.getElementById('classroom_text2').classList.add("scrollin");
+
+    // } else if (document.getElementById('classroom_text2').classList.contains("scrollin")) {
+    //     document.getElementById('classroom_text2').classList.remove("scrollin");
+    //     document.getElementById('classroom_text').classList.add("scrollin");
+    // } else {
+    //     document.getElementById('classroom_text').classList.add("scrollin");
+    // }
+
+
 }
 
 function syoukai_hantei() {
