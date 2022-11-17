@@ -140,7 +140,11 @@
         <div id="yahaba_school">
 
             <div class="vr_content">
-                <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
+                <div class="iframe">
+                    <img id="left_button" src="left_button.jpeg">
+                    <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
+                    <img id="right_button" src="right_button.jpeg">
+                </div>
                 <div class="text_parent">
                     <p id="classroom_text" class="classroom_text1">
                     </p>
@@ -215,17 +219,17 @@
                 <label for="senkou2">産業技術科専攻技術科</label>
                 <input type="checkbox" id="senkou2" class="accordion" />
                 <ul id="senkou_list2">
-                    <li><a onclick="syoukai_page('zyohou_keisanki','6','1')">実習室</a></li>
+                    <li><a onclick="syoukai_page('senkou_zisyu','6','1')">実習室</a></li>
                 </ul>
 
                 <label for="honkan2">本館</label>
                 <input type="checkbox" id="honkan2" class="accordion" />
                 <ul id="honkan_list2">
-                    <li><a onclick="syoukai_page('zyohou_keisanki','7','1')">多目的ホール</a></li>
-                    <li><a onclick="syoukai_page('zyohou_kousaku','7','2')">大教室</a></li>
+                    <li><a onclick="syoukai_page('honkan_tamoku','7','1')">多目的ホール</a></li>
+                    <li><a onclick="syoukai_page('honkan_dai','7','2')">大教室</a></li>
                     <li><a onclick="syoukai_page('honkan_tosyo','7','3')">図書館</a></li>
-                    <li><a onclick="syoukai_page('zyohou_tusin','7','4')">学生ホール</a></li>
-                    <li><a onclick="syoukai_page('zyohou_tusin','7','5')">ラウンジ</a></li>
+                    <li><a onclick="syoukai_page('honkan_horu','7','4')">学生ホール</a></li>
+                    <li><a onclick="syoukai_page('honkan_raunzi','7','5')">ラウンジ</a></li>
                 </ul>
 
             </div>
@@ -313,31 +317,59 @@
         var this_text; //各科の紹介文格納用
         var this_id1; //紹介文をcsvファイルから読み込むための、id
         var this_id2;//紹介文をcsvファイルから読み込むための、id
+        var reset_txt;
         console.log("aaaaa");
+        var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
+        Top_yahaba_Aframe.src = "yahaba_school_top.html";
+        var Top_mizusawa_Aframe = document.getElementById('top_mizusawa_aframe');
+        Top_mizusawa_Aframe.src = "mizusawa_school_top.html";
+        document.getElementById('mizusawa_school').style.display = 'none';
+        document.getElementById('right_button').style.visibility = 'hidden';
+        document.getElementById('left_button').style.visibility = 'hidden';
 
         //htmlでiframeが読み込まれたら実行
         $('#top_yahaba_aframe').on('load', function () {
             //iframeのdocumentを取得する（Mozilla系 || 古いIE系）
             var doc = this.contentDocument || this.contentWindow.document;
-            console.log((doc.getElementById('Maru')));
+
+
             //iframeの中のhtmlのidが一致するオブジェクトを押すと実行
             //下記に各科を追加していく
             $("#top_yahaba_aframe").contents().find(doc.getElementById('Maru')).on("click", function (e) {
+
                 syoukai_page('densi_computer', '2', '1');
             });
             $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("click", function (e) {
+
                 syoukai_page('kentiku_zisyuzyou', '3', '1');
             });
         });
 
+
+        //左右のボタン表示の処理
+        function button_visi() {
+
+            if (document.getElementById('top_yahaba_aframe').getAttribute('src') != 'yahaba_school_top.html') {
+
+
+                document.getElementById('right_button').style.visibility = 'visible';
+                document.getElementById('left_button').style.visibility = 'visible';
+                document.getElementById('right_button').classList.add("fadein");
+                document.getElementById('left_button').classList.add("fadein");
+
+
+
+
+
+            }
+        }
+
         //追加箇所
 
-        var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
-        Top_yahaba_Aframe.src = "yahaba_school_top.html";
-        var Top_mizusawa_Aframe = document.getElementById('top_mizusawa_aframe');
-        Top_mizusawa_Aframe.src = "mizusawa_school_top.html";
+
 
         document.getElementById('mekatoro2').addEventListener('click', function (e) {
+
             if (document.getElementById("mekatoro2").checked) {
 
                 document.getElementById("densi2").checked = false;
@@ -354,6 +386,7 @@
         });
 
         document.getElementById('densi2').addEventListener('click', function (e) {
+
             if (document.getElementById("densi2").checked) {
 
                 document.getElementById("mekatoro2").checked = false;
@@ -369,6 +402,7 @@
         });
 
         document.getElementById('kentiku2').addEventListener('click', function (e) {
+
             if (document.getElementById("kentiku2").checked) {
 
                 document.getElementById("densi2").checked = false;
@@ -385,6 +419,7 @@
         });
 
         document.getElementById('sande2').addEventListener('click', function (e) {
+
             if (document.getElementById("sande2").checked) {
 
                 document.getElementById("densi2").checked = false;
@@ -400,6 +435,7 @@
         });
 
         document.getElementById('zyohou2').addEventListener('click', function (e) {
+
             if (document.getElementById("zyohou2").checked) {
 
                 document.getElementById("densi2").checked = false;
@@ -415,6 +451,7 @@
         });
 
         document.getElementById('senkou2').addEventListener('click', function (e) {
+
             if (document.getElementById("senkou2").checked) {
 
                 document.getElementById("densi2").checked = false;
@@ -430,6 +467,7 @@
         });
 
         document.getElementById('honkan2').addEventListener('click', function (e) {
+
             if (document.getElementById("honkan2").checked) {
 
                 document.getElementById("densi2").checked = false;
@@ -452,38 +490,161 @@
                 document.getElementById('top_yahaba_aframe').setAttribute('src', 'yahaba_school_top.html');
                 document.getElementById('classroom_text').classList.remove("scrollin");
                 document.getElementById('classroom_text2').classList.remove("scrollin");
+                document.getElementById('right_button').classList.remove("fadein");
+                document.getElementById('left_button').classList.remove("fadein");
+                document.getElementById('right_button').style.visibility = 'hidden';
+                document.getElementById('left_button').style.visibility = 'hidden';
 
             }
 
         });
 
+
+        document.getElementById('left_button').addEventListener('click', function (e) {
+
+            if (document.getElementById('left_button').style.visibility == 'visible') {
+                var leftbtn_cnt = 0;
+                switch (Number(this_id2)) {
+                    case 1:
+                        for (i = 0; i < 10; i++) {
+                            if (result[Number(bbbb) + i][0] == this_id1) {
+                                leftbtn_cnt++;
+                            } else {
+                                // alert(leftbtn_cnt);
+                                break;
+                            }
+                        }
+
+                        syoukai_page(result[Number(bbbb) + (leftbtn_cnt - 1)][3], Number(this_id1), Number(this_id2) + (leftbtn_cnt - 1));
+                        reset_txt = result[bbbb][3];
+                        alert("case1だよ");
+                        break;
+
+                    case 2:
+                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        alert("case2だよ");
+                        break;
+                    case 3:
+                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        alert("case3だよ");
+
+
+
+                        break;
+                    case 4:
+                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        alert("case4だよ");
+
+
+                        break;
+                    case 5:
+                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        alert("case5だよ");
+
+
+                        break;
+                }
+
+            }
+
+        });
+
+        document.getElementById('right_button').addEventListener('click', function (e) {
+
+            if (document.getElementById('right_button').style.visibility == 'visible') {
+
+                switch (Number(this_id2)) {
+                    case 1:
+                        // reset_txt = result[bbbb][3];
+                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
+
+                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+
+                            alert("case1だよ");
+                        } else {
+                            syoukai_page(reset_txt, Number(this_id1), 1);
+                            alert(reset_txt);
+                        }
+                        break;
+
+                    case 2:
+                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                            alert("case2だよ");
+                        } else {
+                            syoukai_page(reset_txt, Number(this_id1), 1);
+                            alert(reset_txt);
+                        }
+                        break;
+                    case 3:
+                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                            alert("case3だよ");
+                        } else {
+                            syoukai_page(reset_txt, Number(this_id1), 1);
+                            alert(reset_txt);
+
+                        }
+
+
+                        break;
+                    case 4:
+
+                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                            alert("case4だよ");
+                        } else {
+                            syoukai_page(reset_txt, Number(this_id1), 1);
+                            alert(reset_txt);
+
+                        }
+
+                        break;
+                    case 5:
+                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                            alert("case5だよ");
+                        } else {
+                            syoukai_page(reset_txt, Number(this_id1), 1);
+                            alert(reset_txt);
+
+                        }
+
+                        break;
+                }
+            }
+
+        });
+
+
+
         document.getElementById('game_button').addEventListener('click', function (e) {
 
             if (document.getElementById('top_yahaba_aframe').getAttribute('src') != 'yahaba_school_top.html') {
                 //iframeのdocumentを取得する（Mozilla系 || 古いIE系）
-                
-                   
+
+
                 var iframeElem = document.getElementsByTagName('iframe');
 
                 var iframeDocument = iframeElem[0].contentDocument || iframeElem[0].contentWindow.document;
 
-                    // var doc2 = this.contentDocument || this.contentWindow.document;
-                    console.log((iframeDocument.getElementById('back-ground').getAttribute('src')));
-                    //紹介ページでの背景のurlは取得済み。例meka_cad.jpg
-                    var img_url = iframeDocument.getElementById('back-ground').getAttribute('src');
-                    
-                    // document.getElementById('top_yahaba_aframe').setAttribute('src', 'Marubatu01.html?a='+img_url);
-                    //下記の処理でMaruBatu.htmlのsample関数を呼びゲームスタート
-                    try{
-                        document.getElementById('top_yahaba_aframe').contentWindow.sample();
-                    }catch(error){
-                        alert("すでにゲーム中");
-                    }
-                    
-                    // document.getElementById('top_yahaba_aframe').getAttribute('src');
-                    // window.location.href = '/aframegame1/MaruBatu01.html?a='+text;
-                
-                
+                // var doc2 = this.contentDocument || this.contentWindow.document;
+                console.log((iframeDocument.getElementById('back-ground').getAttribute('src')));
+                //紹介ページでの背景のurlは取得済み。例meka_cad.jpg
+                var img_url = iframeDocument.getElementById('back-ground').getAttribute('src');
+
+                // document.getElementById('top_yahaba_aframe').setAttribute('src', 'Marubatu01.html?a='+img_url);
+                //下記の処理でMaruBatu.htmlのsample関数を呼びゲームスタート
+                try {
+                    document.getElementById('top_yahaba_aframe').contentWindow.sample();
+                } catch (error) {
+                    alert("すでにゲーム中");
+                }
+
+                // document.getElementById('top_yahaba_aframe').getAttribute('src');
+                // window.location.href = '/aframegame1/MaruBatu01.html?a='+text;
+
+
             }
 
         });
@@ -495,7 +656,7 @@
         // document.getElementById('zyohou_list').style.display = 'none';
         // document.getElementById('senkou_list').style.display = 'none';
         // document.getElementById('honkan_list').style.display = 'none';
-        document.getElementById('mizusawa_school').style.display = 'none';
+
 
         function kentiku(text, id1, id2) {
             var kentiku_list = document.getElementById('kentiku_list').style.display;
@@ -614,11 +775,45 @@
 
 
         function syoukai_page(text, id1, id2) {
+
             var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
             Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
             this_id1 = id1;
             this_id2 = id2;
             getCSV();
+
+            button_visi();
+
+            //リストかオブジェクトから、飛んだ時にどの科にいるか指定
+            switch (Number(this_id1)) {
+                case 1:
+                    reset_txt = 'mekatoro_kikaikakou';
+                    break;
+
+                case 2:
+                    reset_txt = 'densi_computer';
+                    break;
+
+                case 3:
+                    reset_txt = 'kentiku_zisyuzyou';
+                    break;
+
+                case 4:
+                    reset_txt = 'sande_dezainjikken';
+                    break;
+
+                case 5:
+                    reset_txt = 'zyohou_keisanki';
+                    break;
+
+                case 6:
+                    reset_txt = 'senkou_zisyu';
+                    break;
+
+                case 7:
+                    reset_txt = 'honkan_tamoku';
+                    break;
+            }
 
             if (document.getElementById('classroom_text').classList.contains("scrollin")) {
                 document.getElementById('classroom_text').classList.remove("scrollin");

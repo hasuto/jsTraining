@@ -5,12 +5,53 @@
     display: flex;
     justify-content: space-between;
 
-    iframe {
-        max-width: 100%;
+    .vr_content {
+
+        .iframe {
+
+
+            align-items: center;
+            display: flex;
+            // margin: -70px 0px 0px 30px;
+            position: relative;
+
+            iframe {
+                max-width: 100%;
+                width: 80%;
+                // float: left;
+
+            }
+
+            img {
+
+                
+                opacity: 0;
+                transform: perspective(100px) translate3d(20px, 20px, 0px);
+                transition: all 500ms;
+                height: 100%;
+                margin: auto;
+                // vertical-align: middle;/*縦の表示位置も指定できる*/
+                width: 10%;
+                // float: left;
+
+
+                &:hover {
+                    transition: all 500ms;
+                    transform: perspective(100px) translateZ(10px);
+                }
+            }
+            img.fadein{
+                opacity: 1;
+            
+            transform: perspective(100px) translate3d(0px, 0px, 20px);
+            }
+        }
     }
 
-    .vr_control{
-        img{
+
+
+    .vr_control {
+        img {
             width: 30px;
             height: 30px;
         }
@@ -43,6 +84,7 @@
             p {
                 margin-bottom: -10px;
                 display: inline-block;
+
                 //各科のホバー処理(拡大)
                 &:hover {
                     transition: all 500ms;
@@ -135,7 +177,7 @@
             transform: perspective(100px) translate3d(20px, 20px, 0px);
             transition: all 500ms;
         }
-    
+
         .classroom_text1.scrollin {
             opacity: 1;
             background-color: rgba($color: #000000, $alpha: 0.3);

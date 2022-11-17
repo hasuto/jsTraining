@@ -10,8 +10,43 @@
           justify-content: space-between;
 }
 
-#yahaba_school iframe {
+#yahaba_school .vr_content .iframe {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+#yahaba_school .vr_content .iframe iframe {
   max-width: 100%;
+  width: 80%;
+}
+
+#yahaba_school .vr_content .iframe img {
+  opacity: 0;
+  -webkit-transform: perspective(100px) translate3d(20px, 20px, 0px);
+          transform: perspective(100px) translate3d(20px, 20px, 0px);
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  height: 100%;
+  margin: auto;
+  width: 10%;
+}
+
+#yahaba_school .vr_content .iframe img:hover {
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  -webkit-transform: perspective(100px) translateZ(10px);
+          transform: perspective(100px) translateZ(10px);
+}
+
+#yahaba_school .vr_content .iframe img.fadein {
+  opacity: 1;
+  -webkit-transform: perspective(100px) translate3d(0px, 0px, 20px);
+          transform: perspective(100px) translate3d(0px, 0px, 20px);
 }
 
 #yahaba_school .vr_control img {
