@@ -4,7 +4,7 @@ var text; //各科の紹介文格納用
 var id1; //紹介文をcsvファイルから読み込むための、id
 var id2;//紹介文をcsvファイルから読み込むための、id
 var tmp;
-var bbbb; //csvファイルの何行目にあるかの判定用変数
+var csv_column; //csvファイルの何行目にあるかの判定用変数
 
 window.onload = function () {
     
@@ -62,7 +62,7 @@ function syoukai_hantei(){
             console.log(str2);
             console.log(j);
             console.log(result[j][2]);
-            bbbb = j;
+            csv_column = j;
             break;
         }
         
@@ -82,10 +82,10 @@ function sample(){
 
 function syoukaibun() {
     console.log("okだよ");
-    console.log(result[bbbb][2]);
+    console.log(result[csv_column][2]);
     document.querySelectorAll('[syobun]:empty').forEach(syobun => {
         console.log(syobun.dataset.text);
-        syobun.dataset.text = result[bbbb][2];
+        syobun.dataset.text = result[csv_column][2];
         console.log(syobun.dataset.text);
         const text = syobun.dataset.text
         const text_cnt = text.length
@@ -126,12 +126,12 @@ function aframeMutlByte() {
 }
 
 function syoukai_text(){
-    console.log(bbbb);
-    console.log(result[bbbb][2]);
+    console.log(csv_column);
+    console.log(result[csv_column][2]);
     syoukaibun();
     aframeMutlByte();
 
-    // var text = result[bbbb][2];
+    // var text = result[csv_column][2];
     // var elem = document.getElementById("syoukai_text");
     // elem.innerHTML = text;
     // document.getElementById("syoukai_text").textContent = text;

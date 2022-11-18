@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="./pannellum.css" />
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="vrpage.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> 
+     -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type="text/javascript" src="top.js"></script>
     <script type="text/javascript" src="./pannellum.js"></script>
 </head>
@@ -139,27 +142,30 @@
 
         <div id="yahaba_school">
 
+          
             <div class="vr_content">
+                <div class="vr_control">
+                    <ul>
+                        <li><img id="home_button" src="home_button.png"></li>
+                        <li><img id="game_button" src="game_button.png"></li>
+                        
+                    </ul>
+                </div>
                 <div class="iframe">
-                    <img id="left_button" src="left_button.jpeg">
+                    <img id="left_button" src="left_button.png">
                     <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
-                    <img id="right_button" src="right_button.jpeg">
+                    <img id="right_button" src="right_button.png">
                 </div>
                 <div class="text_parent">
                     <p id="classroom_text" class="classroom_text1">
                     </p>
                     <p id="classroom_text2" class="classroom_text3"></p>
                 </div>
+                
             </div>
-            <div class="vr_control">
-                <ul>
-                    <li><img id="home_button" src="home_button.jpeg"></li>
-                    <li><img id="game_button" src="game_button.jpeg"></li>
-                    <li><img id="back_button" src="back_button.jpeg"></li>
-                </ul>
-            </div>
+            
             <div class="yahaba_list">
-                <label for="mekatoro2">
+                <label class="label_meka" for="mekatoro2">
                     <p>メカトロニクス科</p>
                 </label>
                 <input type="checkbox" id="mekatoro2" class="list mekatoro" />
@@ -171,7 +177,7 @@
 
                 </ul>
 
-                <label for="densi2">
+                <label class="label_densi" for="densi2">
                     <p>電子技術科</p>
                 </label>
                 <input type="checkbox" id="densi2" class="list densi" />
@@ -182,7 +188,7 @@
 
                 </ul>
 
-                <label for="kentiku2">
+                <label class="label_kentiku" for="kentiku2">
                     <p>建築科</p>
                 </label>
                 <input type="checkbox" id="kentiku2" class="list kentiku" />
@@ -193,7 +199,7 @@
                     <li><a onclick="syoukai_page('kentiku_cad','3','4')">建築cad室</a></li>
                 </ul>
 
-                <label for="sande2">
+                <label class="label_sande" for="sande2">
                     <p>産業デザイン科</p>
                 </label>
                 <input type="checkbox" id="sande2" class="accordion" />
@@ -205,7 +211,7 @@
                     <li><a onclick="syoukai_page('sande_computer','4','5')">コンピュータ室</a></li>
                 </ul>
 
-                <label for="zyohou2">
+                <label class="label_zyohou" for="zyohou2">
                     <p>情報技術科</p>
                 </label>
                 <input type="checkbox" id="zyohou2" class="accordion" />
@@ -216,13 +222,13 @@
                     <li><a onclick="syoukai_page('zyohou_gazou','5','4')">画像実験室</a></li>
                 </ul>
 
-                <label for="senkou2">産業技術科専攻技術科</label>
+                <label class="label_senkou" for="senkou2">産業技術科専攻技術科</label>
                 <input type="checkbox" id="senkou2" class="accordion" />
                 <ul id="senkou_list2">
                     <li><a onclick="syoukai_page('senkou_zisyu','6','1')">実習室</a></li>
                 </ul>
 
-                <label for="honkan2">本館</label>
+                <label class="label_honkan" for="honkan2">本館</label>
                 <input type="checkbox" id="honkan2" class="accordion" />
                 <ul id="honkan_list2">
                     <li><a onclick="syoukai_page('honkan_tamoku','7','1')">多目的ホール</a></li>
@@ -286,7 +292,7 @@
         </div>
 
         <div id="mizusawa_school">
-            <iframe id="top_mizusawa_aframe" src="" width="1000px" height="400px"></iframe>
+            <iframe id="top_mizusawa_aframe" src="" width="1500px" height="400px"></iframe>
 
         </div>
 
@@ -313,7 +319,7 @@
     <script>
 
         var result = [];
-        var bbbb;
+        var csv_column;
         var this_text; //各科の紹介文格納用
         var this_id1; //紹介文をcsvファイルから読み込むための、id
         var this_id2;//紹介文をcsvファイルから読み込むための、id
@@ -507,7 +513,7 @@
                 switch (Number(this_id2)) {
                     case 1:
                         for (i = 0; i < 10; i++) {
-                            if (result[Number(bbbb) + i][0] == this_id1) {
+                            if (result[Number(csv_column) + i][0] == this_id1) {
                                 leftbtn_cnt++;
                             } else {
                                 // alert(leftbtn_cnt);
@@ -515,30 +521,30 @@
                             }
                         }
 
-                        syoukai_page(result[Number(bbbb) + (leftbtn_cnt - 1)][3], Number(this_id1), Number(this_id2) + (leftbtn_cnt - 1));
-                        reset_txt = result[bbbb][3];
+                        syoukai_page(result[Number(csv_column) + (leftbtn_cnt - 1)][3], Number(this_id1), Number(this_id2) + (leftbtn_cnt - 1));
+                        reset_txt = result[csv_column][3];
                         alert("case1だよ");
                         break;
 
                     case 2:
-                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        syoukai_page(result[Number(csv_column) - 1][3], Number(this_id1), Number(this_id2) - 1);
                         alert("case2だよ");
                         break;
                     case 3:
-                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        syoukai_page(result[Number(csv_column) - 1][3], Number(this_id1), Number(this_id2) - 1);
                         alert("case3だよ");
 
 
 
                         break;
                     case 4:
-                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        syoukai_page(result[Number(csv_column) - 1][3], Number(this_id1), Number(this_id2) - 1);
                         alert("case4だよ");
 
 
                         break;
                     case 5:
-                        syoukai_page(result[Number(bbbb) - 1][3], Number(this_id1), Number(this_id2) - 1);
+                        syoukai_page(result[Number(csv_column) - 1][3], Number(this_id1), Number(this_id2) - 1);
                         alert("case5だよ");
 
 
@@ -555,10 +561,10 @@
 
                 switch (Number(this_id2)) {
                     case 1:
-                        // reset_txt = result[bbbb][3];
-                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
+                        // reset_txt = result[csv_column][3];
+                        if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
 
-                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                            syoukai_page(result[Number(csv_column) + 1][3], Number(this_id1), Number(this_id2) + 1);
 
                             alert("case1だよ");
                         } else {
@@ -568,8 +574,8 @@
                         break;
 
                     case 2:
-                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
-                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                        if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(csv_column) + 1][3], Number(this_id1), Number(this_id2) + 1);
                             alert("case2だよ");
                         } else {
                             syoukai_page(reset_txt, Number(this_id1), 1);
@@ -577,8 +583,8 @@
                         }
                         break;
                     case 3:
-                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
-                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                        if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(csv_column) + 1][3], Number(this_id1), Number(this_id2) + 1);
                             alert("case3だよ");
                         } else {
                             syoukai_page(reset_txt, Number(this_id1), 1);
@@ -590,8 +596,8 @@
                         break;
                     case 4:
 
-                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
-                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                        if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(csv_column) + 1][3], Number(this_id1), Number(this_id2) + 1);
                             alert("case4だよ");
                         } else {
                             syoukai_page(reset_txt, Number(this_id1), 1);
@@ -601,8 +607,8 @@
 
                         break;
                     case 5:
-                        if (result[Number(bbbb) + 1][0] == Number(this_id1)) {
-                            syoukai_page(result[Number(bbbb) + 1][3], Number(this_id1), Number(this_id2) + 1);
+                        if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
+                            syoukai_page(result[Number(csv_column) + 1][3], Number(this_id1), Number(this_id2) + 1);
                             alert("case5だよ");
                         } else {
                             syoukai_page(reset_txt, Number(this_id1), 1);
@@ -638,7 +644,12 @@
                 try {
                     document.getElementById('top_yahaba_aframe').contentWindow.sample();
                 } catch (error) {
-                    alert("すでにゲーム中");
+                    swal.fire({
+                        title:'すでにゲーム中だよ'
+                        ,confirmButtonColor : '#004EA2'
+                    }).then(function(result){
+                        console.log(result);
+                    });
                 }
 
                 // document.getElementById('top_yahaba_aframe').getAttribute('src');
@@ -867,24 +878,24 @@
                     console.log(str2);
                     console.log(j);
                     console.log(result[j][2]);
-                    bbbb = j;
+                    csv_column = j;
                     break;
                 }
 
             }
 
-            result[bbbb][2]
+            result[csv_column][2]
             syoukai_text();
         }
 
 
         function syoukai_text() {
-            console.log(bbbb);
-            console.log(result[bbbb][2]);
-            document.getElementById('classroom_text').textContent = result[bbbb][2];
-            document.getElementById('classroom_text2').textContent = result[bbbb][2];
+            console.log(csv_column);
+            console.log(result[csv_column][2]);
+            document.getElementById('classroom_text').textContent = result[csv_column][2];
+            document.getElementById('classroom_text2').textContent = result[csv_column][2];
 
-            // var text = result[bbbb][2];
+            // var text = result[csv_column][2];
             // var elem = document.getElementById("syoukai_text");
             // elem.innerHTML = text;
             // document.getElementById("syoukai_text").textContent = text;
