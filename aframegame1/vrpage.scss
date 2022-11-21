@@ -1,25 +1,31 @@
 #yahaba_school {
 
     margin-top: 30px;
-    width: 110%;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 
     .vr_content {
-
+        width: 80%;
+        
         .vr_control {
-            position: absolute;
+            position: relative;
             z-index: 2;
-
+            width: 100%;
             ul {
                 list-style: none;
-                margin: 5px 0px 0px 40px;
+                margin: 5px 0px 0px 8%;
+                padding-left: 0;
+               
+                
 
                 li {
-                    margin-left: auto;
+                    margin-left: 5px;
                     display: inline-block; //高さ幅をしていできるようにinline-block指定
-
+                    &:nth-child(2){//ゲームボタンアイコンだけ、幅を狭めるため。
+                        margin-left: -1px;
+                    }
                     img {
                         border-radius: 10px;
                         background-color: rgba($color: white, $alpha: 0.5);
@@ -28,12 +34,13 @@
                         height: 50px;
                     }
                 }
+                
             }
         }
 
         .iframe {
             z-index: 1;
-
+            margin-top: -54px;
             align-items: center;
             display: flex;
             // margin: -70px 0px 0px 30px;
@@ -41,13 +48,14 @@
 
             iframe {
                 max-width: 100%;
-                width: 80%;
+                width: 95%;
+                
                 // float: left;
 
             }
 
             img {
-
+                
                 color: #fff;
                 opacity: 0;
                 transform: perspective(100px) translate3d(20px, 20px, 0px);
@@ -55,7 +63,7 @@
                 height: 100%;
                 margin: auto;
                 // vertical-align: middle;/*縦の表示位置も指定できる*/
-                width: 10%;
+                width: 8%;
                 // float: left;
 
 

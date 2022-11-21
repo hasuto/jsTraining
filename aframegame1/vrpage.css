@@ -1,6 +1,6 @@
 #yahaba_school {
   margin-top: 30px;
-  width: 110%;
+  max-width: 100%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,19 +10,29 @@
           justify-content: space-between;
 }
 
+#yahaba_school .vr_content {
+  width: 80%;
+}
+
 #yahaba_school .vr_content .vr_control {
-  position: absolute;
+  position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 #yahaba_school .vr_content .vr_control ul {
   list-style: none;
-  margin: 5px 0px 0px 40px;
+  margin: 5px 0px 0px 8%;
+  padding-left: 0;
 }
 
 #yahaba_school .vr_content .vr_control ul li {
-  margin-left: auto;
+  margin-left: 5px;
   display: inline-block;
+}
+
+#yahaba_school .vr_content .vr_control ul li:nth-child(2) {
+  margin-left: -1px;
 }
 
 #yahaba_school .vr_content .vr_control ul li img {
@@ -35,6 +45,7 @@
 
 #yahaba_school .vr_content .iframe {
   z-index: 1;
+  margin-top: -54px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -46,7 +57,7 @@
 
 #yahaba_school .vr_content .iframe iframe {
   max-width: 100%;
-  width: 80%;
+  width: 95%;
 }
 
 #yahaba_school .vr_content .iframe img {
@@ -58,7 +69,7 @@
   transition: all 500ms;
   height: 100%;
   margin: auto;
-  width: 10%;
+  width: 8%;
 }
 
 #yahaba_school .vr_content .iframe img.fadein {
