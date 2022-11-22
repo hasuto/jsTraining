@@ -20,9 +20,11 @@ window.onload = function () {
  
     
     var background = document.querySelector('#back-ground');
-   
+    var audio = document.querySelector('#audio01');
     background.setAttribute('src',"images/" + text + ".jpeg");
-   
+    //soundsフォルダーに各科の教室の名前をつけたmp3ファイルを作って、下のコメント外せば完成
+    // audio.setAttribute('src',"../sounds/" + text + ".mp3");
+    audio.setAttribute('src',"../sounds/sample.mp3");
     console.log(background.getAttribute('src'));
    
     
@@ -30,13 +32,12 @@ window.onload = function () {
 };
 
 function syoukai_hantei(){
-    var a,b;
+    var hantei_id1,b;
     var i;
     // for(var i=0; i<=tmp.length; i++){
     //     console.log(i);
     // }
-    var c  = result[1][2];
-    console.log(c);
+   
 
     console.log(tmp.length);
 
@@ -49,13 +50,12 @@ function syoukai_hantei(){
             console.log("id1"+id1);
             console.log(str);
             console.log(i);
-            a = i;
-            console.log("a="+a);
+            hantei_id1 = i;
             break;
         }
     }
 
-    for(var j = a; j<=tmp.length; j++){
+    for(var j = hantei_id1; j<=tmp.length; j++){
         console.log("a2="+j);
         var str2 = result[j][1];
         if(str2 == id2){
