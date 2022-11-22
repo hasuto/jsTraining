@@ -141,8 +141,11 @@
  </div> -->
 
 
-        <div class="loading">
+        <!-- <div class="loading">
             <span class="circle"></span>
+        </div> -->
+        <div id="loader">
+           
         </div>
 
         <div id="yahaba_school">
@@ -345,11 +348,18 @@
 
 
 
-        const loading = document.querySelector('.loading');
+        // const loading = document.getElementById('loader');
 
-        window.addEventListener('load', () => {
-            loading.classList.add('hide');
-        }, false);
+        // window.addEventListener('load', () => {
+        //     setTimeout(function(){
+        //         loading.classList.add('hide');
+        //     },3000)
+            
+        // }, false);
+        window.onload = ()=>{
+            const loading = document.getElementById('loader');
+            loading.classList.add('loaded');
+        }
        
 
         //htmlでiframeが読み込まれたら実行
