@@ -75,7 +75,7 @@ document.getElementById('sample').addEventListener('click',function(e){
     console.log("押しているよ");
 });
 
-function sample(){
+function marubatu_game(){
     alert(text);
     window.location.href = '/aframegame1/MaruBatu01.html?a='+text;
 }
