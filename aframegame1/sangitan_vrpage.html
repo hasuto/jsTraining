@@ -144,9 +144,9 @@
         <!-- <div class="loading">
             <span class="circle"></span>
         </div> -->
-        <div id="loader">
+        <!-- <div id="loader">
            
-        </div>
+        </div> -->
 
         <div id="yahaba_school">
 
@@ -161,7 +161,7 @@
                 </div>
                 <div class="iframe">
                     <img id="left_button" src="left_button.png">
-                    <iframe id="top_yahaba_aframe" src="" width="1000px" height="400px"></iframe>
+                    <iframe id="top_yahaba_aframe" src=""></iframe>
                     <img id="right_button" src="right_button.png">
                 </div>
                 <div class="text_parent">
@@ -308,14 +308,14 @@
 
         </div>
 
-        <div id="welcome">
+        <!-- <div id="welcome">
             <p>産技短バーチャル学校見学へようこそ。</p>
             <p>このサイトでは、360度カメラで撮影した産技短の施設内の様子を、VR画像で見ることができます。 また、音声をオンにすると各教室の解説を聞くことができます。
             </p>
             <p>映像は自動的に回転していますが、マウスや指で回転を止めたり、映像を大きくしたり小さくしたりできます。 スマートフォンでご覧の方は、端末の動きに合わせて見たい方向の映像を見られます。
             </p>
             <p>それでは、バーチャル学校見学をお楽しみください。</p>
-        </div>
+        </div> -->
         <hr>
         <div class="text-center">
             <a href="https://www.iwate-it.ac.jp/" class="text-dark">&copy; 2020 Iwate Industrial Technology Junior
@@ -357,7 +357,9 @@
             
         // }, false);
         window.onload = ()=>{
+
             const loading = document.getElementById('loader');
+            getCSV();
             loading.classList.add('loaded');
         }
        
@@ -371,11 +373,9 @@
             //iframeの中のhtmlのidが一致するオブジェクトを押すと実行
             //下記に各科を追加していく
             $("#top_yahaba_aframe").contents().find(doc.getElementById('Maru')).on("click", function (e) {
-                loader1();
                 syoukai_page('2', '1');
             });
             $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("click", function (e) {
-                loader1();
                 syoukai_page('3', '1');
             });
         });
@@ -827,7 +827,8 @@
             // Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
             this_id1 = id1;
             this_id2 = id2;
-            getCSV();
+            // getCSV();
+            syoukai_hantei();
 
 
             // button_visi();
@@ -875,7 +876,10 @@
             }
 
 
-
+            Top_yahaba_Aframe.onload = function(){
+             
+                button_visi();
+            } 
 
 
 
@@ -919,7 +923,7 @@
             console.log(csv_column);
             // result[csv_column][2]
             Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + result[csv_column][3] + "=" + this_id1 + "=" + this_id2;
-            button_visi();
+            
             syoukai_text();
         }
 
@@ -973,7 +977,7 @@
             }
 
             console.log(result[1][2]); // 300yen
-            syoukai_hantei();
+            // syoukai_hantei();
 
         }
 

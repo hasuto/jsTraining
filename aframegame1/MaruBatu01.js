@@ -337,6 +337,7 @@ function restart() {
     var seikai = document.querySelector('#seikai');
     var hazure = document.querySelector('#hazure');
     var hanteiback = document.querySelector('#hantei-back');
+    
     console.log("押してる");
     if (restart.getAttribute('visible') == true) {
         score = 0;
@@ -362,15 +363,21 @@ function restart() {
 //ゲームスタートボタン押したとき
 function start() {
     var startbutton = document.querySelector('#start-button');
+    var game_explanation_1 = document.querySelector('#game-explanation_1');
+    var game_explanation_2 = document.querySelector('#game-explanation_2');
+    var game_explanation_3 = document.querySelector('#game-explanation_3');
     // var startback = document.querySelector('#start-button');
     // var front_text = document.getElementById("front_text");
     // front_text.setAttribute("value", "Hello, World! \n hello ");
     // var mondaibun = document.querySelector('#mondaibun').mb_text.dataset.text;
     // console.log(mondaibun);
-
+    
     console.log(result[1][2]);
     if (startbutton.getAttribute('visible') == true) {
         startbutton.setAttribute('visible', false);
+        game_explanation_1.setAttribute('visible',false);
+        game_explanation_2.setAttribute('visible',false);
+        game_explanation_3.setAttribute('visible',false);
         // startback.setAttribute('visible',false);
         cnt++;
         mondai();
