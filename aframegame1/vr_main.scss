@@ -1,0 +1,410 @@
+@charset "UTF-8";
+
+body {
+    margin: 0px;
+}
+
+.container {
+    // padding-left: 15px;
+    // padding-right: 15px;
+    // margin-top: 10px;
+    // margin-left: 150px;
+    // margin-right: 150px;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+
+
+
+    .navbar-brand {
+        color: #fff;
+        font-size: larger;
+        font-weight: 600;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+
+
+    .navbar-nav {
+        margin-bottom: 0px;
+        display: flex;
+    }
+
+    .nav-item {
+        list-style: none;
+        margin-left: 20px;
+    }
+
+    .nav-link {
+        color: #fff;
+        font-size: medium;
+        text-decoration: none;
+    }
+
+
+
+
+
+    /* モーダルCSS */
+    .modalArea {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        /*サイトによってここの数値は調整 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &.modalBg {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 30, 30, 0.9);
+        }
+    }
+
+
+
+    .modalWrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        height: auto;
+        max-width: 500px;
+        padding: 10px 30px;
+        background-color: #fff;
+        border-radius: 10px;
+
+        &.modal-title {
+            font-size: larger;
+        }
+
+        &.closeModal {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            cursor: pointer;
+        }
+
+        &.modal-body ul {
+            width: auto;
+
+            &li {
+                margin: 10px;
+
+                &img {
+                    padding: 3px;
+                }
+            }
+        }
+    }
+
+    .yahaba_school {
+
+        display: flex;
+
+        .iframe {
+            width: 90%;
+            margin-top: -18px;
+
+            iframe {
+                margin-top: -18px;
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                height: 100vh;
+            }
+
+            .school_img {
+                z-index: 3;
+                position: relative;
+
+                #title-img {
+                    position: relative;
+                    z-index: 10;
+                    width: 130px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                    padding-left: 30px;
+                    margin-left: 10px;
+                    margin-top: 30px;
+                    margin-bottom: -40px;
+                }
+            }
+        }
+
+        .yahaba_list {
+            width: 210px;
+            margin-left: 0px;
+
+
+            a {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                color: #fff;
+            }
+
+            label {
+                width: 210px;
+                display: block;
+                margin: 0;
+                padding: 10px 15px 60px 15px;
+                line-height: 1;
+                color: black;
+                background: #f0f0f0;
+                cursor: pointer;
+                text-align: center;
+
+                position: relative;
+
+                &.label_meka {
+                    border-bottom: 6px solid #2A579A;
+
+                    &:hover {
+                        transition: all 500ms;
+                        background: #2A579A;
+                        color: #fff;
+                        p::after{
+                            transition: all 500ms;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+                    }
+                }
+
+                &.label_densi {
+                    border-bottom: 6px solid #FFA826;
+
+                    // background: #FFA826;
+                    &:hover {
+                        transition: all 500ms;
+                        background: #FFA826;
+                        color: #fff;
+                        p::after{
+                            transition: all 500ms;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+                    }
+                }
+
+                &.label_kentiku {
+                    border-bottom: 6px solid #94B428;
+
+                    // background: #94B428;
+                    &:hover {
+                        transition: all 500ms;
+                        background: #94B428;
+                        color: #fff;
+                        p::after{
+                            transition: all 500ms;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+                    }
+                }
+
+                &.label_sande {
+                    border-bottom: 6px solid #E25C83;
+
+                    // background: #E25C83;
+                    &:hover {
+                        transition: all 500ms;
+                        background: #E25C83;
+                        color: #fff;
+                        p::after{
+                            transition: all 500ms;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+                    }
+                }
+
+                &.label_zyohou {
+                    border-bottom: 6px solid #E54848;
+
+                    // background: #E54848;
+                    &:hover {
+                        transition: all 500ms;
+                        background: #E54848;
+                        color: #fff;
+
+                        p::after {
+                            transition: all 500ms;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+                    }
+                }
+
+                &.label_senkou {
+                    border-bottom: 6px solid #6F4C77;
+
+                    // background: #6F4C77;
+                    &:hover {
+                        transition: all 500ms;
+                        background: #6F4C77;
+                        color: #fff;
+
+                        p::after {
+                            transition: all 500ms;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+                    }
+                }
+
+                &.label_honkan {
+                    border-bottom: 6px solid #004EA2;
+
+                    // background: #004EA2;
+                    &:hover {
+                        transition: all 500ms;
+                        background: #004EA2;
+                        color: #fff;
+
+                        p::after {
+                            transition: all 500ms;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+
+                    }
+                }
+
+
+                p {
+                    margin-bottom: -10px;
+                    float: left;
+                    font-weight: 600;
+                    display: inline-block;
+
+                    &::after {
+
+                        width: 25px;
+                        height: 8px;
+                        display: inline-block;
+                        // width: 40px;
+                        // height: 8px;
+                        border-bottom: 2px solid #000;
+                        border-right: 2px solid #000;
+                        transform: skew(45deg);
+                        position: absolute;
+                        top: 55%;
+                        right: 15px;
+                        margin-top: -12px;
+
+                        content: "";
+                        // display: inline-block;
+                        // width: 100%;
+                        // height: 100%;
+
+
+
+                        // background-image: url(down_button.png);
+
+                        // font-size: 10px;
+
+
+                    }
+
+                    // &:hover::after {
+                    //      transition: all 500ms;
+                    //     // transform: perspective(100px) translateZ(10px);
+                    //     // opacity: 1;
+                    //     border-bottom: 2px solid #fff;
+                    //     border-right: 2px solid #fff;
+
+                    // }
+
+                    //各科のホバー処理(拡大)
+
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+
+            }
+
+            input {
+                display: none;
+            }
+
+            ul {
+                width: 210px;
+                margin: 0px 0;
+                padding: 0;
+                background: #f0f0f0;
+                list-style: none;
+                text-align: center;
+
+
+            }
+
+            li {
+                height: 0;
+                overflow: hidden;
+                -webkit-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                -ms-transition: all 0.5s;
+                -o-transition: all 0.5s;
+                transition: all 0.5s;
+
+                //各教室のホバー処理(拡大)↓
+                a {
+                    opacity: 0.7;
+                    color: #000;
+                    
+                    &:hover {
+                        // transition: all 500ms;
+                        // transform: perspective(100px) translateZ(10px);
+                        opacity: 1;
+                    }
+                }
+
+            }
+
+
+
+
+            // @mixin aaa($bHeight, $bOpacity) {
+            //     height: $bHeight;
+            //     opacity: $bOpacity;
+
+            // }
+
+            //各科をクリックすると教室一覧表示↓
+            #densi2:checked~#densi_list2 li,
+            #mekatoro2:checked~#mekatoro_list2 li,
+            #kentiku2:checked~#kentiku_list2 li,
+            #sande2:checked~#sande_list2 li,
+            #zyohou2:checked~#zyohou_list2 li,
+            #senkou2:checked~#senkou_list2 li,
+            #honkan2:checked~#honkan_list2 li {
+                height: 54px;
+                opacity: 1;
+
+
+            }
+
+        }
+
+    }
+}
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Avenir", "Helvetica, Neue", "Helvetica", "Arial";
+}
