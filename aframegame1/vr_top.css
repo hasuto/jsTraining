@@ -82,11 +82,12 @@ body {
   width: auto;
 }
 
-.container .modalWrapper.modal-body ulli {
-  margin: 10px;
+.container .modalWrapper.modal-body ul li {
+  display: inline-block;
+  margin: 60px;
 }
 
-.container .modalWrapper.modal-body ulliimg {
+.container .modalWrapper.modal-body ul li img {
   padding: 3px;
 }
 

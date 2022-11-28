@@ -106,33 +106,168 @@ body {
 
         display: flex;
 
-        .iframe {
-            width: 90%;
-            margin-top: -18px;
 
-            iframe {
-                margin-top: -18px;
+
+        .vr_content {
+            width: 100%;
+
+            .vr_control {
                 position: relative;
-                z-index: 1;
+                z-index: 2;
                 width: 100%;
-                height: 100vh;
+
+                ul {
+                    list-style: none;
+                    margin: 5px 0px 0px 8%;
+                    padding-left: 0;
+
+
+
+                    li {
+                        margin-left: 5px;
+                        display: inline-block; //高さ幅をしていできるようにinline-block指定
+
+                        &:nth-child(2) {
+                            //ゲームボタンアイコンだけ、幅を狭めるため。
+                            margin-left: -1px;
+                        }
+
+                        img {
+                            opacity: 0.7;
+                            border-radius: 10px;
+                            background-color: rgba($color: white, $alpha: 0.5);
+                            padding: 10px;
+                            width: 50px;
+                            height: 50px;
+
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                }
             }
 
-            .school_img {
-                z-index: 3;
-                position: relative;
+            .iframe {
+                width: 100%;
+                margin-top: -18px;
+                display: flex;
 
-                #title-img {
+                .iframe_main {
+                    width: 100%;
+                    margin: 0px -7% 0px -7%;
+
+                    iframe {
+                        margin-top: -18px;
+                        position: relative;
+                        z-index: 1;
+                        width: 100%;
+                        height: 90vh;
+                    }
+
+                    .school_img {
+                        z-index: 3;
+                        position: relative;
+
+                        #title-img {
+                            position: relative;
+                            z-index: 10;
+                            width: 130px;
+                            padding-top: 0px;
+                            padding-bottom: 0px;
+                            padding-left: 30px;
+                            margin-left: 10px;
+                            margin-top: 30px;
+                            margin-bottom: -40px;
+                        }
+                    }
+                }
+
+                .button {
                     position: relative;
                     z-index: 10;
-                    width: 130px;
-                    padding-top: 0px;
-                    padding-bottom: 0px;
-                    padding-left: 30px;
-                    margin-left: 10px;
-                    margin-top: 30px;
-                    margin-bottom: -40px;
+                    margin: auto;
+                    width: 7%;
                 }
+
+                .button.left {
+                    opacity: 0;
+                    transform: perspective(100px) translate3d(-30px, 20px, 0px);
+                    transition: all 500ms;
+                }
+
+                .button.left.fadein {
+                    opacity: 0.7;
+                    transform: perspective(100px) translate3d(0px, 0px, 20px);
+
+                    &:hover {
+                        opacity: 1;
+                        transition: all 500ms;
+                        transform: perspective(100px) translateZ(10px);
+                    }
+                }
+
+                .button.right {
+                    opacity: 0;
+                    transform: perspective(100px) translate3d(30px, 20px, 0px);
+                    transition: all 500ms;
+                }
+
+                .button.right.fadein {
+                    opacity: 0.7;
+                    transform: perspective(100px) translate3d(0px, 0px, 20px);
+
+                    &:hover {
+                        opacity: 1;
+                        transition: all 500ms;
+                        transform: perspective(100px) translateZ(10px);
+                    }
+                }
+
+
+
+
+            }
+        }
+
+
+        //各教室のタイトルのfadein処理↓
+        .text_parent {
+            margin: -120px 0px 0px 50px;
+            position: relative;
+            z-index: 3;
+            font-size: 155%;
+
+            .classroom_text1 {
+                padding: 10px;
+                color: white;
+                position: absolute;
+                opacity: 0;
+                transform: perspective(100px) translate3d(20px, 20px, 0px);
+                transition: all 500ms;
+
+            }
+
+            .classroom_text3 {
+                padding: 10px;
+                color: white;
+                position: absolute;
+                opacity: 0;
+                transform: perspective(100px) translate3d(20px, 20px, 0px);
+                transition: all 500ms;
+            }
+
+            .classroom_text1.scrollin {
+                opacity: 1;
+                background-color: rgba($color: #000000, $alpha: 0.3);
+                transform: perspective(100px) translate3d(0px, 0px, 20px);
+            }
+
+            .classroom_text3.scrollin {
+                opacity: 1;
+                background-color: rgba($color: #000000, $alpha: 0.3);
+                transform: perspective(100px) translate3d(0px, 0px, 20px);
             }
         }
 
@@ -168,7 +303,8 @@ body {
                         transition: all 500ms;
                         background: #2A579A;
                         color: #fff;
-                        p::after{
+
+                        p::after {
                             transition: all 500ms;
                             border-bottom: 2px solid #fff;
                             border-right: 2px solid #fff;
@@ -184,7 +320,8 @@ body {
                         transition: all 500ms;
                         background: #FFA826;
                         color: #fff;
-                        p::after{
+
+                        p::after {
                             transition: all 500ms;
                             border-bottom: 2px solid #fff;
                             border-right: 2px solid #fff;
@@ -200,7 +337,8 @@ body {
                         transition: all 500ms;
                         background: #94B428;
                         color: #fff;
-                        p::after{
+
+                        p::after {
                             transition: all 500ms;
                             border-bottom: 2px solid #fff;
                             border-right: 2px solid #fff;
@@ -216,7 +354,8 @@ body {
                         transition: all 500ms;
                         background: #E25C83;
                         color: #fff;
-                        p::after{
+
+                        p::after {
                             transition: all 500ms;
                             border-bottom: 2px solid #fff;
                             border-right: 2px solid #fff;
@@ -360,7 +499,7 @@ body {
                 a {
                     opacity: 0.7;
                     color: #000;
-                    
+
                     &:hover {
                         // transition: all 500ms;
                         // transform: perspective(100px) translateZ(10px);

@@ -11,10 +11,10 @@ window.onload = function () {
     console.log(location.href);
     var data = location.href.split("?")[1];
     console.log(data)
-    // text = data.split("=")[1];
+    text = data.split("=")[1];
     id1 = data.split("=")[2];
     id2 = data.split("=")[3];
-    // console.log(text);
+    console.log(text);
     console.log(id1);
     console.log(id2);
 
@@ -22,12 +22,15 @@ window.onload = function () {
  
     this_id1 = id1;
     this_id2 = id2;
+    console.log(this_id1);
+    console.log(this_id2);
 
-    syoukai_hantei();
+
+    // syoukai_hantei();
     
-    // var background = document.querySelector('#back-ground');
+    var background = document.querySelector('#back-ground');
     // var audio = document.querySelector('#audio01');
-    // background.setAttribute('src',"images/" + text + ".jpeg");
+    background.setAttribute('src',"images/" + text + ".jpeg");
     //soundsフォルダーに各科の教室の名前をつけたmp3ファイルを作って、下のコメント外せば完成
     // audio.setAttribute('src',"../sounds/" + text + ".mp3");
     audio.setAttribute('src',"../sounds/sample.mp3");
@@ -45,7 +48,7 @@ function syoukai_hantei(){
     // }
    
 
-    console.log(tmp.length);
+    // console.log(tmp.length);
 
 
 
@@ -137,10 +140,10 @@ function syoukai_text(){
     syoukaibun();
     aframeMutlByte();
 
-    var background = document.querySelector('#back-ground');
-    var audio = document.querySelector('#audio01');
-    console.log(result[csv_column][3]);
-    background.setAttribute('src',"images/" + result[csv_column][3] + ".jpeg");
+    // var background = document.querySelector('#back-ground');
+    // var audio = document.querySelector('#audio01');
+    // console.log(result[csv_column][3]);
+    // background.setAttribute('src',"images/" + result[csv_column][3] + ".jpeg");
     // var text = result[csv_column][2];
     // var elem = document.getElementById("syoukai_text");
     // elem.innerHTML = text;
@@ -171,6 +174,6 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
     }
 
     console.log(result[1][2]); // 300yen
-    //  syoukai_hantei();
+    syoukai_hantei();
      
 }

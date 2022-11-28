@@ -18,13 +18,13 @@ $('#top_yahaba_aframe').on('load', function () {
         //iframeの中のhtmlのidが一致するオブジェクトを押すと実行
         //下記に各科を追加していく
         $("#top_yahaba_aframe").contents().find(doc.getElementById('Maru')).on("click", function (e) {
-                alert('osi');
+                alert('densi');
                 window.location.href = "/aframegame1/vr_main.html?a=" + 'text' + "=" + '2' + "=" + '1';
                 // syoukai_page('2', '1');
         });
         $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("click", function (e) {
-                alert('osi');
-                window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '2' + "=" + '1';
+                alert('kentiku');
+                window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
                 // syoukai_page('3', '1');
         });
 });
