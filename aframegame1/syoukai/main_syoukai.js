@@ -1,5 +1,4 @@
 var result = [];
-
 var text; //各科の紹介文格納用
 var id1; //紹介文をcsvファイルから読み込むための、id
 var id2;//紹介文をcsvファイルから読み込むための、id
@@ -7,7 +6,9 @@ var tmp;
 var csv_column; //csvファイルの何行目にあるかの判定用変数
 
 window.onload = function () {
-    
+    document.querySelector('a-scene').addEventListener('loaded', function () {
+        console.log("コンプリート");
+    });
     console.log(location.href);
     var data = location.href.split("?")[1];
     console.log(data)
@@ -33,8 +34,8 @@ window.onload = function () {
     background.setAttribute('src',"images/" + text + ".jpeg");
     //soundsフォルダーに各科の教室の名前をつけたmp3ファイルを作って、下のコメント外せば完成
     // audio.setAttribute('src',"../sounds/" + text + ".mp3");
-    audio.setAttribute('src',"../sounds/sample.mp3");
-    console.log(background.getAttribute('src'));
+    // audio.setAttribute('src',"../sounds/sample.mp3");
+   
    
     
     
@@ -80,14 +81,19 @@ function syoukai_hantei(){
     syoukai_text();
 }
 
-document.getElementById('sample').addEventListener('click',function(e){
-    console.log("押しているよ");
-});
+// document.getElementById('sample').addEventListener('click',function(e){
+//     console.log("押しているよ");
+// });
 
 function marubatu_game(){
     alert(text);
     window.location.href = '/aframegame1/MaruBatu01.html?a='+text;
 }
+
+
+// document.querySelector('#my_sound01').addEventListener('sound-loaded',function(){
+//     console.log("コンプリート");
+// });
 
 function syoukaibun() {
     console.log("okだよ");

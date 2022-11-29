@@ -13,19 +13,21 @@
 
 <body>
     <div>
-    <a-scene vr-mode-ui="enabled: true">
+    <a-scene loading-screen="dotsColor: #FCF5F8; backgroundColor: #004EA2" vr-mode-ui="enabled: true">
         <a-assets>
-            <audio id="audio01" src="" preload="auto"></audio>
+            <audio id="audio01" src="../sounds/sample.mp3" preload="auto"></audio>
         </a-assets>
-        <a-sound id="my_sound01" src="#audio01" position="0 1.2 -3" autoplay="true" loop="true"></a-sound>
+        <a-sound id="my_sound01" src="#audio01"  autoplay="true" loop="true"></a-sound>
         <!-- <a-text position="-1 1.25 -3" onclick="marubatu_game('sande_mokuzai')" value="Hell, World!" color="black"></a-text> -->
         <!-- <a-text position="-1 1.25 -3" value="Hell, World!" color="black"></a-text>
         <a-entity mb-text onclick="marubatu_game()" id="sample" position="-1 1.25 -3" scale="3 3 3" data-text="もっと知りたい"></a-entity> -->
-       <a-gltf-model onclick="marubatu_game()" src="game_button.glb" position="9 13 -20" rotation="0 90 0" scale="2 2 2"></a-gltf-model>
-        <a-entity syobun id="syoukai_text" visible="true" position="-3 -1 -3" scale="2 2 2" data-text=""></a-entity>
-       
+       <a-gltf-model onclick="marubatu_game()" src="game_button.glb" position="9 13 -20" rotation="0 90 0" scale="2 2 2" sound="src: url(../sounds/sample.mp3);"></a-gltf-model>
+       <!--下記のはもともと科の教室名が表示されていた-->
+       <!-- <a-entity syobun id="syoukai_text" visible="true" position="-3 -1 -3" scale="2 2 2" data-text=""></a-entity> -->
+       <!-- <a-entity id="elmo" geometry="primitive: box" 
+          sound="src: url(../sounds/sample.mp3); on: click"></a-entity> -->
         <a-sky id="back-ground" src="" position="0 0 0" rotation="0 -120 5"
-            animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 40000; easing: linear"></a-sky>
+            animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 60000; easing: linear"></a-sky>
 
         <a-entity cursor="rayOrigin: mouse"></a-entity>
         <a-camera position="0 0 0" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD" cursor-opacity="0.5">

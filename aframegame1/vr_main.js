@@ -11,27 +11,70 @@ var id2;
 document.getElementById('right_button').style.visibility = 'hidden';
 document.getElementById('left_button').style.visibility = 'hidden';
 window.onload = function () {
-   
+
     var data = location.href.split("?")[1];
     console.log(data)
     text = data.split("=")[1];
     id1 = data.split("=")[2];
     id2 = data.split("=")[3];
     getCSV();
-    
+    // document.getElementById('mask').classList.add("roder");
     // Top_yahaba_Aframe.src = "syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
     // syoukai_page(id1,id2);
-    Top_yahaba_Aframe.onload = function(){
-             
-        button_visi();
-    } 
+    // if (document.getElementById('mask').classList.contains("roder")) {
+    //     if (document.getElementById('mask').style.opacity == 0) {
+    //         button_visi();
+    //     }
+    // }
+    // document.querySelector(".mask").addEventListener("animationend", function () {
+    //     button_visi();
+    // });
 }
 
+$('#top_yahaba_aframe').on('load', function () {
+    //iframeのdocumentを取得する（Mozilla系 || 古いIE系）
+    var doc = this.contentDocument || this.contentWindow.document;
+    console.log("読み込まれている");
+    console.log(doc);
+    //iframeの全要素が読み込まれたら処理
+    $("#top_yahaba_aframe").contents().find(doc.querySelector('a-scene')).on("loaded", function (e) {
+        console.log("コンプリートマイン");
+        if (document.getElementById('mask').classList.contains("roder")) {
+
+        } else {
+            document.getElementById('mask').classList.add("roder");
+            document.getElementById('classroom_text').classList.add("scrollin");
+            button_visi();
+        }
+
+        // if (document.getElementById('mask').classList.contains("roder")) {
+        //     document.querySelector(".mask").addEventListener("animationend", function () {
+        //         document.getElementById('mask').classList.remove("roder");
+        //         document.getElementById('classroom_text').classList.add("scrollin");
+        //     });
+        // } else {
+        //     document.getElementById('mask').classList.add("roder");
+        //     document.getElementById('classroom_text').classList.remove("scrollin");
+        //     document.getElementById('right_button').style.visibility = 'hidden';
+        //     document.getElementById('left_button').style.visibility = 'hidden';
+        //     document.getElementById('right_button').classList.remove("fadein");
+        //     document.getElementById('left_button').classList.remove("fadein");
+        //     document.querySelector(".mask").addEventListener("animationend", function () {
+        //         document.getElementById('mask').classList.remove("roder");
+        //         document.getElementById('classroom_text').classList.add("scrollin");
+        //         button_visi();
+        //     });
+        // }
+
+    });
+
+
+});
 
 //左右のボタン表示の処理
 function button_visi() {
 
-    if (document.getElementById('top_yahaba_aframe').getAttribute('src') != 'yahaba_school_top.html') {
+    if (document.getElementById('mask').classList.contains("roder")) {
 
 
         document.getElementById('right_button').style.visibility = 'visible';
@@ -39,10 +82,11 @@ function button_visi() {
         document.getElementById('right_button').classList.add("fadein");
         document.getElementById('left_button').classList.add("fadein");
 
-
-
-
-
+    }else{
+        document.getElementById('right_button').style.visibility = 'hidden';
+        document.getElementById('left_button').style.visibility = 'hidden';
+        document.getElementById('right_button').classList.remove("fadein");
+        document.getElementById('left_button').classList.remove("fadein");
     }
 }
 
@@ -181,29 +225,29 @@ document.getElementById('left_button').addEventListener('click', function (e) {
                 // syoukai_page(result[Number(csv_column) + (leftbtn_cnt - 1)][3], Number(this_id1), Number(this_id2) + (leftbtn_cnt - 1));
                 syoukai_page(Number(this_id1), Number(this_id2) + (leftbtn_cnt - 1));
                 reset_txt = result[csv_column][3];
-                alert("case1だよ");
+                //   alert("case1だよ");
                 break;
 
             case 2:
                 syoukai_page(Number(this_id1), Number(this_id2) - 1);
-                alert("case2だよ");
+                //     alert("case2だよ");
                 break;
             case 3:
                 syoukai_page(Number(this_id1), Number(this_id2) - 1);
-                alert("case3だよ");
+                //  alert("case3だよ");
 
 
 
                 break;
             case 4:
                 syoukai_page(Number(this_id1), Number(this_id2) - 1);
-                alert("case4だよ");
+                //   alert("case4だよ");
 
 
                 break;
             case 5:
                 syoukai_page(Number(this_id1), Number(this_id2) - 1);
-                alert("case5だよ");
+                //    alert("case5だよ");
 
 
                 break;
@@ -224,29 +268,29 @@ document.getElementById('right_button').addEventListener('click', function (e) {
 
                     syoukai_page(Number(this_id1), Number(this_id2) + 1);
 
-                    alert("case1だよ");
+                    // alert("case1だよ");
                 } else {
                     syoukai_page(Number(this_id1), 1);
-                    alert(reset_txt);
+                    // alert(reset_txt);
                 }
                 break;
 
             case 2:
                 if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
                     syoukai_page(Number(this_id1), Number(this_id2) + 1);
-                    alert("case2だよ");
+                    // alert("case2だよ");
                 } else {
                     syoukai_page(Number(this_id1), 1);
-                    alert(reset_txt);
+                    //  alert(reset_txt);
                 }
                 break;
             case 3:
                 if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
                     syoukai_page(Number(this_id1), Number(this_id2) + 1);
-                    alert("case3だよ");
+                    //alert("case3だよ");
                 } else {
                     syoukai_page(Number(this_id1), 1);
-                    alert(reset_txt);
+                    //  alert(reset_txt);
 
                 }
 
@@ -256,10 +300,10 @@ document.getElementById('right_button').addEventListener('click', function (e) {
 
                 if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
                     syoukai_page(Number(this_id1), Number(this_id2) + 1);
-                    alert("case4だよ");
+                    // alert("case4だよ");
                 } else {
                     syoukai_page(Number(this_id1), 1);
-                    alert(reset_txt);
+                    //   alert(reset_txt);
 
                 }
 
@@ -267,10 +311,10 @@ document.getElementById('right_button').addEventListener('click', function (e) {
             case 5:
                 if (result[Number(csv_column) + 1][0] == Number(this_id1)) {
                     syoukai_page(Number(this_id1), Number(this_id2) + 1);
-                    alert("case5だよ");
+                    // alert("case5だよ");
                 } else {
                     syoukai_page(Number(this_id1), 1);
-                    alert(reset_txt);
+                    //  alert(reset_txt);
 
                 }
 
@@ -303,7 +347,7 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
     }
 
     console.log(result[1][2]); // 300yen
-    syoukai_page(id1,id2);
+    syoukai_page(id1, id2);
 
 }
 
@@ -315,9 +359,10 @@ function syoukai_page(id1, id2) {
     this_id2 = id2;
     // getCSV();
     syoukai_hantei();
+    document.getElementById('mask').classList.remove("roder");
+    document.getElementById('classroom_text').classList.remove("scrollin");
+    button_visi();
 
-
-    // button_visi();
 
     //リストかオブジェクトから、飛んだ時にどの科にいるか指定
     switch (Number(this_id1)) {
@@ -350,17 +395,39 @@ function syoukai_page(id1, id2) {
             break;
     }
 
-    if (document.getElementById('classroom_text').classList.contains("scrollin")) {
-        document.getElementById('classroom_text').classList.remove("scrollin");
-        document.getElementById('classroom_text2').classList.add("scrollin");
+    // if (document.getElementById('mask').classList.contains("roder")) {
+    //     document.querySelector(".mask").addEventListener("animationend", function () {
+    //         document.getElementById('mask').classList.remove("roder");
+    //         document.getElementById('classroom_text').classList.add("scrollin");
+    //     });
+    // } else {
+    //     document.getElementById('mask').classList.add("roder");
+    //     document.getElementById('classroom_text').classList.remove("scrollin");
+    //     document.getElementById('right_button').style.visibility = 'hidden';
+    //     document.getElementById('left_button').style.visibility = 'hidden';
+    //     document.getElementById('right_button').classList.remove("fadein");
+    //     document.getElementById('left_button').classList.remove("fadein");
+    //     document.querySelector(".mask").addEventListener("animationend", function () {
+    //         document.getElementById('mask').classList.remove("roder");
+    //         document.getElementById('classroom_text').classList.add("scrollin");
+    //         button_visi();
+    //     });
+    // }
 
-    } else if (document.getElementById('classroom_text2').classList.contains("scrollin")) {
-        document.getElementById('classroom_text2').classList.remove("scrollin");
-        document.getElementById('classroom_text').classList.add("scrollin");
-    } else {
-        document.getElementById('classroom_text').classList.add("scrollin");
-    }
-    
+    //前に使っていた、科の教室のタイトルのフェードイン処理
+    // document.querySelector(".mask").addEventListener("animationend", function () {
+    //     document.getElementById('mask').classList.remove("roder");
+    //     if (document.getElementById('classroom_text').classList.contains("scrollin")) {
+    //         document.getElementById('classroom_text').classList.remove("scrollin");
+    //         document.getElementById('classroom_text2').classList.add("scrollin");
+
+    //     } else if (document.getElementById('classroom_text2').classList.contains("scrollin")) {
+    //         document.getElementById('classroom_text2').classList.remove("scrollin");
+    //         document.getElementById('classroom_text').classList.add("scrollin");
+    //     } else {
+    //         document.getElementById('classroom_text').classList.add("scrollin");
+    //     }
+    // });
 }
 
 function syoukai_hantei() {
