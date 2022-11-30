@@ -19,18 +19,17 @@ body {
 }
 
 .container .navbar-nav {
-  margin-bottom: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
-.container .nav-item {
+.container .navbar-nav .nav-item {
   list-style: none;
   margin-left: 20px;
 }
 
-.container .nav-link {
+.container .navbar-nav .nav-item .nav-link {
   color: #fff;
   font-size: medium;
   text-decoration: none;

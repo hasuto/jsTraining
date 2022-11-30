@@ -5,8 +5,7 @@ body {
 
 .container {
   width: 100%;
-  height: 100%;
-  max-height: 100%;
+  height: 100vh;
   /* モーダルCSS */
 }
 
@@ -19,18 +18,18 @@ body {
 }
 
 .container .navbar-nav {
-  margin-bottom: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 22px;
 }
 
-.container .nav-item {
+.container .navbar-nav .nav-item {
   list-style: none;
   margin-left: 20px;
 }
 
-.container .nav-link {
+.container .navbar-nav .nav-item .nav-link {
   color: #fff;
   font-size: medium;
   text-decoration: none;
@@ -91,13 +90,69 @@ body {
 }
 
 .container .yahaba_school {
+  background-color: #004EA2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-animation-name: yahaba_school_fadein;
+          animation-name: yahaba_school_fadein;
+  -webkit-animation-direction: 1s;
+          animation-direction: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  height: calc(100% - 22px);
+}
+
+@-webkit-keyframes yahaba_school_fadein {
+  0% {
+    background-color: #004EA2;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+@keyframes yahaba_school_fadein {
+  0% {
+    background-color: #004EA2;
+  }
+  100% {
+    background-color: #fff;
+  }
 }
 
 .container .yahaba_school .vr_content {
   width: 100%;
+  max-height: calc(100% - 54px);
+  -webkit-animation-name: vr_content_fadein;
+          animation-name: vr_content_fadein;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  position: relative;
+}
+
+@-webkit-keyframes vr_content_fadein {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes vr_content_fadein {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .container .yahaba_school .vr_content .vr_control {
@@ -136,7 +191,8 @@ body {
 
 .container .yahaba_school .vr_content .iframe {
   width: 100%;
-  margin-top: -18px;
+  height: 100%;
+  margin-top: -17px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,7 +209,7 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 
 .container .yahaba_school .vr_content .iframe .iframe_main .school_img {
@@ -272,6 +328,34 @@ body {
 .container .yahaba_school .yahaba_list {
   width: 210px;
   margin-left: 0px;
+  -webkit-animation-name: yahaba_list_fadein;
+          animation-name: yahaba_list_fadein;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+@-webkit-keyframes yahaba_list_fadein {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes yahaba_list_fadein {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .container .yahaba_school .yahaba_list a {
@@ -491,12 +575,33 @@ body {
   z-index: 20;
   width: 100%;
   height: 100%;
+  -webkit-animation-name: mask_fadein;
+          animation-name: mask_fadein;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   position: absolute;
   /* 絶対位置指定 */
   pointer-events: none;
   background-color: #247BD9;
-  opacity: 1;
   /* マスクは半透明 */
+}
+
+@-webkit-keyframes mask_fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mask_fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .container .yahaba_school .mask .loader,

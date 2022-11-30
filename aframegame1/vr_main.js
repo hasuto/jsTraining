@@ -39,10 +39,10 @@ $('#top_yahaba_aframe').on('load', function () {
     //iframeの全要素が読み込まれたら処理
     $("#top_yahaba_aframe").contents().find(doc.querySelector('a-scene')).on("loaded", function (e) {
         console.log("コンプリートマイン");
-        if (document.getElementById('mask').classList.contains("roder")) {
+        if (document.getElementById('mask_all').classList.contains("roder")) {
 
         } else {
-            document.getElementById('mask').classList.add("roder");
+            document.getElementById('mask_all').classList.add("roder");
             document.getElementById('classroom_text').classList.add("scrollin");
             button_visi();
         }
@@ -74,7 +74,7 @@ $('#top_yahaba_aframe').on('load', function () {
 //左右のボタン表示の処理
 function button_visi() {
 
-    if (document.getElementById('mask').classList.contains("roder")) {
+    if (document.getElementById('mask_all').classList.contains("roder")) {
 
 
         document.getElementById('right_button').style.visibility = 'visible';
@@ -347,7 +347,50 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
     }
 
     console.log(result[1][2]); // 300yen
-    syoukai_page(id1, id2);
+    start(id1, id2);
+
+}
+
+function start(id1, id2){
+    this_id1 = id1;
+    this_id2 = id2;
+    // getCSV();
+    syoukai_hantei();
+    document.getElementById('mask_all').classList.remove("roder");
+    document.getElementById('classroom_text').classList.remove("scrollin");
+    button_visi();
+
+
+    //リストかオブジェクトから、飛んだ時にどの科にいるか指定
+    switch (Number(this_id1)) {
+        case 1:
+            reset_txt = 'mekatoro_kikaikakou';
+            break;
+
+        case 2:
+            reset_txt = 'densi_computer';
+            break;
+
+        case 3:
+            reset_txt = 'kentiku_zisyuzyou';
+            break;
+
+        case 4:
+            reset_txt = 'sande_dezainjikken';
+            break;
+
+        case 5:
+            reset_txt = 'zyohou_keisanki';
+            break;
+
+        case 6:
+            reset_txt = 'senkou_zisyu';
+            break;
+
+        case 7:
+            reset_txt = 'honkan_tamoku';
+            break;
+    }
 
 }
 
@@ -355,11 +398,12 @@ function syoukai_page(id1, id2) {
 
     //元々はsyoukai_pageの引数から判定していた。変更後はgetCSV関数にて判定。
     // Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
+    window.location.href = "/aframegame1/vr_main.html?a=" + 'text' + "=" + id1 + "=" + id2;
     this_id1 = id1;
     this_id2 = id2;
     // getCSV();
     syoukai_hantei();
-    document.getElementById('mask').classList.remove("roder");
+    document.getElementById('mask_all').classList.remove("roder");
     document.getElementById('classroom_text').classList.remove("scrollin");
     button_visi();
 
