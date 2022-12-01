@@ -7,28 +7,40 @@
   <meta name="description" content="Hello, WebVR! • A-Frame">
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
-<script src="top.js"></script>
+  <script src="top.js"></script>
 </head>
 
 <body>
 
-  
+
   <a-scene background="color: #00CCFF">
-    
-    <a-entity camera look-controls orbit-controls="target: 0 1.6 -0.5; maxPolarAngle:180; minDistance: 0.5; maxDistance: 200; initialPosition: 0 0 30"></a-entity>
-<!--クリック時にイベント発火させなくとも動く-->
-    <a-gltf-model id="Maru" visible="true" src="top_aseets/taiikukan.glb" position="0 0 -18" scale="1 1 1"
-    rotation="0 0 0"></a-gltf-model>
+    <!-- <a-assets>
+      <a-asset-item id="Maru-obj" src="top_aseets/Dodai (3).obj"></a-asset-item>
+      <a-asset-item id="Maru-mtl" src="top_aseets/Dodai (3).mtl"></a-asset-item>
+
+    </a-assets> -->
+    <a-entity camera look-controls
+      orbit-controls="target: 0 1.6 -0.5; maxPolarAngle:180; minDistance: 0.5; maxDistance: 200; initialPosition: 0 0 30">
+    </a-entity>
+    <!--クリック時にイベント発火させなくとも動く-->
+    <!-- <a-gltf-model id="Maru" visible="true" src="top_aseets/taiikukan.glb" position="0 0 -18" scale="1 1 1"
+    rotation="0 0 0"></a-gltf-model> -->
+    <!-- <a-entity visible="true" obj-model="obj:#Maru-obj; mtl:#Maru-mtl;" position="-13 0 0" scale="1 1 1"
+      rotation="0 0 0"></a-entity> -->
     <a-gltf-model id="kousya" visible="true" src="top_aseets/honkousya.glb" position="-13 0 0" scale="1 1 1"
-    rotation="0 0 0"></a-gltf-model>
+      rotation="0 0 0"></a-gltf-model>
+    <a-gltf-model id="dodai" visible="true" src="top_aseets/Dodai_sample4414.glb" position="-13 0 0" scale="1 1 1"
+      rotation="0 0 0"></a-gltf-model>
+      <a-gltf-model id="dodai" visible="true" src="top_aseets/dodai2222222.glb" position="-13 0 0" scale="1 1 1"
+      rotation="0 0 0"></a-gltf-model>
     <a-entity cursor="rayOrigin: mouse"></a-entity>
-<!--   
+    <!--   
     <a-camera id="camera-wrapper" position="15 5 0" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD" cursor-opacity="0.5">
       <a-cursor></a-cursor>
     </a-camera> -->
   </a-scene>
-  
-  
+
+
 </body>
 
 </html>

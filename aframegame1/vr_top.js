@@ -27,6 +27,7 @@ $('#top_yahaba_aframe').on('load', function () {
                 window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
                 // syoukai_page('3', '1');
         });
+       
 });
 
 
