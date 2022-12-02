@@ -6,9 +6,9 @@ var tmp;
 var csv_column; //csvファイルの何行目にあるかの判定用変数
 
 window.onload = function () {
-    document.querySelector('a-scene').addEventListener('loaded', function () {
-        console.log("コンプリート");
-    });
+    // document.querySelector('a-scene').addEventListener('loaded', function () {
+    //     console.log("コンプリート");
+    // });
     console.log(location.href);
     var data = location.href.split("?")[1];
     console.log(data)

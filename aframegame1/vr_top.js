@@ -9,16 +9,38 @@ var Top_yahaba_Aframe = document.getElementById('top_yahaba_aframe');
 Top_yahaba_Aframe.src = "yahaba_school_top.html";
 
 
+window.onload = () => {
+        var loader = document.getElementById('loader');
+        loader.classList.add('loaded');
+}
+
+// document.addEventListener('DOMContentLoaded', function () {
+
+        
+// });
 
 $('#top_yahaba_aframe').on('load', function () {
         //iframeのdocumentを取得する（Mozilla系 || 古いIE系）
         var doc = this.contentDocument || this.contentWindow.document;
+        console.log(doc.querySelector('a-scene'));
+        //iframeの全要素が読み込まれたら処理
+        $("#top_yahaba_aframe").contents().find(doc.querySelector('a-scene')).on("loaded2", function (e) {
+                alert("コンプリートマイン");
+                // if (document.getElementById('mask_all').classList.contains("roder")) {
 
+                // } else {
+                //         document.getElementById('mask_all').classList.add("roder");
+                //         document.getElementById('classroom_text').classList.add("scrollin");
+                //         button_visi();
+                // }
+
+
+        });
 
         //iframeの中のhtmlのidが一致するオブジェクトを押すと実行
         //下記に各科を追加していく
         $("#top_yahaba_aframe").contents().find(doc.getElementById('Maru')).on("click", function (e) {
-               // alert('densi');
+                // alert('densi');
                 window.location.href = "/aframegame1/vr_main.html?a=" + 'text' + "=" + '2' + "=" + '1';
                 // syoukai_page('2', '1');
         });
@@ -27,7 +49,7 @@ $('#top_yahaba_aframe').on('load', function () {
                 window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
                 // syoukai_page('3', '1');
         });
-       
+
 });
 
 
