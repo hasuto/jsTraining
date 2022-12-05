@@ -16,7 +16,7 @@ window.onload = () => {
 
 // document.addEventListener('DOMContentLoaded', function () {
 
-        
+
 // });
 
 $('#top_yahaba_aframe').on('load', function () {
@@ -49,7 +49,35 @@ $('#top_yahaba_aframe').on('load', function () {
                 window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
                 // syoukai_page('3', '1');
         });
+        $("#top_yahaba_aframe").contents().find(doc.getElementById('Mizusawa_a')).on("click", function (e) {
+                //alert('kentiku');
+                window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
+                // syoukai_page('3', '1');
+        });
 
+
+});
+
+document.getElementById("y_campus").addEventListener('click', function (e) {
+        if (document.getElementById("top_yahaba_aframe").getAttribute('src') != "yahaba_school_top.html") {
+                Top_yahaba_Aframe.src = "yahaba_school_top.html";
+        } else {
+                swal.fire({
+                        title: 'ここが矢巾キャンパスです'
+                        , confirmButtonColor: '#004EA2'
+                });
+        }
+});
+
+document.getElementById("m_campus").addEventListener('click', function (e) {
+        if (document.getElementById("top_yahaba_aframe").getAttribute('src') != "mizusawa_school_top.html") {
+                Top_yahaba_Aframe.src = "mizusawa_school_top.html";
+        } else {
+                swal.fire({
+                        title: 'ここが水沢キャンパスです'
+                        , confirmButtonColor: '#004EA2'
+                });
+        }
 });
 
 

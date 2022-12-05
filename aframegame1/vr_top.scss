@@ -37,6 +37,10 @@ body {
         .nav-item {
             list-style: none;
             margin-left: 20px;
+            opacity: 0.7;
+            &:hover{
+                opacity: 1;
+            }
 
             .nav-link {
                 color: #fff;
