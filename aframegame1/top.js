@@ -24,6 +24,10 @@ window.onload = function () {
     //render();
 };
 
+// document.querySelector('#kousya').addEventListener('click',function(e){
+//     window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
+// });
+
 // function init() {
 
 //     sceneEl = document.querySelector("a-scene");

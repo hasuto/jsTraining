@@ -34,6 +34,10 @@ body {
         .nav-item {
             list-style: none;
             margin-left: 20px;
+            opacity: 0.7;
+            &:hover{
+                opacity: 1;
+            }
 
             .nav-link {
                 color: #fff;
@@ -105,7 +109,7 @@ body {
         }
     }
 
-    .yahaba_school {
+    .mizusawa_school {
         background-color: #004EA2;
         display: flex;
         animation-name: yahaba_school_fadein;
@@ -312,7 +316,7 @@ body {
             }
         }
 
-        .yahaba_list {
+        .mizusawa_list {
             width: 210px;
             margin-left: 0px;
             animation-name: yahaba_list_fadein;
@@ -352,12 +356,12 @@ body {
 
                 position: relative;
 
-                &.label_meka {
-                    border-bottom: 6px solid #2A579A;
+                &.label_seisan {
+                    border-bottom: 6px solid #007EB1;
 
                     &:hover {
                         transition: all 500ms;
-                        background: #2A579A;
+                        background: #007EB1;
                         color: #fff;
 
                         p::after {
@@ -368,13 +372,13 @@ body {
                     }
                 }
 
-                &.label_densi {
-                    border-bottom: 6px solid #FFA826;
+                &.label_denki {
+                    border-bottom: 6px solid #ED7A25;
 
                     // background: #FFA826;
                     &:hover {
                         transition: all 500ms;
-                        background: #FFA826;
+                        background: #ED7A25;
                         color: #fff;
 
                         p::after {
@@ -385,13 +389,13 @@ body {
                     }
                 }
 
-                &.label_kentiku {
-                    border-bottom: 6px solid #94B428;
+                &.label_setubi {
+                    border-bottom: 6px solid #2E792D;
 
                     // background: #94B428;
                     &:hover {
                         transition: all 500ms;
-                        background: #94B428;
+                        background: #2E792D;
                         color: #fff;
 
                         p::after {
@@ -402,56 +406,6 @@ body {
                     }
                 }
 
-                &.label_sande {
-                    border-bottom: 6px solid #E25C83;
-
-                    // background: #E25C83;
-                    &:hover {
-                        transition: all 500ms;
-                        background: #E25C83;
-                        color: #fff;
-
-                        p::after {
-                            transition: all 500ms;
-                            border-bottom: 2px solid #fff;
-                            border-right: 2px solid #fff;
-                        }
-                    }
-                }
-
-                &.label_zyohou {
-                    border-bottom: 6px solid #E54848;
-
-                    // background: #E54848;
-                    &:hover {
-                        transition: all 500ms;
-                        background: #E54848;
-                        color: #fff;
-
-                        p::after {
-                            transition: all 500ms;
-                            border-bottom: 2px solid #fff;
-                            border-right: 2px solid #fff;
-                        }
-                    }
-                }
-
-                &.label_senkou {
-                    border-bottom: 6px solid #6F4C77;
-
-                    // background: #6F4C77;
-                    &:hover {
-                        transition: all 500ms;
-                        background: #6F4C77;
-                        color: #fff;
-
-                        p::after {
-                            transition: all 500ms;
-                            border-bottom: 2px solid #fff;
-                            border-right: 2px solid #fff;
-                        }
-                    }
-                }
 
                 &.label_honkan {
                     border-bottom: 6px solid #004EA2;
@@ -575,13 +529,10 @@ body {
             // }
 
             //各科をクリックすると教室一覧表示↓
-            #densi2:checked~#densi_list2 li,
-            #mekatoro2:checked~#mekatoro_list2 li,
-            #kentiku2:checked~#kentiku_list2 li,
-            #sande2:checked~#sande_list2 li,
-            #zyohou2:checked~#zyohou_list2 li,
-            #senkou2:checked~#senkou_list2 li,
-            #honkan2:checked~#honkan_list2 li {
+            #seisan:checked~#seisan_list li,
+            #denki:checked~#denki_list li,
+            #setubi:checked~#setubi_list li,
+            #honkan:checked~#honkan_list li {
                 height: 54px;
                 opacity: 1;
 

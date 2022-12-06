@@ -82,7 +82,7 @@ function button_visi() {
         document.getElementById('right_button').classList.add("fadein");
         document.getElementById('left_button').classList.add("fadein");
 
-    }else{
+    } else {
         document.getElementById('right_button').style.visibility = 'hidden';
         document.getElementById('left_button').style.visibility = 'hidden';
         document.getElementById('right_button').classList.remove("fadein");
@@ -324,6 +324,12 @@ document.getElementById('right_button').addEventListener('click', function (e) {
 
 });
 
+document.getElementById("y_campus").addEventListener('click', function (e) {
+    window.location.href = "/aframegame1/vr_top.html?y";
+});
+document.getElementById("m_campus").addEventListener('click', function (e) {
+    window.location.href = "/aframegame1/vr_top.html?m";
+});
 function getCSV() {
     var req = new XMLHttpRequest(); // HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
     req.open("get", "main_syoukai.csv", true); // アクセスするファイルを指定
@@ -351,7 +357,7 @@ function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列と�
 
 }
 
-function start(id1, id2){
+function start(id1, id2) {
     this_id1 = id1;
     this_id2 = id2;
     // getCSV();
