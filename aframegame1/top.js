@@ -4,6 +4,7 @@ var sceneEl;
 var isMouseDown = false;
 var result = [];
 var bbbb;
+var kousya;
 var this_text; //各科の紹介文格納用
 var this_id1; //紹介文をcsvファイルから読み込むための、id
 var this_id2;//紹介文をcsvファイルから読み込むための、id
@@ -20,10 +21,19 @@ window.onload = function () {
     document.querySelector('a-scene').addEventListener('loaded', function () {
         console.log("コンプリート");
     });
-    // init();
+
+    init();
     //render();
 };
 
+function init() {
+    sceneEl = document.querySelector("a-scene");
+    kousya = sceneEl.querySelector("#kousya");
+    console.log(kousya);
+    // kousya.addEventListener('mouseenter', function (e) {
+    //     console.log("押している");
+    // });
+}
 // document.querySelector('#kousya').addEventListener('click',function(e){
 //     window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
 // });
@@ -125,7 +135,7 @@ window.onload = function () {
 //     req.open("get", "main_syoukai.csv", true); // アクセスするファイルを指定
 //     req.send(null); // HTTPリクエストの発行
 
-//     // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ	
+//     // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ
 //     req.onload = function () {
 
 //         convertCSVtoArray(req.responseText); // 渡されるのは読み込んだCSVデータ

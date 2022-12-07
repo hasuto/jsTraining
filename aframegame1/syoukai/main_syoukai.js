@@ -4,7 +4,8 @@ var id1; //紹介文をcsvファイルから読み込むための、id
 var id2;//紹介文をcsvファイルから読み込むための、id
 var tmp;
 var csv_column; //csvファイルの何行目にあるかの判定用変数
-
+var game_button;
+var sceneEl;
 window.onload = function () {
     // document.querySelector('a-scene').addEventListener('loaded', function () {
     //     console.log("コンプリート");
@@ -35,8 +36,11 @@ window.onload = function () {
     //soundsフォルダーに各科の教室の名前をつけたmp3ファイルを作って、下のコメント外せば完成
     // audio.setAttribute('src',"../sounds/" + text + ".mp3");
     // audio.setAttribute('src',"../sounds/sample.mp3");
-   
-   
+
+    sceneEl = document.querySelector("a-scene");
+    game_button = sceneEl.querySelector("#game_button");
+    this.game_button.position.set(9, 13, -20);
+    this.camera.add(this.game_button);
     
     
 };
@@ -81,6 +85,7 @@ function syoukai_hantei(){
     syoukai_text();
 }
 
+// console.log(game_button);
 // document.getElementById('sample').addEventListener('click',function(e){
 //     console.log("押しているよ");
 // });

@@ -55,17 +55,17 @@ $('#top_yahaba_aframe').on('load', function () {
                 window.location.href = "/aframegame1/yahaba_main.html?a=" + 'text' + "=" + '2' + "=" + '1';
                 // syoukai_page('2', '1');
         });
-        // $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("click", function (e) {
-        //         //alert('kentiku');
-        //         window.location.href = "/aframegame1/yahaba_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
-        //         // syoukai_page('3', '1');
-        // });
+        $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("click", function (e) {
+                //alert('kentiku');
+                window.location.href = "/aframegame1/yahaba_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
+                // syoukai_page('3', '1');
+        });
         $("#top_yahaba_aframe").contents().find(doc.getElementById('Mizusawa_a')).on("click", function (e) {
                 //alert('kentiku');
                 window.location.href = "/aframegame1/mizusawa_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
                 // syoukai_page('3', '1');
         });
-        $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("mouseover", function (e) {
+        $("#top_yahaba_aframe").contents().find(doc.getElementById('kousya')).on("mouseenter", function (e) {
                 //alert('kentiku');
                console.log("触れている");
                 // syoukai_page('3', '1');
