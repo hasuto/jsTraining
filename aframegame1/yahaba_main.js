@@ -404,7 +404,7 @@ function syoukai_page(id1, id2) {
 
     //元々はsyoukai_pageの引数から判定していた。変更後はgetCSV関数にて判定。
     // Top_yahaba_Aframe.src = "/aframegame1/syoukai/main_syoukai.html?a=" + text + "=" + id1 + "=" + id2;
-    window.location.href = "/aframegame1/vr_main.html?a=" + 'text' + "=" + id1 + "=" + id2;
+    window.location.href = "/aframegame1/yahaba_main.html?a=" + 'text' + "=" + id1 + "=" + id2;
     this_id1 = id1;
     this_id2 = id2;
     // getCSV();

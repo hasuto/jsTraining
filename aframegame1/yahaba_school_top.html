@@ -8,6 +8,7 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
   <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+ 
   <script src="top.js"></script>
 </head>
 
@@ -22,6 +23,8 @@
     </a-assets> -->
     <a-entity camera look-controls
       orbit-controls="target: 0 1.6 -0.5; maxPolarAngle:180; minDistance: 0.5; maxDistance: 200; initialPosition: 0 0 30">
+      <a-gltf-model id="kousya" visible="true" src="top_aseets/honkousya.glb" position="-8 10 0" scale="1 1 1"
+      rotation="-80 -50 0"></a-gltf-model>
     </a-entity>
     <!--クリック時にイベント発火させなくとも動く-->
     <!-- <a-gltf-model id="Maru" visible="true" src="top_aseets/taiikukan.glb" position="0 0 -18" scale="1 1 1"

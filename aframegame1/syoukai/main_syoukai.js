@@ -37,10 +37,11 @@ window.onload = function () {
     // audio.setAttribute('src',"../sounds/" + text + ".mp3");
     // audio.setAttribute('src',"../sounds/sample.mp3");
 
-    sceneEl = document.querySelector("a-scene");
-    game_button = sceneEl.querySelector("#game_button");
-    this.game_button.position.set(9, 13, -20);
-    this.camera.add(this.game_button);
+    // sceneEl = document.querySelector("a-scene");
+    // game_button = sceneEl.querySelector("#game_button");
+    // game_button.rotation.set =(0,0,0);
+    // camera.add(game_button);
+    // this.scene.add(this.camera);
     
     
 };

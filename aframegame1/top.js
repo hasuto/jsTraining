@@ -30,9 +30,10 @@ function init() {
     sceneEl = document.querySelector("a-scene");
     kousya = sceneEl.querySelector("#kousya");
     console.log(kousya);
-    // kousya.addEventListener('mouseenter', function (e) {
-    //     console.log("押している");
-    // });
+    kousya.addEventListener('mouseenter', function (e) {
+        console.log("触れている");
+    });
+    kousya.position.set(-8,2,0);
 }
 // document.querySelector('#kousya').addEventListener('click',function(e){
 //     window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
