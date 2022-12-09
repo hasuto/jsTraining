@@ -8,6 +8,7 @@ var kousya;
 var this_text; //各科の紹介文格納用
 var this_id1; //紹介文をcsvファイルから読み込むための、id
 var this_id2;//紹介文をcsvファイルから読み込むための、id
+var camera_iti;
 // var xhr;
 
 //const cameraWrapper = document.getElementById("camera-wrapper")
@@ -17,24 +18,73 @@ var this_id2;//紹介文をcsvファイルから読み込むための、id
 //cameraWrapper.setAttribute("rotation", { y: 45 })
 
 window.onload = function () {
+    var text = document.querySelector("#text");
     console.log("konpire");
     document.querySelector('a-scene').addEventListener('loaded', function () {
         console.log("コンプリート");
     });
-
+    aframeMutlByte();
     init();
     //render();
+    document.querySelector('a-scene').addEventListener('mousemove',function(e){
+        //console.log("動いている");
+        console.log(document.querySelector('#camera').getAttribute("rotation"));
+       
+        camera_iti = document.querySelector('#camera').getAttribute("rotation")
+        if(camera_iti.y >= 360){
+            console.log("超えたよ");
+            camera_iti.setAttribute("rotation",{y:0});
+        }
+        text.setAttribute("rotation",{x:0,y:camera_iti.y,z:0});
+        console.log(text.getAttribute('rotation'));
+        console.log(text.getAttribute('position'));
+    });
 };
+
+
 
 function init() {
     sceneEl = document.querySelector("a-scene");
     kousya = sceneEl.querySelector("#kousya");
+   // var text = document.querySelector("#text");
     console.log(kousya);
     kousya.addEventListener('mouseenter', function (e) {
         console.log("触れている");
+      // text.setAttribute('visible',true);
     });
-    kousya.position.set(-8,2,0);
+    kousya.addEventListener('mouseleave',function(e){
+        console.log("離れたら");
+       // text.setAttribute('visible',false);
+    });
+    kousya.addEventListener('click',function(e){
+        window.location.href = "/aframegame1/yahaba_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
+        console.log("押している");
+    });
+   
+
 }
+
+function aframeMutlByte() {
+    console.log("okだよ");
+    document.querySelectorAll('[mb-text]:empty').forEach(mb_text => {
+        console.log(mb_text.dataset.text)
+        const text = mb_text.dataset.text
+        const text_cnt = text.length
+        const width = text_cnt * 1.4
+        const height = 1.6
+        let cvs = document.createElement('canvas')
+        let ctx = cvs.getContext('2d')
+        cvs.width = width * 100
+        cvs.height = height * 100
+        ctx.fillStyle = "rgb(0, 0, 0)"
+        ctx.font = '100pt Arial'
+        ctx.fillText(text, 0, 125)
+
+        const base64 = cvs.toDataURL("image/png")
+        mb_text.innerHTML = `<a-image scale="${(width) / 10} ${height / 10} 1" src="${base64}"></a-image>`
+    })
+}
+
 // document.querySelector('#kousya').addEventListener('click',function(e){
 //     window.location.href = "/aframegame1/vr_main.html?a=" + 'tetx' + "=" + '3' + "=" + '1';
 // });

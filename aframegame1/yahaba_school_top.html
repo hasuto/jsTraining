@@ -21,11 +21,14 @@
       <a-asset-item id="Maru-mtl" src="top_aseets/Dodai (3).mtl"></a-asset-item>
 
     </a-assets> -->
-    <a-entity camera look-controls
+    <a-entity id="camera" camera look-controls
       orbit-controls="target: 0 1.6 -0.5; maxPolarAngle:180; minDistance: 0.5; maxDistance: 200; initialPosition: 0 0 30">
-      <a-gltf-model id="kousya" visible="true" src="top_aseets/honkousya.glb" position="-8 10 0" scale="1 1 1"
+      <a-gltf-model id="kousya2" visible="true" src="top_aseets/honkousya.glb" position="-8 10 0" scale="1 1 1"
       rotation="-80 -50 0"></a-gltf-model>
+      <a-entity mb-text id="text" visible="true" position="0 20 0" rotation="0 0 0" scale="7 7 7" data-text="こんにちわ" color="white"></a-entity>
+    
     </a-entity>
+    
     <!--クリック時にイベント発火させなくとも動く-->
     <!-- <a-gltf-model id="Maru" visible="true" src="top_aseets/taiikukan.glb" position="0 0 -18" scale="1 1 1"
     rotation="0 0 0"></a-gltf-model> -->

@@ -29,6 +29,10 @@ window.onload = function () {
     // document.querySelector(".mask").addEventListener("animationend", function () {
     //     button_visi();
     // });
+    var yahaba_list = document.getElementById('yahaba_list');
+    var list_eles = yahaba_list.getElementsByTagName('input');
+    //console.log((list_eles).not('#mekatoro2'));
+    console.log(document.querySelectorAll(':not(list_eles[1])').checked);
 }
 
 $('#top_yahaba_aframe').on('load', function () {
@@ -97,12 +101,13 @@ document.getElementById('mekatoro2').addEventListener('click', function (e) {
 
     if (document.getElementById("mekatoro2").checked) {
 
-        document.getElementById("densi2").checked = false;
-        document.getElementById("kentiku2").checked = false;
-        document.getElementById("sande2").checked = false;
-        document.getElementById("zyohou2").checked = false;
-        document.getElementById("senkou2").checked = false;
-        document.getElementById("honkan2").checked = false;
+        // document.getElementById("densi2").checked = false;
+        // document.getElementById("kentiku2").checked = false;
+        // document.getElementById("sande2").checked = false;
+        // document.getElementById("zyohou2").checked = false;
+        // document.getElementById("senkou2").checked = false;
+        // document.getElementById("honkan2").checked = false;
+        document.querySelectorAll('input').not().checked = false;
 
         console.log("okd");
     } else {
