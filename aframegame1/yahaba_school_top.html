@@ -8,7 +8,7 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
   <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
- 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="top.js"></script>
 </head>
 
@@ -25,10 +25,12 @@
       orbit-controls="target: 0 1.6 -0.5; maxPolarAngle:180; minDistance: 0.5; maxDistance: 200; initialPosition: 0 0 30">
       <a-gltf-model id="kousya2" visible="true" src="top_aseets/honkousya.glb" position="-8 10 0" scale="1 1 1"
       rotation="-80 -50 0"></a-gltf-model>
-      <a-entity mb-text id="text" visible="true" position="0 20 0" rotation="0 0 0" scale="7 7 7" data-text="こんにちわ" color="white"></a-entity>
+     
     
     </a-entity>
-    
+
+    <a-entity mb-text scale="7 7 7" position="0 10 0"  material="color: red ;opacity:0.1;" data-text="ハロー" ></a-entity>
+    <a-entity mb-text id="text" material="color: #9CE3F9; opacity: 0.5;" position="0 20 0" rotation="0 0 0" scale="7 7 7" data-text="こんにちわ" ></a-entity>
     <!--クリック時にイベント発火させなくとも動く-->
     <!-- <a-gltf-model id="Maru" visible="true" src="top_aseets/taiikukan.glb" position="0 0 -18" scale="1 1 1"
     rotation="0 0 0"></a-gltf-model> -->

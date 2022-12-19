@@ -9,6 +9,7 @@ var this_text; //各科の紹介文格納用
 var this_id1; //紹介文をcsvファイルから読み込むための、id
 var this_id2;//紹介文をcsvファイルから読み込むための、id
 var camera_iti;
+var text;
 // var xhr;
 
 //const cameraWrapper = document.getElementById("camera-wrapper")
@@ -18,7 +19,7 @@ var camera_iti;
 //cameraWrapper.setAttribute("rotation", { y: 45 })
 
 window.onload = function () {
-    var text = document.querySelector("#text");
+    text = document.querySelector("#text");
     console.log("konpire");
     document.querySelector('a-scene').addEventListener('loaded', function () {
         console.log("コンプリート");
@@ -28,16 +29,16 @@ window.onload = function () {
     //render();
     document.querySelector('a-scene').addEventListener('mousemove',function(e){
         //console.log("動いている");
-        console.log(document.querySelector('#camera').getAttribute("rotation"));
+    //    console.log(document.querySelector('#camera').getAttribute("rotation"));
        
         camera_iti = document.querySelector('#camera').getAttribute("rotation")
         if(camera_iti.y >= 360){
-            console.log("超えたよ");
+          //  console.log("超えたよ");
             camera_iti.setAttribute("rotation",{y:0});
         }
         text.setAttribute("rotation",{x:0,y:camera_iti.y,z:0});
-        console.log(text.getAttribute('rotation'));
-        console.log(text.getAttribute('position'));
+       // console.log(text.getAttribute('rotation'));
+       // console.log(text.getAttribute('position'));
     });
 };
 
@@ -50,10 +51,15 @@ function init() {
     console.log(kousya);
     kousya.addEventListener('mouseenter', function (e) {
         console.log("触れている");
-      // text.setAttribute('visible',true);
+        
+        text.animate([text.setAttribute('visible',false),text.setAttribute('visible',true)],{duration: 10000});
+        //$('#text').hide();
+      //text.setAttribute('visible',true);
     });
     kousya.addEventListener('mouseleave',function(e){
         console.log("離れたら");
+        text.animate([text.setAttribute('visible',true),text.setAttribute('visible',false)], 30000);
+       // $('#text').hide();
        // text.setAttribute('visible',false);
     });
     kousya.addEventListener('click',function(e){
@@ -78,6 +84,7 @@ function aframeMutlByte() {
         cvs.height = height * 100
         ctx.fillStyle = "rgb(0, 0, 0)"
         ctx.font = '100pt Arial'
+        
         ctx.fillText(text, 0, 125)
 
         const base64 = cvs.toDataURL("image/png")
