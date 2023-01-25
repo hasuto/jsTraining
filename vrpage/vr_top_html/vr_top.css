@@ -6,7 +6,7 @@ body {
 
 .container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   max-height: 100%;
   position: relative;
   z-index: 1;
@@ -240,6 +240,7 @@ body {
 .container .iframe {
   position: relative;
   width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
@@ -254,10 +255,14 @@ body {
 }
 
 .container .iframe iframe {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 95%;
   width: 100%;
-  height: 93.8vh;
+  z-index: 1;
 }
 
 .container .iframe .school_img {
